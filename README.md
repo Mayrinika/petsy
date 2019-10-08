@@ -1,9 +1,4 @@
-# Simple React Webpack boilerplate
-
-A ready to use simple boilerplate for React Apps.
-
-## Instructions
-
-* Clone the repo
-* Run `npm install`
-* Run `npm start`
+# Запуск приложения
+Для запуска нужно использовать консольные команды из корневого каталога:
+* npm install (*установка зависимостей*)
+* npm start (*запуск*)
