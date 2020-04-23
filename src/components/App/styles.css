@@ -1,0 +1,201 @@
+/*.container {*/
+    /*display: grid;*/
+    /*grid-template-areas:*/
+            /*"h h h h "*/
+            /*". m m . "*/
+            /*"f f f f ";*/
+    /*grid-template-rows: 5vw 1fr 5vw;*/
+    /*grid-template-columns: 0.8fr 2fr 2fr 0.8fr;*/
+/*}*/
+header {
+    display: grid;
+    background-color: #132a35;
+}
+
+.mainPage{
+    display: grid;
+    background-image: url("../../images/mainPage.jpg");
+    min-height: 100vh; /*вся высота экрана*/
+    background-size: cover; /*вся плозадь экрана*/
+    position: relative;
+    align-content: center;
+
+}
+
+.mainPage::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    background-color: #394951;
+    opacity: 88%;
+}
+
+.mainPageContent {
+    display: grid;
+    z-index: 1;
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px; /* gatter = 20px */
+}
+
+h1 {
+    font-size: 60px;
+    font-family: "Comic Sans MS";
+    font-weight: normal;
+    margin: 20px 0;
+    line-height: 1.5;
+}
+
+.portfolioSection {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 10px;
+}
+
+.portfolioItem {
+    display: grid;
+    min-height: 32vh;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    align-content: center;
+    padding: 20px;
+    /*
+    font-size: ;
+    font-weight: bold;
+     */
+    color: #fff;
+    position: relative;
+    transition: color .5s ease;
+    cursor: pointer; /*имитация ссылки*/
+}
+
+/*.portfolioItem:hover {
+    color: #fa670d;
+}*/
+
+.portfolioItem:hover::before {
+    opacity: 45%;
+}
+
+.portfolioItem::before {
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    background-color: #132A35;
+    opacity: 60%;
+    transition: opacity .5s ease;
+}
+
+.portfolioItem>*{
+    z-index: 1;
+}
+
+.portfolioLogo {
+    display: grid;
+    min-height: 32vh;
+    background-size: cover;
+    background-position: center;
+    background-color: #132A35;
+    color: #ffffff;
+    opacity: 100%;
+    text-align: center;
+    align-content: center;
+    padding: 20px;
+    position: relative;
+    grid-column: 2/4;
+}
+
+.viewPortfolio {
+    grid-column: 1/5;
+    justify-self:center;
+    padding: 20px 20px 50px;
+}
+
+.container {
+    display: grid;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+
+    grid-template-columns: 1fr 1fr;
+}
+
+.landingSection {
+    padding: 80px 0;
+    background-color: #ededed;
+}
+
+h2 {
+    font-size: 36px;
+    font-family: "Comic Sans MS";
+    font-weight: 800;
+    color: #132a35;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+.huskyLogoImg {
+    display: block;
+    max-width: 50%;
+    height: auto;
+    place-self: center;
+}
+
+.threePoints {
+    border-right: 1px solid #dfdfdf;
+    font-size: 24px;
+    font-family: "Comic Sans MS";
+    color: #132a35;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-right: 60px;
+}
+
+.huskyLogo {
+    display: grid;
+    padding-left: 40px;
+}
+
+/*header {*/
+    /*grid-area: h;*/
+    /*background: #42b4f7;*/
+    /*color: white;*/
+    /*!*display: flex;*!*/
+    /*!*justify-content: flex-end;*!*/
+    /*display: grid;*/
+    /*grid-template-areas:*/
+            /*"h h h h ";*/
+    /*grid-template-columns: 0.8fr 2fr 2fr 0.8fr;*/
+/*}*/
+
+/*main {*/
+    /*grid-area: m;*/
+    /*background: white;*/
+/*}*/
+/*footer {*/
+    /*grid-area: f;*/
+    /*background: #5b6d70;*/
+    /*color: white;*/
+/*}*/
+
+/*body {*/
+
+/*}*/
+
+.logo{
+    height: 80%;
+    width: 20%;
+    justify-self: center;
+}
+
+
+
