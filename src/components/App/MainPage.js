@@ -2,7 +2,8 @@ import React from "react";
 import {Link} from "react-router-dom";
 import classNames from "classnames/bind";
 
-import styles from "./styles.css";
+import routes from './RouterPaths';
+import styles from "./MainPageStyles.css";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
 import ArrowRightIcon from "@material-ui/core/SvgIcon/SvgIcon";
@@ -43,10 +44,10 @@ class MainPage extends React.Component {
                     </div>
 
                     <div className={styles.enterSection}>
-                        <a href='#' className={styles.enterLink}>
+                        <Link to={routes.authorization} className={styles.enterLink}>
                             <p>Войти</p>
-                        </a>
-                        <Link to={'/register'} className={styles.enterLink}>
+                        </Link>
+                        <Link to={routes.registration} className={styles.enterLink}>
                             <p>Регистрация</p>
                         </Link>
                     </div>
