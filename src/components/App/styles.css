@@ -185,7 +185,7 @@ h1 {
     color: #ffffff;
     opacity: 100%;
     text-align: center;
-    align-content: center;
+    align-content: end;
     padding: 20px;
     position: relative;
     grid-column: 2/4;
@@ -194,6 +194,7 @@ h1 {
 .viewPortfolio {
     grid-column: 1/5;
     justify-self:center;
+    margin: 10px;
 }
 
 .landingSection {
