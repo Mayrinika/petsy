@@ -9,7 +9,7 @@ const StyledButton = withStyles({
         color: 'white',
         height: 48,
         padding: '0 30px',
-        margin: '10px',
+        margin: '20px',
         boxShadow: '0 3px 5px 2px rgba(141, 159, 168, .3)',
         '&:hover':{
             background: '#9cc2d0',

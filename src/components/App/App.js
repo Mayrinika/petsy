@@ -3,10 +3,11 @@ import styles from './styles.css';
 import PrimaryButton from './PrimaryButton';
 import SecondaryButton from './SecondaryButton';
 import classNames from 'classnames/bind';
-import Button from '@material-ui/core/Button';
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 import logo from '../../images/logo.png';
 import huskyLogo from '../../images/husky.png';
+import portfolioLogo from '../../images/portfolioLogo.png';
 import pets01 from '../../images/pets01.jpg';
 import pets02 from '../../images/pets02.jpg';
 import pets03 from '../../images/pets03.jpg';
@@ -26,7 +27,7 @@ import logoSupport from '../../images/logo-support.png';
 class App extends React.Component {
     render() {
         return (
-            <div>
+            <div className={styles.all}>
                 <header>
                     <img src={logo} className={styles.logo} alt="logo"/>
 
@@ -50,14 +51,29 @@ class App extends React.Component {
                 </header>
                 <main className={styles.mainPage}> {/*main->section*/}
                     <div className={styles.mainPageContent}>
-                        <h1>Возьмем питомца в гости,
-                            пока вы в отъезде! </h1>
+                        <h1>Забота о вашем питомце, <br/> пока вы в отъезде! </h1>
                         <div className={styles.mainPageButtons}>
                             <PrimaryButton>Выбрать ситтера</PrimaryButton>
                             <SecondaryButton>Стать ситтером</SecondaryButton>
                         </div>
                     </div>
                 </main>
+
+                <section className={classNames(styles.landingSection, styles.simpleInstruction)}>
+                    <div className={styles.container}>
+                        <div className={styles.threePoints}>
+                            <h2>С кем оставить питомца?</h2>
+                            <p><ArrowRightIcon></ArrowRightIcon>Выберите ситтера неподалеку от вас</p>
+                            <p><ArrowRightIcon></ArrowRightIcon>Забронируйте и заключите договор</p>
+                            <p><ArrowRightIcon></ArrowRightIcon>Передайте питомца ситтеру</p>
+                        </div>
+
+                        <div className={styles.huskyLogo}>
+                            <img src={huskyLogo} className={styles.huskyLogoImg} alt="huskyLogo"/>
+                        </div>
+                    </div>
+                </section>
+
                 <section className={styles.portfolioSection}> {/* blog-home grid*/}
                     <a href='#' className={styles.blogItem}> {/* blog-item grid*/}
                         <div className={styles.portfolioItem} style={{'background-image': `url(${pets01})`}}>
@@ -99,8 +115,10 @@ class App extends React.Component {
                             </span>
                         </div>
                     </a>
-                    <div className={styles.portfolioLogo}>
-                        <span> Hello</span>
+                    <div className={styles.portfolioLogo} style={{'background-image': `url(${portfolioLogo})`}}>
+                        <div className={styles.viewPortfolio}>
+                            <PrimaryButton>Выбрать ситтера</PrimaryButton>
+                        </div>
                     </div>
                     <a href='#' className={styles.blogItem}>
                         <div className={styles.portfolioItem} style={{'background-image': `url(${pets06})`}}>
@@ -142,24 +160,6 @@ class App extends React.Component {
                             </span>
                         </div>
                     </a>
-                    <div className={styles.viewPortfolio}>
-                        <PrimaryButton>Выбрать ситтера</PrimaryButton>
-                    </div>
-                </section>
-
-                <section className={classNames(styles.landingSection, styles.simpleInstruction)}>
-                    <div className={styles.container}>
-                        <div className={styles.threePoints}>
-                            <h2>С кем оставить питомца?</h2>
-                            <p>Выберите ситтера неподалеку от вас</p>
-                            <p>Забронируйте и заключите договор</p>
-                            <p>Передайте питомца ситтеру</p>
-                        </div>
-
-                        <div className={styles.huskyLogo}>
-                            <img src={huskyLogo} className={styles.huskyLogoImg} alt="huskyLogo"/>
-                        </div>
-                    </div>
                 </section>
 
                 <section className={styles.formSection}>
@@ -186,7 +186,8 @@ class App extends React.Component {
                                  alt="logoCheck"/> {/*blog-item-img*/}
                             <span className={styles.pointsOfSafeContent}> {/*blog-item-content*/}
                                 <h4>Проверяем ситтеров</h4>
-                                <p>Проверяем паспорт, соцсети и другие данные о ситтере в открытых источниках. Каждый догситтер проходит инструктаж и тестирование.</p>
+                                <p>Проверяем паспорт, соцсети и другие данные о ситтере в открытых источниках.
+                                    Каждый ситтер проходит инструктаж и тестирование.</p>
                             </span>
                         </div>
 
@@ -194,7 +195,7 @@ class App extends React.Component {
                             <img src={logoContract} className={styles.pointsOfSafeImg} alt="logoContract"/>
                             <span className={styles.pointsOfSafeContent}>
                                 <h4>Заключается договор</h4>
-                                <p>Проверяем паспорт, соцсети и другие данные о ситтере в открытых источниках. Каждый догситтер проходит инструктаж и тестирование.</p>
+                                <p>Cиттер заключает договор с клиентом и обязуется оказывать услуги по уходу за животным надлежащим образом.</p>
                             </span>
                         </div>
 
@@ -202,7 +203,7 @@ class App extends React.Component {
                             <img src={logoMeet} className={styles.pointsOfSafeImg} alt="logoMeet"/>
                             <span className={styles.pointsOfSafeContent}>
                                 <h4>Проверяем ситтеров</h4>
-                                <p>Проверяем паспорт, соцсети и другие данные о ситтере в открытых источниках. Каждый догситтер проходит инструктаж и тестирование.</p>
+                                <p>Вы можете бесплатно встретиться с ситтером до передержки, чтобы познакомиться.</p>
                             </span>
                         </div>
 
@@ -210,7 +211,7 @@ class App extends React.Component {
                             <img src={logoSupport} className={styles.pointsOfSafeImg} alt="logoSupport"/>
                             <span className={styles.pointsOfSafeContent}>
                                 <h4>Проверяем ситтеров</h4>
-                                <p>Проверяем паспорт, соцсети и другие данные о ситтере в открытых источниках. Каждый догситтер проходит инструктаж и тестирование.</p>
+                                <p>Мы всегда на связи, даже ночью. Оперативно поможем, если что-то пойдет не так.</p>
                             </span>
                         </div>
 
@@ -218,7 +219,7 @@ class App extends React.Component {
                             <img src={logoHealth} className={styles.pointsOfSafeImg} alt="logoHealth"/>
                             <span className={styles.pointsOfSafeContent}>
                                 <h4>Проверяем ситтеров</h4>
-                                <p>Проверяем паспорт, соцсети и другие данные о ситтере в открытых источниках. Каждый догситтер проходит инструктаж и тестирование.</p>
+                                <p>Если питомец заболеет, по обращению клиента или ситтера служба поддержки организует ветеринарную помощь.</p>
                             </span>
                         </div>
                     </div>
@@ -229,7 +230,6 @@ class App extends React.Component {
                 <footer>
                     <div className={styles.container}>
                         <h4>Остались вопросы?</h4>
-                        <p>Телефон <br/> vk <br/> Telegram</p>
                     </div>
                 </footer>
             </div>

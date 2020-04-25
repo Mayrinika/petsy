@@ -1,7 +1,6 @@
 header {
     display: grid;
     background-color: #132a35;
-    padding: 30px 10px;
     color: white;
     grid-template-columns: 2fr 1fr 2fr 1fr 2fr;
 }
@@ -40,10 +39,10 @@ header {
 }
 
 .enterSection {
-    display: grid;
+    display: inline-flex;
     grid-column: 5/6;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
 }
 
 .enterLink {
@@ -55,8 +54,8 @@ header {
 .enterLink p{
     color: white;
     font-family: "Comic Sans MS";
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: normal;
     margin: 10px;
 }
 
@@ -95,6 +94,10 @@ h1 {
     font-weight: normal;
     margin: 20px 0;
     line-height: 1.5;
+}
+
+.mainPageButtons {
+    margin-top: 80px;
 }
 
 /*blog-home grid*/
@@ -191,11 +194,11 @@ h1 {
 .viewPortfolio {
     grid-column: 1/5;
     justify-self:center;
-    padding: 20px 20px 50px;
 }
 
 .landingSection {
-    padding: 80px 0;
+    padding-top: 80px;
+    padding-bottom: 40px;
 }
 
 .container {
@@ -220,6 +223,7 @@ h1 {
     background-color: #ededed;
 }
 
+
 .threePoints {
     border-right: 1px solid #dfdfdf;
     font-size: 24px;
@@ -233,6 +237,7 @@ h1 {
 .threePoints h2 {
     margin-top: 0;
     margin-bottom: 40px;
+    margin-left: 10px;
 }
 
 .huskyLogo {
@@ -357,13 +362,16 @@ input:focus {
 footer {
     display: grid;
     background-color: #132a35;
-    padding: 30px 0;
     color: white;
     text-align: center;
 }
 
 footer h4{
     font-family: "Comic Sans MS";
+}
+
+body {
+    margin: 0;
 }
 
 
