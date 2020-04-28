@@ -1,0 +1,74 @@
+[debug] [2020-04-27T12:56:04.526Z] ----------------------------------------------------------------------
+[debug] [2020-04-27T12:56:04.528Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Mayrinika\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-04-27T12:56:04.528Z] CLI Version:   8.1.1
+[debug] [2020-04-27T12:56:04.528Z] Platform:      win32
+[debug] [2020-04-27T12:56:04.528Z] Node Version:  v12.16.1
+[debug] [2020-04-27T12:56:04.529Z] Time:          Mon Apr 27 2020 17:56:04 GMT+0500 (GMT+05:00)
+[debug] [2020-04-27T12:56:04.529Z] ----------------------------------------------------------------------
+[debug] [2020-04-27T12:56:04.529Z] 
+[debug] [2020-04-27T12:56:04.535Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-04-27T12:56:04.535Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Mayrinika\Diplom\petsy
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2020-04-27T12:58:29.503Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-04-27T12:58:29.504Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-04-27T12:58:29.690Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 27 Apr 2020 12:58:29 GMT","server":"scaffolding on HTTPServer2","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-04-27T12:58:29.695Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2020-04-27T12:58:30.047Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 27 Apr 2020 12:58:30 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  Using project petsy-405d6 (Petsy)
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2020-04-27T12:58:42.599Z] >>> HTTP REQUEST GET https://petsy-405d6.firebaseio.com/.settings/rules.json  
+ 
+[debug] [2020-04-27T12:58:43.593Z] <<< HTTP RESPONSE 200 {"server":"nginx","date":"Mon, 27 Apr 2020 12:58:43 GMT","content-type":"application/json; charset=utf-8","content-length":"161","connection":"keep-alive","access-control-allow-origin":"*","cache-control":"no-cache","strict-transport-security":"max-age=31556926; includeSubDomains; preload"}
+[debug] [2020-04-27T12:58:43.595Z] Error: EISDIR: illegal operation on a directory, open 'C:\Users\Mayrinika\Diplom\petsy'
+    at Object.openSync (fs.js:457:3)
+    at Object.writeFileSync (fs.js:1282:35)
+    at Config.writeProjectFile (C:\Users\Mayrinika\AppData\Roaming\npm\node_modules\firebase-tools\lib\config.js:155:8)
+    at C:\Users\Mayrinika\AppData\Roaming\npm\node_modules\firebase-tools\lib\init\features\database.js:25:23
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2020-04-27T13:08:35.621Z] ----------------------------------------------------------------------
+[debug] [2020-04-27T13:08:35.623Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Mayrinika\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-04-27T13:08:35.623Z] CLI Version:   8.1.1
+[debug] [2020-04-27T13:08:35.623Z] Platform:      win32
+[debug] [2020-04-27T13:08:35.623Z] Node Version:  v12.16.1
+[debug] [2020-04-27T13:08:35.624Z] Time:          Mon Apr 27 2020 18:08:35 GMT+0500 (GMT+05:00)
+[debug] [2020-04-27T13:08:35.624Z] ----------------------------------------------------------------------
+[debug] [2020-04-27T13:08:35.624Z] 
+[debug] [2020-04-27T13:08:35.630Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-04-27T13:08:35.631Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Mayrinika\Diplom\petsy
+

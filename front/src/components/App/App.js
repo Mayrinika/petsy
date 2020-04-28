@@ -10,7 +10,7 @@ class App extends React.Component {
         return(
             <BrowserRouter>
                 <Switch>
-                    <Route exact path={routes.authorization} component={Authorization}/>
+                    <Route exact path={routes.authorization} children={<Authorization onAuthorization={(data)=>console.log('1')}/>}/>
                     <Route exact path={routes.registration} component={Registration}/>
                     <Route path={routes.home} component={MainPage}/>
                 </Switch>
