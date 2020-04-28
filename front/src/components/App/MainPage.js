@@ -6,7 +6,7 @@ import routes from './RouterPaths';
 import styles from "./MainPageStyles.css";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
-import ArrowRightIcon from "@material-ui/core/SvgIcon/SvgIcon";
+import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 import logo from "../../images/logo.png";
 import huskyLogo from "../../images/husky.png";
@@ -66,9 +66,9 @@ class MainPage extends React.Component {
                     <div className={styles.container}>
                         <div className={styles.threePoints}>
                             <h2>С кем оставить питомца?</h2>
-                            <p><ArrowRightIcon></ArrowRightIcon>Выберите ситтера неподалеку от вас</p>
-                            <p><ArrowRightIcon></ArrowRightIcon>Забронируйте и заключите договор</p>
-                            <p><ArrowRightIcon></ArrowRightIcon>Передайте питомца ситтеру</p>
+                            <p><ArrowRightIcon/>Выберите ситтера неподалеку от вас</p>
+                            <p><ArrowRightIcon/>Забронируйте и заключите договор</p>
+                            <p><ArrowRightIcon/>Передайте питомца ситтеру</p>
                         </div>
 
                         <div className={styles.huskyLogo}>
