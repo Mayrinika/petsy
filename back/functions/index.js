@@ -20,6 +20,7 @@ firebase.initializeApp(config);
 
 const db = admin.firestore();
 
+//get all reviews
 app.get('/reviews', (req, res) => {
     db
         .collection('reviews')
@@ -33,17 +34,55 @@ app.get('/reviews', (req, res) => {
                     body: doc.data().body,
                     userHandle: doc.data().userHandle,
                     createdAt: doc.data().createdAt,
+                    commentCount: doc.data().commentCount,
+                    likeCount: doc.data().likeCount,
                 });
             });
             return res.json(reviews);
         })
-        .catch(err => console.error(err));
+        .catch((err) => {
+            console.error(err);
+            res.status(500).json({error: err.code});
+        });
 });
 
-app.post('/review', (req, res) => {
+const FBAuth = (req, res, next) => {
+    let idToken;
+    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer ')) {
+        idToken = req.headers.authorization.split('Bearer ')[1];
+    } else {
+        console.error('Token не найден');
+        return res.status(403).json({error: 'Пользователь не зарегистрирован'});
+    }
+
+    admin.auth().verifyIdToken(idToken)
+        .then(decodedToken => {
+            req.user = decodedToken;
+            console.log(decodedToken);
+            return db.collection('users')
+                .where('userId', '==', req.user.uid)
+                .limit(1)
+                .get();
+        })
+        .then(data => {
+            req.user.handle = data.docs[0].data().handle;
+            return next();
+        })
+        .catch(err => {
+            console.error('Ошибка при проверке token', err);
+            return res.status(403).json(err);
+        });
+};
+
+//post one review
+app.post('/review', FBAuth, (req, res) => {
+    if (req.body.body.trim() === '') {
+        return res.status(400).json({body: 'Поле не может быть пустым'});
+    }
+
     const newReview = {
         body: req.body.body,
-        userHandle: req.body.userHandle,
+        userHandle: req.user.handle,
         createdAt: new Date().toISOString(),
     };
 
@@ -56,7 +95,7 @@ app.post('/review', (req, res) => {
         .catch(err => {
             res.status(500).json({error: 'Что-то пошло не так'});
             console.error(err);
-        })
+        });
 
 });
 
@@ -138,7 +177,6 @@ app.post('/signup', (req, res) => {
 });
 
 //login route
-
 app.post('/login', (req, res) => {
     const user = {
         email: req.body.email,
