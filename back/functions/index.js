@@ -51,10 +51,10 @@ app.post('/review', (req, res) => {
         .collection('reviews')
         .add(newReview)
         .then(doc => {
-            res.json({message: `document ${doc.id} created successfully`});
+            res.json({message: `Документ ${doc.id} создан`});
         })
         .catch(err => {
-            res.status(500).json({error: 'something went wrong'});
+            res.status(500).json({error: 'Что-то пошло не так'});
             console.error(err);
         })
 
@@ -81,19 +81,19 @@ app.post('/signup', (req, res) => {
     let errors = {};
 
     if (isEmpty(newUser.email)) {
-        errors.email = 'Must not be empty';
+        errors.email = 'Поле не может быть пустым';
     } else if (!isEmail(newUser.email)) {
-        errors.email = 'Must be a valid email address';
+        errors.email = 'Email невалидный или уже занят';
     }
 
     if (isEmpty(newUser.password))
-        errors.password = 'Must not be empty';
+        errors.password = 'Поле не может быть пустым';
 
     if (newUser.password !== newUser.confirmPassword)
-        errors.confirmPassword = 'Passwords must match';
+        errors.confirmPassword = 'Пароли должны совпадать';
 
     if (isEmpty(newUser.handle))
-        errors.handle = 'Must not be empty';
+        errors.handle = 'Поле не может быть пустым';
 
     if (Object.keys(errors).length > 0)
         return res.status(400).json(errors);
@@ -103,7 +103,7 @@ app.post('/signup', (req, res) => {
     db.doc(`/users/${newUser.handle}`).get()
         .then(doc => {
             if (doc.exists) { //уникальное имя
-                return res.status(400).json({handle: 'this handle is already taken'});
+                return res.status(400).json({handle: 'Это имя уже занято'});
             } else {
                 return firebase
                     .auth()
@@ -130,7 +130,7 @@ app.post('/signup', (req, res) => {
         .catch(err => {
             console.error(err);
             if (err.code === 'auth/email-already-in-use') {
-                return res.status(400).json({email: 'Email is already use'});
+                return res.status(400).json({email: 'Email уже занят'});
             } else {
                 return res.status(500).json({error: err.code});
             }
@@ -148,9 +148,9 @@ app.post('/login', (req, res) => {
     let errors = {};
 
     if (isEmpty(user.email))
-        errors.email = 'Must not be empty';
+        errors.email = 'Поле не может быть пустым';
     if (isEmpty(user.password))
-        errors.password = 'Must not be empty';
+        errors.password = 'Поле не может быть пустым';
     if (Object.keys(errors).length > 0)
         return res.status(400).json(errors);
 
@@ -164,7 +164,7 @@ app.post('/login', (req, res) => {
         .catch(err => {
             console.error(err);
             if (err.code === 'auth/wrong-password' || err.code === 'auth/user-not-found') {
-                return res.status(403).json({general: 'Wrong credentials, please try again'});
+                return res.status(403).json({general: 'Неверный email или пароль'});
             } else
                 return res.status(500).json({error: err.code});
         });
