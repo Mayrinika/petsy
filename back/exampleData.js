@@ -19,6 +19,14 @@ const db = {
             commentCount: 3,
         },
     ],
+    comments: [
+        {
+            userHandle: "Наталья",
+            reviewId: "duhfiurhfrgirjg",
+            body: "Здорово!",
+            createdAt: "2020-04-30T13:43:07.366Z",
+        },
+    ],
 };
 
 const userdetails = {

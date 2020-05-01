@@ -25,7 +25,7 @@ exports.getAllReviews = (req, res) => {
         });
 };
 
-exports.postOneReview=(req, res) => {
+exports.postOneReview = (req, res) => {
     if (req.body.body.trim() === '') {
         return res.status(400).json({body: 'Поле не может быть пустым'});
     }
@@ -47,4 +47,34 @@ exports.postOneReview=(req, res) => {
             console.error(err);
         });
 
+};
+
+exports.getReview = (req, res) => {
+    let reviewData = {};
+    db
+        .doc(`/reviews/${req.params.reviewId}`)
+        .get()
+        .then(doc => {
+            if (!doc.exists) {
+                return res.status(404).json({error: 'Отзыв не найден'});
+            }
+            reviewData = doc.data();
+            reviewData.reviewId = doc.id;
+            return db
+                .collection('comments')
+                .orderBy('createdAt', 'desc')
+                .where('reviewId', '==', req.params.reviewId)
+                .get();
+        })
+        .then(data => {
+            reviewData.comments = [];
+            data.forEach(doc => {
+                reviewData.comments.push(doc.data());
+            });
+            return res.json(reviewData);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({error: err.code});
+        });
 };
