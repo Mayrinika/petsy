@@ -207,3 +207,26 @@ exports.unlikeReview = (req, res) => {
             res.status(500).json({error: err.code});
         });
 };
+
+//Delete review
+exports.deleteReview = (req, res) => {
+    const document = db.doc(`/reviews/${req.params.reviewId}`);
+    document.get()
+        .then(doc => {
+            if (!doc.exists) {
+                return res.status(404).json({error: 'Отзыв не найден'});
+            }
+            if (doc.data().userHandle !== req.user.handle) {
+                return res.status(403).json({error: 'Ошибка авторизации'});
+            } else {
+                return document.delete();
+            }
+        })
+        .then(() => {
+            res.json({message: 'Удалено'});
+        })
+        .catch(err => {
+            console.error(err);
+            return res.status(500).json({error: err.code});
+        });
+};
