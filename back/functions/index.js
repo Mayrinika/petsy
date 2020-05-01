@@ -10,6 +10,7 @@ const {
     getReview,
     commentOnReview,
 } = require('./handlers/reviews');
+
 const {
     signup,
     login,
@@ -24,8 +25,7 @@ app.post('/review', FBAuth, postOneReview);
 app.get('/review/:reviewId', getReview);
 app.post('/review/:reviewId/comment', FBAuth, commentOnReview);
 //TODO delete review
-//TODO like review
-//TODO unlike review
+
 
 //users routes
 app.post('/signup', signup);

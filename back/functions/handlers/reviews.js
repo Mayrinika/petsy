@@ -33,14 +33,19 @@ exports.postOneReview = (req, res) => {
     const newReview = {
         body: req.body.body,
         userHandle: req.user.handle,
+        userImage: req.user.imageUrl,
         createdAt: new Date().toISOString(),
+        likeCount: 0,
+        commentCount: 0,
     };
 
     db
         .collection('reviews')
         .add(newReview)
         .then(doc => {
-            res.json({message: `Документ ${doc.id} создан`});
+            const resReview=newReview;
+            resReview.reviewId=doc.id;
+            res.json(resReview);
         })
         .catch(err => {
             res.status(500).json({error: 'Что-то пошло не так'});
