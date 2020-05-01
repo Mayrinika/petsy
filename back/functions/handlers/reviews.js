@@ -49,6 +49,7 @@ exports.postOneReview = (req, res) => {
 
 };
 
+//Fetch one review
 exports.getReview = (req, res) => {
     let reviewData = {};
     db
@@ -76,5 +77,38 @@ exports.getReview = (req, res) => {
         .catch(err => {
             console.error(err);
             res.status(500).json({error: err.code});
+        });
+};
+
+//Comment on a review
+exports.commentOnReview = (req, res) => {
+    if (req.body.body.trim() === '')
+        return res.status(400).json({error: 'Поле не может быть пустым'});
+
+    const newComment = {
+        body: req.body.body,
+        createdAt: new Date().toISOString(),
+        reviewId: req.params.reviewId,
+        userHandle: req.user.handle,
+        userImage: req.user.imageUrl,
+    };
+
+    db
+        .doc(`/reviews/${req.params.reviewId}`)
+        .get()
+        .then(doc => {
+            if (!doc.exists) {
+                return res.status(404).json({error: 'Отзыв не найден'});
+            }
+            return db
+                .collection('comments')
+                .add(newComment);
+        })
+        .then(() => {
+            res.json(newComment);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({error: 'Что-то пошло не так'});
         });
 };
