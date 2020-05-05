@@ -27,6 +27,16 @@ const db = {
             createdAt: "2020-04-30T13:43:07.366Z",
         },
     ],
+    notification: [
+        {
+            recipient: 'user',
+            sender: 'user2',
+            read: 'true | false',
+            reviewId: 'fhgriuhghfgoijg',
+            type: 'like | comment',
+            createdAt: '2020-04-30T13:43:07.366Z',
+        }
+    ],
 };
 
 const userdetails = {
