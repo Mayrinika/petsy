@@ -47,9 +47,9 @@ exports.api = functions.https.onRequest(app);
 
 exports.createNotificationOnLike = functions.firestore.document('likes/{id}')
     .onCreate(snapshot => {
-        db.doc(`/reviews/${snapshot.data().reviewId}`).get()
+        return db.doc(`/reviews/${snapshot.data().reviewId}`).get()
             .then(doc => {
-                if (doc.exists) {
+                if (doc.exists && doc.data().userHandle !== snapshot.data().userHandle) {
                     return db.doc(`/notifications/${snapshot.id}`).set({
                         recipient: doc.data().userHandle,
                         sender: snapshot.data().userHandle,
@@ -60,23 +60,16 @@ exports.createNotificationOnLike = functions.firestore.document('likes/{id}')
                     });
                 }
             })
-            .then(() => {
-                return;
-            })
             .catch(err => {
                 console.error(err);
-                return;
             });
     });
 
-exports.deleteNotificationOnUnLike=functions.firestore.document('likes/{id}')
+exports.deleteNotificationOnUnLike = functions.firestore.document('likes/{id}')
     .onDelete(snapshot => {
-        db.doc(`/notifications/${snapshot.id}`)
+        return db.doc(`/notifications/${snapshot.id}`)
             .delete()
-            .then(()=>{
-                return;
-            })
-            .catch(err=>{
+            .catch(err => {
                 console.error(err);
                 return;
             });
@@ -85,9 +78,9 @@ exports.deleteNotificationOnUnLike=functions.firestore.document('likes/{id}')
 
 exports.createNotificationOnComment = functions.firestore.document('comments/{id}')
     .onCreate(snapshot => {
-        db.doc(`/reviews/${snapshot.data().reviewId}`).get()
+        return db.doc(`/reviews/${snapshot.data().reviewId}`).get()
             .then(doc => {
-                if (doc.exists) {
+                if (doc.exists && doc.data().userHandle !== snapshot.data().userHandle) {
                     return db.doc(`/notifications/${snapshot.id}`).set({
                         recipient: doc.data().userHandle,
                         sender: snapshot.data().userHandle,
@@ -97,9 +90,6 @@ exports.createNotificationOnComment = functions.firestore.document('comments/{id
                         createdAt: new Date().toISOString(),
                     });
                 }
-            })
-            .then(() => {
-                return;
             })
             .catch(err => {
                 console.error(err);
