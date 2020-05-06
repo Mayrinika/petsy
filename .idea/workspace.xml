@@ -63,11 +63,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/back/functions/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="143" column="36" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
+            <state relative-caret-position="2280">
+              <caret line="120" column="22" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -117,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/back/functions/util/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+            <state relative-caret-position="76">
+              <caret line="4" column="27" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -172,7 +172,7 @@
       <path value="$PROJECT_DIR$/front/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-14" />
     <option name="width" value="982" />
     <option name="height" value="1042" />
@@ -264,12 +264,12 @@
       <workItem from="1588248134078" duration="8160000" />
       <workItem from="1588322657944" duration="17499000" />
       <workItem from="1588689371370" duration="8438000" />
-      <workItem from="1588761448502" duration="5633000" />
+      <workItem from="1588761448502" duration="6457000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65548000" />
+    <option name="totallyTimeSpent" value="66372000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -281,10 +281,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1488" height="803" extended-state="6" />
+    <frame x="-7" y="-7" width="1488" height="803" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17424242" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17424242" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -403,13 +403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/back/functions/util/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/back/functions/handlers/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -426,8 +419,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/back/functions/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="143" column="36" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
+        <state relative-caret-position="2280">
+          <caret line="120" column="22" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/functions/util/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="27" />
         </state>
       </provider>
     </entry>
