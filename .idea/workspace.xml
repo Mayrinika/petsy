@@ -42,7 +42,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="11573" />
+          <entry key="js" value="12306" />
           <entry key="json" value="12" />
           <entry key="md" value="18" />
         </counts>
@@ -50,7 +50,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="12" />
-          <entry key="JavaScript" value="11573" />
+          <entry key="JavaScript" value="12306" />
           <entry key="PLAIN_TEXT" value="18" />
         </counts>
       </usages-collector>
@@ -66,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/back/functions/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="80" column="67" lean-forward="true" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
+            <state relative-caret-position="330">
+              <caret line="143" column="36" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -264,12 +264,12 @@
       <workItem from="1588248134078" duration="8160000" />
       <workItem from="1588322657944" duration="17499000" />
       <workItem from="1588689371370" duration="8438000" />
-      <workItem from="1588761448502" duration="1122000" />
+      <workItem from="1588761448502" duration="5633000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61037000" />
+    <option name="totallyTimeSpent" value="65548000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -296,7 +296,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3298351" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4993113" weight="0.35874438" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4993113" weight="0.35832083" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50068873" side_tool="true" weight="0.3628186" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -426,8 +426,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/back/functions/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="80" column="67" lean-forward="true" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
+        <state relative-caret-position="330">
+          <caret line="143" column="36" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
         </state>
       </provider>
     </entry>
