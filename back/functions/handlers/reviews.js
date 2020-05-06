@@ -15,6 +15,7 @@ exports.getAllReviews = (req, res) => {
                     createdAt: doc.data().createdAt,
                     commentCount: doc.data().commentCount,
                     likeCount: doc.data().likeCount,
+                    userImage: doc.data().userImage,
                 });
             });
             return res.json(reviews);
@@ -88,7 +89,7 @@ exports.getReview = (req, res) => {
 //Comment on a review
 exports.commentOnReview = (req, res) => {
     if (req.body.body.trim() === '')
-        return res.status(400).json({error: 'Поле не может быть пустым'});
+        return res.status(400).json({comment: 'Поле не может быть пустым'});
 
     const newComment = {
         body: req.body.body,

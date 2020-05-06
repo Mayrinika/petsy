@@ -57,7 +57,7 @@ exports.signup = (req, res) => {
             if (err.code === 'auth/email-already-in-use') {
                 return res.status(400).json({email: 'Email уже занят'});
             } else {
-                return res.status(500).json({error: err.code});
+                return res.status(500).json({general: 'Что-то пошло не так'});
             }
         })
 };
@@ -83,10 +83,9 @@ exports.login = (req, res) => {
         })
         .catch(err => {
             console.error(err);
-            if (err.code === 'auth/wrong-password' || err.code === 'auth/user-not-found') {
-                return res.status(403).json({general: 'Неверный email или пароль'});
-            } else
-                return res.status(500).json({error: err.code});
+            //auth/wrong-password
+            //auth/user-not-found
+            return res.status(403).json({general: 'Неверный email или пароль'});
         });
 };
 
