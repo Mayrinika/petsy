@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './Reviews.css';
 import Grid from '@material-ui/core/Grid';
 
+import Review from '../../components/Review';
+
 class Reviews extends React.Component {
     constructor(props) {
         super(props);
@@ -14,7 +16,6 @@ class Reviews extends React.Component {
         fetch('https://us-central1-petsy-405d6.cloudfunctions.net/api/reviews')
             .then(res => res.json())
             .then(res => {
-                console.log(res);
                 this.setState({
                     reviews: res
                 });
@@ -24,7 +25,7 @@ class Reviews extends React.Component {
 
     render() {
         let recentReviewsMarkup = this.state.reviews ? (
-            this.state.reviews.map(review => <p>{review.body}</p>)
+            this.state.reviews.map(review => <Review key={review.reviewId} review={review}/>)
         ) : (<p>Загрузка...</p>);
         return (
             <div className={styles.container}>

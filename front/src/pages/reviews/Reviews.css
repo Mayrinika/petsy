@@ -6,3 +6,10 @@
     /*padding: 60px;*/
 }
 
+body {
+    background-color: rgb(245, 245, 245);
+}
+
+a {
+    text-decoration: none;
+}
