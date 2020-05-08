@@ -2,10 +2,10 @@ import React from "react";
 import {Link} from "react-router-dom";
 import classNames from "classnames/bind";
 
-import routes from './RouterPaths';
-import styles from "./MainPageStyles.css";
-import PrimaryButton from "./PrimaryButton";
-import SecondaryButton from "./SecondaryButton";
+import routes from '../../components/RouterPaths';
+import styles from "./Home.css";
+import PrimaryButton from "../../components/PrimaryButton";
+import SecondaryButton from "../../components/SecondaryButton";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 import logo from "../../images/logo.png";
@@ -27,31 +27,32 @@ import logoMeet from "../../images/logo-meet.png";
 import logoSupport from "../../images/logo-support.png";
 import logoHealth from "../../images/logo-health.png";
 
-class MainPage extends React.Component {
+
+class Home extends React.Component {
     render() {
         return (
             <div>
-                <header>
-                    <img src={logo} className={styles.logo} alt="logo"/>
+                {/*{<header>*/}
+                    {/*<img src={logo} className={styles.logo} alt="logo"/>*/}
 
-                    <div className={styles.helpSection}>
-                        <a href='#' className={styles.helpLink}>
-                            <p>Частые вопросы</p>
-                        </a>
-                        <a href='#' className={styles.helpLink}>
-                            <p>Наши услуги</p>
-                        </a>
-                    </div>
+                    {/*<div className={styles.helpSection}>*/}
+                        {/*<a href='#' className={styles.helpLink}>*/}
+                            {/*<p>Частые вопросы</p>*/}
+                        {/*</a>*/}
+                        {/*<a href='#' className={styles.helpLink}>*/}
+                            {/*<p>Наши услуги</p>*/}
+                        {/*</a>*/}
+                    {/*</div>*/}
 
-                    <div className={styles.enterSection}>
-                        <Link to={routes.authorization} className={styles.enterLink}>
-                            <p>Войти</p>
-                        </Link>
-                        <Link to={routes.registration} className={styles.enterLink}>
-                            <p>Регистрация</p>
-                        </Link>
-                    </div>
-                </header>
+                    {/*<div className={styles.enterSection}>*/}
+                        {/*<Link to={routes.login} className={styles.enterLink}>*/}
+                            {/*<p>Войти</p>*/}
+                        {/*</Link>*/}
+                        {/*<Link to={routes.signup} className={styles.enterLink}>*/}
+                            {/*<p>Регистрация</p>*/}
+                        {/*</Link>*/}
+                    {/*</div>*/}
+                {/*</header>}*/}
                 <main className={styles.mainPage}> {/*main->section*/}
                     <div className={styles.mainPageContent}>
                         <h1>Забота о вашем питомце, <br/> пока вы в отъезде! </h1>
@@ -240,4 +241,4 @@ class MainPage extends React.Component {
     }
 }
 
-export default MainPage;
+export default Home;

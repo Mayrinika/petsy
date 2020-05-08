@@ -18,6 +18,7 @@ exports.getAllReviews = (req, res) => {
                     userImage: doc.data().userImage,
                 });
             });
+            res.set('Access-Control-Allow-Origin', '*');
             return res.json(reviews);
         })
         .catch((err) => {

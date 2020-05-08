@@ -26,10 +26,12 @@
   "dependencies": {
     "@material-ui/core": "^4.9.12",
     "@material-ui/icons": "^4.9.1",
+    "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "typeface-roboto": "0.0.75"
-  }
+  },
+  "proxy" : "https://us-central1-petsy-405d6.cloudfunctions.net/api"
 }
