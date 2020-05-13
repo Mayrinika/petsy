@@ -1,7 +1,6 @@
 const {db} = require('../util/admin');
 
 exports.getAllReviews = (req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
     db
         .collection('reviews')
         .orderBy('createdAt', 'desc')

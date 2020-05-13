@@ -4,6 +4,8 @@ import Grid from '@material-ui/core/Grid';
 
 import Review from '../../components/Review';
 
+import axios from 'axios';
+
 class Reviews extends React.Component {
     constructor(props) {
         super(props);
@@ -13,11 +15,19 @@ class Reviews extends React.Component {
     }
 
     componentDidMount() {
-        fetch('https://us-central1-petsy-405d6.cloudfunctions.net/api/reviews')
-            .then(res => res.json())
+        // fetch('https://us-central1-petsy-405d6.cloudfunctions.net/api/reviews')
+        //     .then(res => res.json())
+        //     .then(res => {
+        //         this.setState({
+        //             reviews: res
+        //         });
+        //     })
+        //     .catch(err => console.log(err));
+        axios.get('/api/reviews')
             .then(res => {
+                console.log(res.data);
                 this.setState({
-                    reviews: res
+                    reviews: res.data
                 });
             })
             .catch(err => console.log(err));

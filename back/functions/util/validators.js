@@ -3,12 +3,12 @@ const isEmail = (email) => {
     return email.match(regEx);
 };
 
-const isEmpty = (string = '') => {
+const isEmpty = (string) => {
     return string.trim() === '';
 };
 
 exports.validateSignupData = (data) => {
-    let errors = {};
+    const errors = {};
 
     if (isEmpty(data.email)) {
         errors.email = 'Поле не может быть пустым';
@@ -32,7 +32,7 @@ exports.validateSignupData = (data) => {
 };
 
 exports.validateLoginData = (data) => {
-    let errors = {};
+    const errors = {};
 
     if (isEmpty(data.email))
         errors.email = 'Поле не может быть пустым';
@@ -47,7 +47,7 @@ exports.validateLoginData = (data) => {
 };
 
 exports.reduceUserDetails = (data) => {
-    let userDetails = {};
+    const userDetails = {};
 
     if (!isEmpty(data.bio.trim()))
         userDetails.bio = data.bio;

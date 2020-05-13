@@ -1,13 +1,14 @@
 import React from 'react';
-import loginStyles from './Login.css';
 
+import {Typography, Grid, TextField, Button, CircularProgress} from '@material-ui/core';
 import {Link} from 'react-router-dom';
-
-import PropTypes from 'prop-types';
 import icon from '../../images/icon.png';
 
+import axios from "axios";
+import PropTypes from 'prop-types';
+
 import {withStyles} from '@material-ui/core/styles';
-import {Typography, Grid, TextField, Button, CircularProgress} from '@material-ui/core';
+import loginStyles from './Login.css';
 
 const styles = {
     form: {
@@ -50,7 +51,6 @@ class Login extends React.Component {
     }
 
     handleSubmit = (event) => {
-        event.preventDefault();
         this.setState({
             loading: true,
         });
@@ -59,30 +59,22 @@ class Login extends React.Component {
             password: this.state.password,
         };
 
-/*        fetch('/api/login',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(userData),
-            })
-            .then(res => {
-                if (res.ok)
-                    throw res;
-                this.props.history.push('/reviews'); //TODO !
-                return res;
-            })
-            .then(r => r.json()) //TODO !
-
-            .catch(err => {
-                console.log(err);
+        axios
+            .post('/api/login', userData)
+            .then((res) => {
+                console.log(res);
                 this.setState({
-                    errors: err,
-                    //errors: err.response.data,
                     loading: false,
                 });
-            });*/
+                this.props.history.push('/');
+            })
+            .catch(err => {
+                console.log(err.response.data);
+                this.setState({
+                    errors: err.response.data,
+                    loading: false,
+                })
+            });
     };
     handleChange = (event) => {
         this.setState({
