@@ -25,8 +25,8 @@ const {
     markNotificationsRead,
 } = require('./handlers/users');
 
-//reviews routes
-app.get('/reviews', getAllReviews);
+//UserPage routes
+app.get('/UserPage', getAllReviews);
 app.post('/review', FBAuth, postOneReview);
 app.get('/review/:reviewId', getReview);
 app.post('/review/:reviewId/comment', FBAuth, commentOnReview);
@@ -36,7 +36,7 @@ app.get('/review/:reviewId/unlike', FBAuth, unlikeReview);
 
 //users routes
 app.post('/signup', signup);
-app.post('/login', login);
+app.post('/Login', login);
 app.post('/user/image', FBAuth, uploadImage);
 app.post('/user', FBAuth, addUserDetails);
 app.get('/user', FBAuth, getAuthenticatedUser);
@@ -118,7 +118,7 @@ exports.onUserImageChange = functions.firestore.document('/users/{userId}')
         }
     });
 
-exports.onReviewDelete = functions.firestore.document('/reviews/{reviewId}')
+exports.onReviewDelete = functions.firestore.document('/UserPage/{reviewId}')
     .onDelete((snapshot, context) => {
         const reviewId = context.params.reviewId;
         const batch = db.batch();

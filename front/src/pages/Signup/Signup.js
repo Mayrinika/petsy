@@ -9,7 +9,7 @@ import axios from "axios";
 import PropTypes from 'prop-types';
 
 import {withStyles} from '@material-ui/core/styles';
-import loginStyles from './Login.css';
+import loginStyles from './Signup.css';
 
 const styles = {
     form: {
@@ -40,12 +40,14 @@ const styles = {
 };
 
 
-class Login extends React.Component {
+class Signup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             email: '',
             password: '',
+            confirmPassword: '',
+            handle: '',
             loading: false,
             errors: {},
         };
@@ -56,13 +58,15 @@ class Login extends React.Component {
         this.setState({
             loading: true,
         });
-        const userData = {
+        const newUserData = {
             email: this.state.email,
             password: this.state.password,
+            confirmPassword: this.state.confirmPassword,
+            handle: this.state.handle,
         };
 
         axios
-            .post('/api/login', userData)
+            .post('/api/signup', newUserData)
             .then((res) => {
                 console.log(res);
                 localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`);
@@ -95,7 +99,7 @@ class Login extends React.Component {
                     <Grid item sm>
                         <img src={icon} alt='husky icon' className={classes.image}/>
                         <Typography variant='h3' className={classes.pageTitle}>
-                            Войти
+                            Регистрация
                         </Typography>
                         <form noValidate onSubmit={this.handleSubmit}>
                             <TextField
@@ -104,7 +108,7 @@ class Login extends React.Component {
                                 type='email'
                                 label='Email'
                                 className={classes.textField}
-                                helperText={errors.email}
+                                helperText={errors && errors.email} //TODO ?
                                 error={!!errors.email}
                                 value={this.state.email}
                                 onChange={this.handleChange}
@@ -116,9 +120,35 @@ class Login extends React.Component {
                                 type='password'
                                 label='Password'
                                 className={classes.textField}
-                                helperText={errors.password}
+                                // helperText={errors.password}
+                                helperText={errors && errors.password} //TODO ?
                                 error={!!errors.password}
                                 value={this.state.password}
+                                onChange={this.handleChange}
+                                fullWidth
+                            />
+                            <TextField
+                                id='confirmPassword'
+                                name='confirmPassword'
+                                type='password'
+                                label='ConfirmPassword'
+                                className={classes.textField}
+                                // helperText={errors.password}
+                                helperText={errors.confirmPassword}
+                                error={!!errors.confirmPassword}
+                                value={this.state.confirmPassword}
+                                onChange={this.handleChange}
+                                fullWidth
+                            />
+                            <TextField
+                                id='handle'
+                                name='handle'
+                                type='text'
+                                label='Handle'
+                                className={classes.textField}
+                                helperText={errors.handle}
+                                error={!!errors.handle}
+                                value={this.state.handle}
                                 onChange={this.handleChange}
                                 fullWidth
                             />
@@ -133,13 +163,13 @@ class Login extends React.Component {
                                 color='primary'
                                 className={classes.button}
                                 disabled={loading}>
-                                Войти
+                                Регистрация
                                 {loading && (
                                     <CircularProgress size={30} className={classes.progress}/>
                                 )}
                             </Button>
                             <br/>
-                            <small>Нет аккаунта? <Link to={routes.signup}>Регистрация</Link></small>
+                            <small>Уже есть аккаунт? <Link to={routes.login}>Войти</Link></small>
                         </form>
                     </Grid>
                     <Grid item sm/>
@@ -149,8 +179,8 @@ class Login extends React.Component {
     }
 }
 
-Login.propTypes = {
+Signup.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Login);
+export default withStyles(styles)(Signup);

@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './Reviews.css';
+import styles from './UserPage.css';
 import Grid from '@material-ui/core/Grid';
 
 import Review from '../../components/Review';
 
 import axios from 'axios';
 
-class Reviews extends React.Component {
+class UserPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,14 +15,6 @@ class Reviews extends React.Component {
     }
 
     componentDidMount() {
-        // fetch('https://us-central1-petsy-405d6.cloudfunctions.net/api/reviews')
-        //     .then(res => res.json())
-        //     .then(res => {
-        //         this.setState({
-        //             reviews: res
-        //         });
-        //     })
-        //     .catch(err => console.log(err));
         axios.get('/api/reviews')
             .then(res => {
                 console.log(res.data);
@@ -52,4 +44,4 @@ class Reviews extends React.Component {
     }
 }
 
-export default Reviews;
+export default UserPage;
