@@ -7,14 +7,19 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
+import dayjs from 'dayjs';
+import reletiveTime from 'dayjs/plugin/relativeTime';
+
 const styles = {
     card: {
         display: 'flex',
         marginBottom: 20,
 
     },
-    image:{
-        minWidth:200,
+    image: {
+        minWidth: 150,
+        backgroundSize: 'contain',
+        backgroundPosition: 'left',
 
     },
     content: {
@@ -25,8 +30,11 @@ const styles = {
 
 class Review extends React.Component {
     render() {
-        const {classes,
-            review: {body, createdAt, userImage, userHandle, reviewId, likeCount, commentCount}} = this.props;
+        dayjs.extend(reletiveTime);
+        const {
+            classes,
+            review: {body, createdAt, userImage, userHandle, reviewId, likeCount, commentCount}
+        } = this.props;
         return (
             <Card className={classes.card}>
                 <CardMedia image={userImage} title='Profile image' className={classes.image}/>
@@ -37,7 +45,7 @@ class Review extends React.Component {
                         to={`/users/${userHandle}`}
                         color='primary'
                     >{userHandle}</Typography>
-                    <Typography variant='body2' color='textSecondary'>{createdAt}</Typography>
+                    <Typography variant='body2' color='textSecondary'>{dayjs(createdAt).fromNow()}</Typography>
                     <Typography variant='body1'>{body}</Typography>
                 </CardContent>
             </Card>

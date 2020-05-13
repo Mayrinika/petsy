@@ -3,9 +3,23 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     entry: "./src/index.js",
+    mode: 'development',
+    devtool: "eval-cheap-module-source-map",
     output: {
         path: path.join(__dirname, "/dist"),
         filename: "index-bundle.js"
+    },
+    devServer: {
+        hot: true,
+        open: true,
+        historyApiFallback: true,
+        proxy: {
+            "/api": {
+                target: "https://us-central1-petsy-405d6.cloudfunctions.net/api",
+                pathRewrite: {"^/api": ""},
+                changeOrigin: true,
+            }
+        }
     },
     module: {
         rules: [

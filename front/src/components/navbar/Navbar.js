@@ -16,7 +16,7 @@ class Navbar extends React.Component {
                     <Button color='inherit' component={Link} to={routes.login}>Войти</Button>
                     <Button color='inherit' component={Link} to={routes.home}>Главная</Button>
                     <Button color='inherit' component={Link} to={routes.signup}>Регистрация</Button>
-                    <Button color='inherit' component={Link} to={routes.reviews}>Отзывы</Button>
+                    <Button color='inherit' component={Link} to={routes.reviews}>Моя страница</Button>
                 </Toolbar>
             </AppBar>
         );

@@ -64,10 +64,11 @@ exports.signup = (req, res) => {
 
 //Log user in
 exports.login = (req, res) => {
-    const user = {
-        email: req.body.email,
-        password: req.body.password
-    };
+    const user = req.body;
+    // const user={ //TODO
+    //     email: req.body.email,
+    //     password: req.body.password,
+    // };
 
     const {valid, errors} = validateLoginData(user);
 

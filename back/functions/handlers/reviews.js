@@ -1,6 +1,7 @@
 const {db} = require('../util/admin');
 
 exports.getAllReviews = (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     db
         .collection('reviews')
         .orderBy('createdAt', 'desc')
@@ -18,7 +19,6 @@ exports.getAllReviews = (req, res) => {
                     userImage: doc.data().userImage,
                 });
             });
-            res.set('Access-Control-Allow-Origin', '*');
             return res.json(reviews);
         })
         .catch((err) => {
@@ -28,6 +28,7 @@ exports.getAllReviews = (req, res) => {
 };
 
 exports.postOneReview = (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     if (req.body.body.trim() === '') {
         return res.status(400).json({body: 'Поле не может быть пустым'});
     }
@@ -58,6 +59,7 @@ exports.postOneReview = (req, res) => {
 
 //Fetch one review
 exports.getReview = (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     let reviewData = {};
     db
         .doc(`/reviews/${req.params.reviewId}`)
@@ -89,6 +91,7 @@ exports.getReview = (req, res) => {
 
 //Comment on a review
 exports.commentOnReview = (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     if (req.body.body.trim() === '')
         return res.status(400).json({comment: 'Поле не может быть пустым'});
 
@@ -123,6 +126,7 @@ exports.commentOnReview = (req, res) => {
 
 //Like a review
 exports.likeReview = (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     const likeDocument = db
         .collection('likes')
         .where('userHandle', '==', req.user.handle)
@@ -168,6 +172,7 @@ exports.likeReview = (req, res) => {
 };
 
 exports.unlikeReview = (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     const likeDocument = db
         .collection('likes')
         .where('userHandle', '==', req.user.handle)
@@ -212,6 +217,7 @@ exports.unlikeReview = (req, res) => {
 
 //Delete review
 exports.deleteReview = (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     const document = db.doc(`/reviews/${req.params.reviewId}`);
     document.get()
         .then(doc => {

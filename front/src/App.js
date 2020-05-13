@@ -7,7 +7,7 @@ import Navbar from './components/navbar/Navbar';
 
 import Home from "./pages/home/Home";
 import Signup from './pages/Signup';
-import Login from './pages/Login';
+import Login from './pages/login/Login';
 import Reviews from './pages/reviews/Reviews';
 
 import { MuiThemeProvider } from '@material-ui/core/styles';

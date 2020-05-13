@@ -3,7 +3,7 @@ const isEmail = (email) => {
     return email.match(regEx);
 };
 
-const isEmpty = (string) => {
+const isEmpty = (string = '') => {
     return string.trim() === '';
 };
 
