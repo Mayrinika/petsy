@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 import icon from '../../images/icon.png';
 import routes from '../../components/RouterPaths';
 
-import axios from "axios";
 import PropTypes from 'prop-types';
 //Styles
 import {withStyles} from '@material-ui/core/styles';

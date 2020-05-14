@@ -1,9 +1,12 @@
 import React from "react";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import jwsDecode from 'jwt-decode';
+import axios from "axios";
 //Redux
 import {Provider} from 'react-redux';
 import store from './redux/store';
+import {SET_AUTHENTICATED} from "./redux/types";
+import {logoutUser, getUserData} from "./redux/actions/userActions";
 //Components
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import AuthRoute from './components/AuthRoute';
@@ -38,15 +41,16 @@ const theme = createMuiTheme({
 
 });
 
-let authenticated;
 const token = localStorage.FBIdToken;
 if (token) {
     const decodedToken = jwsDecode(token);
     if (decodedToken.exp * 1000 < Date.now()) {
+        store.dispatch(logoutUser());
         window.location.href = `${routes.login}`;
-        authenticated = false;
     } else {
-        authenticated = true;
+        store.dispatch({type: SET_AUTHENTICATED});
+        axios.defaults.headers.common['Authorization']=token;
+        store.dispatch(getUserData());
     }
 }
 
@@ -59,20 +63,18 @@ class App extends React.Component {
                         <NavigationBar/>
                         <div className={styles.container}>
                             <Switch>
+                                <Route exact path={routes.home} component={Home}/>
                                 <AuthRoute
                                     exact
                                     path={routes.login}
                                     component={Login}
-                                    authenticated={authenticated}
                                 />
                                 <AuthRoute
                                     exact
                                     path={routes.signup}
                                     component={Signup}
-                                    authenticated={authenticated}
                                 />
                                 <Route exact path={routes.reviews} component={UserPage}/>
-                                <Route path={routes.home} component={Home}/>
                             </Switch>
                         </div>
                     </BrowserRouter>

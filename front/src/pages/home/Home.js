@@ -80,7 +80,7 @@ class Home extends React.Component {
 
                 <section className={styles.portfolioSection}> {/* blog-home grid*/}
                     <a href='#' className={styles.blogItem}> {/* blog-item grid*/}
-                        <div className={styles.portfolioItem} style={{'background-image': `url(${pets01})`}}>
+                        <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets01})`}}>
                             <span className={styles.portfolioContent}>
                                 <h4>Ждем в гости!</h4>
                                 <p>Спасибо большое! Каждый день были фото и видео! Май не скучал, у него была хорошая компания! Были спокойны за...</p>
@@ -88,7 +88,7 @@ class Home extends React.Component {
                         </div>
                     </a>
                     <a href='#' className={styles.blogItem}>
-                        <div className={styles.portfolioItem} style={{'background-image': `url(${pets02})`}}>
+                        <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets02})`}}>
                         <span className={styles.portfolioContent}>
                                 <h4>Hello</h4>
                                 <p>World...</p>
@@ -96,7 +96,7 @@ class Home extends React.Component {
                         </div>
                     </a>
                     <a href='#' className={styles.blogItem}>
-                        <div className={styles.portfolioItem} style={{'background-image': `url(${pets03})`}}>
+                        <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets03})`}}>
                             <span className={styles.portfolioContent}>
                                 <h4>Hello</h4>
                                 <p>World...</p>
@@ -104,7 +104,7 @@ class Home extends React.Component {
                         </div>
                     </a>
                     <a href='#' className={styles.blogItem}>
-                        <div className={styles.portfolioItem} style={{'background-image': `url(${pets04})`}}>
+                        <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets04})`}}>
                             <span className={styles.portfolioContent}>
                                 <h4>Hello</h4>
                                 <p>World...</p>
@@ -112,20 +112,20 @@ class Home extends React.Component {
                         </div>
                     </a>
                     <a href='#' className={styles.blogItem}>
-                        <div className={styles.portfolioItem} style={{'background-image': `url(${pets05})`}}>
+                        <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets05})`}}>
                            <span className={styles.portfolioContent}>
                                 <h4>Hello</h4>
                                 <p>World...</p>
                             </span>
                         </div>
                     </a>
-                    <div className={styles.portfolioLogo} style={{'background-image': `url(${portfolioLogo})`}}>
+                    <div className={styles.portfolioLogo} style={{'backgroundImage': `url(${portfolioLogo})`}}>
                         <div className={styles.viewPortfolio}>
                             <PrimaryButton>Выбрать ситтера</PrimaryButton>
                         </div>
                     </div>
                     <a href='#' className={styles.blogItem}>
-                        <div className={styles.portfolioItem} style={{'background-image': `url(${pets06})`}}>
+                        <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets06})`}}>
                             <span className={styles.portfolioContent}>
                                 <h4>Hello</h4>
                                 <p>World...</p>
@@ -133,7 +133,7 @@ class Home extends React.Component {
                         </div>
                     </a>
                     <a href='#' className={styles.blogItem}>
-                        <div className={styles.portfolioItem} style={{'background-image': `url(${pets07})`}}>
+                        <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets07})`}}>
                             <span className={styles.portfolioContent}>
                                 <h4>Hello</h4>
                                 <p>World...</p>
@@ -141,7 +141,7 @@ class Home extends React.Component {
                         </div>
                     </a>
                     <a href='#' className={styles.blogItem}>
-                        <div className={styles.portfolioItem} style={{'background-image': `url(${pets08})`}}>
+                        <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets08})`}}>
                            <span className={styles.portfolioContent}>
                                 <h4>Hello</h4>
                                 <p>World...</p>
@@ -149,7 +149,7 @@ class Home extends React.Component {
                         </div>
                     </a>
                     <a href='#' className={styles.blogItem}>
-                        <div className={styles.portfolioItem} style={{'background-image': `url(${pets09})`}}>
+                        <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets09})`}}>
                             <span className={styles.portfolioContent}>
                                 <h4>Hello</h4>
                                 <p>World...</p>
@@ -157,7 +157,7 @@ class Home extends React.Component {
                         </div>
                     </a>
                     <a href='#' className={styles.blogItem}>
-                        <div className={styles.portfolioItem} style={{'background-image': `url(${pets10})`}}>
+                        <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets10})`}}>
                             <span className={styles.portfolioContent}>
                                 <h4>Hello</h4>
                                 <p>World...</p>
