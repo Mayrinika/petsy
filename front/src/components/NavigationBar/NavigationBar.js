@@ -6,9 +6,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 
-import styles from './Navbar.css';
+import styles from './NavigationBar.css';
 
-class Navbar extends React.Component {
+class NavigationBar extends React.Component {
     render() {
         return (
             <AppBar>
@@ -23,4 +23,4 @@ class Navbar extends React.Component {
     }
 }
 
-export default Navbar;
+export default NavigationBar;
