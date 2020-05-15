@@ -1,10 +1,11 @@
 import React from 'react';
-import styles from './UserPage.css';
 import Grid from '@material-ui/core/Grid';
-
-import Review from '../../components/Review';
-
 import axios from 'axios';
+//Components
+import Review from '../../components/Review';
+import Profile from '../../components/Profile';
+//Styles
+import styles from './UserPage.css';
 
 class UserPage extends React.Component {
     constructor(props) {
@@ -36,7 +37,7 @@ class UserPage extends React.Component {
                         {recentReviewsMarkup}
                     </Grid>
                     <Grid item sm={4} xs={12}>
-                        <p>Профиль...</p>
+                        <Profile/>
                     </Grid>
                 </Grid>
             </div>

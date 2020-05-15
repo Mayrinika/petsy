@@ -1,5 +1,5 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core/styles';
+
 import {Link} from 'react-router-dom';
 
 import Card from '@material-ui/core/Card';
@@ -9,8 +9,8 @@ import Typography from '@material-ui/core/Typography';
 
 import dayjs from 'dayjs';
 import reletiveTime from 'dayjs/plugin/relativeTime';
-
-
+//Styles
+import {withStyles} from '@material-ui/core/styles';
 
 const styles = {
     card: {
