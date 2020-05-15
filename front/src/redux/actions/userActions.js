@@ -1,6 +1,6 @@
 import {SET_USER, SET_ERRORS, CLEAR_ERRORS, LOADING_UI, SET_UNAUTHENTICATED, LOADING_USER} from "../types";
 import axios from "axios";
-import routes from "../../components/RouterPaths";
+import routes from "../../util/RouterPaths";
 
 export const loginUser = (userData, history) => (dispatch) => {
     dispatch({type: LOADING_UI});

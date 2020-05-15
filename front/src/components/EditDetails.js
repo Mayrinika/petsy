@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 
 import PropTypes from 'prop-types';
 //MUI stuff
-import {Tooltip, TextField, IconButton, Button} from '@material-ui/core';
+import {TextField, Button} from '@material-ui/core';
 import {Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
 //Icons
 import {Edit as EditIcon,} from '@material-ui/icons';
@@ -11,6 +11,8 @@ import {withStyles} from "@material-ui/core";
 //Redux stuff
 import {connect} from 'react-redux';
 import {editUserDetails,} from "../redux/actions/userActions";
+//Util
+import MyIconButton from '../util/MyIconButton';
 
 const styles = {
     button: {
@@ -75,11 +77,9 @@ class EditDetails extends React.Component {
         const {classes} = this.props;
         return (
             <Fragment>
-                <Tooltip title='Изменить описание' placement='top'>
-                    <IconButton onClick={this.handleOpen} className={classes.button}>
-                        <EditIcon color='primary'/>
-                    </IconButton>
-                </Tooltip>
+                <MyIconButton tip='Изменить описание' placement='top' onClick={this.handleOpen} btnClassName={classes.button}>
+                    <EditIcon color='primary'/>
+                </MyIconButton>
                 <Dialog
                     open={this.state.open}
                     onClose={this.handleClose}

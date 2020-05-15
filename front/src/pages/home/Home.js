@@ -2,10 +2,10 @@ import React from "react";
 import {Link} from "react-router-dom";
 import classNames from "classnames/bind";
 
-import routes from '../../components/RouterPaths';
+import routes from '../../util/RouterPaths';
 import styles from "./Home.css";
-import PrimaryButton from "../../components/PrimaryButton";
-import SecondaryButton from "../../components/SecondaryButton";
+import PrimaryButton from "../../util/PrimaryButton";
+import SecondaryButton from "../../util/SecondaryButton";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 import logo from "../../images/logo.png";
