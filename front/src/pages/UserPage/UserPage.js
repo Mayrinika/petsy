@@ -1,35 +1,29 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 //Components
 import Review from '../../components/Review';
 import Profile from '../../components/Profile';
 //Styles
 import styles from './UserPage.css';
+//MUI stuff
+import Grid from '@material-ui/core/Grid';
+//Redux stuff
+import {connect} from 'react-redux';
+import {getReviews} from "../../redux/actions/dataActions";
 
 class UserPage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            reviews: null,
-        };
-    }
-
     componentDidMount() {
-        axios.get('/api/reviews')
-            .then(res => {
-                console.log(res.data);
-                this.setState({
-                    reviews: res.data
-                });
-            })
-            .catch(err => console.log(err));
+        this.props.getReviews();
     }
 
     render() {
-        let recentReviewsMarkup = this.state.reviews ? (
-            this.state.reviews.map(review => <Review key={review.reviewId} review={review}/>)
-        ) : (<p>Загрузка...</p>);
+        const {reviews, loading}=this.props.data;
+        let recentReviewsMarkup = !loading ? (
+            reviews.map(review => <Review key={review.reviewId} review={review}/>)
+        ) : (
+            <p>Загрузка...</p>
+        );
         return (
             <div className={styles.container}>
                 <Grid container spacing={3}> {/*16*/}
@@ -45,4 +39,13 @@ class UserPage extends React.Component {
     }
 }
 
-export default UserPage;
+UserPage.propTypes={
+    getReviews: PropTypes.func.isRequired,
+    data: PropTypes.object.isRequired,
+};
+
+const maoStateToProps=state=>({
+    data: state.data
+});
+
+export default connect(maoStateToProps,{getReviews})(UserPage);

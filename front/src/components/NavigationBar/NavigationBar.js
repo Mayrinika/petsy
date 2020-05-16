@@ -17,7 +17,8 @@ import {
     Edit as EditIcon,
     Add as AddIcon,
     Home as HomeIcon,
-    Notifications as NotificationsIcon
+    Notifications as NotificationsIcon,
+    AccountCircle as AccountCircleIcon,
 } from "@material-ui/icons";
 
 class NavigationBar extends React.Component {
@@ -39,14 +40,17 @@ class NavigationBar extends React.Component {
                             <MyIconButton tip='Уведомления'>
                                 <NotificationsIcon/>
                             </MyIconButton>
-                            <Button color='inherit' component={Link} to={routes.reviews}>Моя страница</Button>
+                            <Link to={routes.reviews}>
+                                <MyIconButton tip='Моя страница'>
+                                    <AccountCircleIcon/>
+                                </MyIconButton>
+                            </Link>
                         </Fragment>
                     ) : (
                         <Fragment>
                             <Button color='inherit' component={Link} to={routes.login}>Войти</Button>
                             <Button color='inherit' component={Link} to={routes.home}>Главная</Button>
                             <Button color='inherit' component={Link} to={routes.signup}>Регистрация</Button>
-                            <Button color='inherit' component={Link} to={routes.reviews}>Моя страница</Button>
                         </Fragment>
                     )}
                 </Toolbar>
