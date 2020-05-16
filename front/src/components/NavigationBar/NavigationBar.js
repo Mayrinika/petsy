@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 //Components
 import routes from '../../util/RouterPaths';
+import PostReview from '../PostReview';
 //Util
 import MyIconButton from '../../util/MyIconButton';
 //MUI stuff
@@ -29,9 +30,7 @@ class NavigationBar extends React.Component {
                 <Toolbar className={styles.navContainer}>
                     {authenticated ? (
                         <Fragment>
-                            <MyIconButton tip='Добавить отзыв'>
-                                <AddIcon/>
-                            </MyIconButton>
+                            <PostReview/>
                             <Link to={routes.home}>
                                 <MyIconButton tip='Главная'>
                                     <HomeIcon/>

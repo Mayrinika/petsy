@@ -3,7 +3,8 @@ import {
     LIKE_REVIEW,
     UNLIKE_REVIEW,
     LOADING_DATA,
-    DELETE_REVIEW
+    DELETE_REVIEW,
+    POST_REVIEW
 } from "../types";
 
 const initialState={
@@ -39,6 +40,14 @@ export default function (state = initialState, action) {
             state.reviews.splice(index,1);
             return {
                 ...state
+            };
+        case POST_REVIEW:
+            return {
+                ...state,
+                reviews: [
+                    action.payload,
+                    ...state.reviews
+                ]
             };
         default:
             return state;

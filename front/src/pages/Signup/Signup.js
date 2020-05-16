@@ -111,7 +111,7 @@ class Signup extends React.Component {
                                 id='password'
                                 name='password'
                                 type='password'
-                                label='Password'
+                                label='Пароль'
                                 className={classes.textField}
                                 // helperText={errors.password}
                                 helperText={errors && errors.password} //TODO ?
@@ -124,7 +124,7 @@ class Signup extends React.Component {
                                 id='confirmPassword'
                                 name='confirmPassword'
                                 type='password'
-                                label='ConfirmPassword'
+                                label='Повторите пароль'
                                 className={classes.textField}
                                 // helperText={errors.password}
                                 helperText={errors.confirmPassword}
@@ -137,7 +137,7 @@ class Signup extends React.Component {
                                 id='handle'
                                 name='handle'
                                 type='text'
-                                label='Handle'
+                                label='Ник'
                                 className={classes.textField}
                                 helperText={errors.handle}
                                 error={!!errors.handle}
