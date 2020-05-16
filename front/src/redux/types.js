@@ -8,6 +8,7 @@ export const SET_REVIEWS = 'SET_REVIEWS';
 export const SET_REVIEW = 'SET_REVIEW';
 export const LIKE_REVIEW = 'LIKE_REVIEW';
 export const UNLIKE_REVIEW = 'UNLIKE_REVIEW';
+export const DELETE_REVIEW = 'DELETE_REVIEW';
 //UI reducer types
 export const SET_ERRORS = 'SET_ERRORS';
 export const LOADING_UI = 'LOADING_UI';

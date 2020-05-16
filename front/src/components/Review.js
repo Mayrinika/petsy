@@ -22,12 +22,14 @@ import {
 //Utils
 import MyIconButton from '../util/MyIconButton';
 import routes from '../util/RouterPaths';
+//Components
+import DeleteReview from './DeleteReview';
 
 const styles = {
     card: {
         display: 'flex',
         marginBottom: 20,
-
+        position: 'relative'
     },
     image: {
         minWidth: 150,
@@ -67,26 +69,32 @@ class Review extends React.Component {
                 commentCount
             },
             user: {
-                authenticated
+                authenticated,
+                credentials:{
+                    handle
+                }
             }
         } = this.props;
         const likeButton=!authenticated ? (
-            <MyIconButton tip='like'>
+            <MyIconButton tip='Лайк'>
                 <Link to={routes.login}>
                     <FavoriteBorder color='primary'/>
                 </Link>
             </MyIconButton>
         ):(
             this.likedReview() ? (
-                <MyIconButton tip='Undo like' onClick={this.unlikeReview}>
+                <MyIconButton tip='Убрать лайк' onClick={this.unlikeReview}>
                     <FavoriteIcon color='primary'/>
                 </MyIconButton>
             ):(
-                <MyIconButton tip='Like' onClick={this.likeReview}>
+                <MyIconButton tip='Лайк' onClick={this.likeReview}>
                     <FavoriteBorder color='primary'/>
                 </MyIconButton>
             )
         );
+        const deleteButton=authenticated && userHandle===handle ? (
+            <DeleteReview reviewId={reviewId}/>
+        ):null;
         return (
             <Card className={classes.card}>
                 <CardMedia image={userImage} title='Profile image' className={classes.image}/>
@@ -99,11 +107,12 @@ class Review extends React.Component {
                     >
                         {userHandle}
                     </Typography>
+                    {deleteButton}
                     <Typography variant='body2' color='textSecondary'>{dayjs(createdAt).fromNow()}</Typography>
                     <Typography variant='body1'>{body}</Typography>
                     {likeButton}
                     <span>{likeCount}</span>
-                    <MyIconButton tip='comments'>
+                    <MyIconButton tip='Комментарии'>
                         <ChatIcon color='primary'/>
                     </MyIconButton>
                     <span>{commentCount}</span>

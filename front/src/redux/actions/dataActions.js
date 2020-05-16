@@ -1,4 +1,10 @@
-import {SET_REVIEWS, LOADING_DATA, LIKE_REVIEW, UNLIKE_REVIEW} from '../types';
+import {
+    SET_REVIEWS,
+    LOADING_DATA,
+    LIKE_REVIEW,
+    UNLIKE_REVIEW,
+    DELETE_REVIEW
+} from '../types';
 import axios from 'axios';
 
 //Get all reviews
@@ -41,3 +47,14 @@ export const unlikeReview=(reviewId)=>(dispatch)=>{
         })
         .catch(err=>console.log(err));
 };
+
+export const deleteReview=(reviewId)=>(dispatch=>{
+    axios.delete(`/api/review/${reviewId}`)
+        .then(()=>{
+            dispatch({
+                type: DELETE_REVIEW,
+                payload: reviewId,
+            })
+        })
+        .catch(err=>console.log(err));
+});
