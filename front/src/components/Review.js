@@ -24,6 +24,7 @@ import MyIconButton from '../util/MyIconButton';
 import routes from '../util/RouterPaths';
 //Components
 import DeleteReview from './DeleteReview';
+import ReviewDialog from './ReviewDialog';
 
 const styles = {
     card: {
@@ -116,6 +117,7 @@ class Review extends React.Component {
                         <ChatIcon color='primary'/>
                     </MyIconButton>
                     <span>{commentCount}</span>
+                    <ReviewDialog reviewId={reviewId} userHandle={userHandle}/>
                 </CardContent>
             </Card>
         );

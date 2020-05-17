@@ -10,9 +10,9 @@ import {withStyles} from "@material-ui/core";
 //Redux stuff
 import {connect} from 'react-redux';
 import {postReview, clearErrors} from "../redux/actions/dataActions";
+import {loginUser} from "../redux/actions/userActions";
 //Util
 import MyIconButton from '../util/MyIconButton';
-import {loginUser} from "../redux/actions/userActions";
 
 // const styles=theme=>({
 //     ...theme

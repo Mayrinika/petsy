@@ -15,7 +15,7 @@
     <session id="-673062240">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
+          <entry key="project.closed" value="20" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.4" value="3" />
@@ -33,7 +33,7 @@
           <entry key="css" value="24" />
           <entry key="firebaserc" value="2" />
           <entry key="html" value="4" />
-          <entry key="js" value="203" />
+          <entry key="js" value="213" />
           <entry key="json" value="23" />
           <entry key="md" value="1" />
           <entry key="ts" value="5" />
@@ -44,7 +44,7 @@
           <entry key="CSS" value="24" />
           <entry key="HTML" value="4" />
           <entry key="JSON" value="25" />
-          <entry key="JavaScript" value="203" />
+          <entry key="JavaScript" value="213" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="TypeScript" value="5" />
         </counts>
@@ -55,7 +55,7 @@
           <entry key="css" value="140" />
           <entry key="dummy" value="4" />
           <entry key="html" value="61" />
-          <entry key="js" value="32931" />
+          <entry key="js" value="34739" />
           <entry key="json" value="183" />
           <entry key="md" value="18" />
         </counts>
@@ -65,7 +65,7 @@
           <entry key="CSS" value="140" />
           <entry key="HTML" value="61" />
           <entry key="JSON" value="185" />
-          <entry key="JavaScript" value="32931" />
+          <entry key="JavaScript" value="34739" />
           <entry key="PLAIN_TEXT" value="22" />
         </counts>
       </usages-collector>
@@ -81,36 +81,48 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/src/redux/actions/dataActions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="79" column="40" lean-forward="true" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="40" />
+            <state relative-caret-position="-209">
+              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front/src/components/ReviewDialog.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
               <folding>
-                <element signature="e#0#184#0" expanded="true" />
+                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#203#251#0" expanded="true" />
+                <element signature="e#264#334#0" expanded="true" />
+                <element signature="e#515#551#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front/src/pages/Signup/Signup.js">
+        <entry file="file://$PROJECT_DIR$/front/src/redux/reducers/dataReducer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="139" column="42" selection-start-line="139" selection-start-column="39" selection-end-line="139" selection-end-column="42" />
+            <state relative-caret-position="380">
+              <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#0#133#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/src/components/PostReview.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+            <state relative-caret-position="95">
+              <caret line="92" column="16" lean-forward="true" selection-start-line="92" selection-start-column="16" selection-end-line="107" selection-end-column="34" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#87#157#0" expanded="true" />
                 <element signature="e#409#445#0" expanded="true" />
-                <element signature="e#510#558#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -153,8 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/front/src/styles/Navbar.css" />
-        <option value="$PROJECT_DIR$/front/src/App.css" />
         <option value="$PROJECT_DIR$/front/src/components/Navbar.js" />
         <option value="$PROJECT_DIR$/front/src/styles/Review.css" />
         <option value="$PROJECT_DIR$/front/src/pages/Reviews.js" />
@@ -179,7 +189,6 @@
         <option value="$PROJECT_DIR$/front/src/pages/Signup/Signup.css" />
         <option value="$PROJECT_DIR$/front/src/components/RouterPaths.js" />
         <option value="$PROJECT_DIR$/front/src/util/theme.js" />
-        <option value="$PROJECT_DIR$/front/src/redux/reducers/uiReducer.js" />
         <option value="$PROJECT_DIR$/front/src/pages/Home/Home.js" />
         <option value="$PROJECT_DIR$/front/src/App.js" />
         <option value="$PROJECT_DIR$/front/src/components/AuthRoute.js" />
@@ -197,13 +206,16 @@
         <option value="$PROJECT_DIR$/front/src/redux/reducers/userReducer.js" />
         <option value="$PROJECT_DIR$/front/src/pages/UserPage/UserPage.js" />
         <option value="$PROJECT_DIR$/front/src/components/DeleteReview.js" />
-        <option value="$PROJECT_DIR$/front/src/components/Review.js" />
         <option value="$PROJECT_DIR$/front/src/components/NavigationBar/NavigationBar.js" />
-        <option value="$PROJECT_DIR$/front/src/redux/types.js" />
-        <option value="$PROJECT_DIR$/front/src/redux/reducers/dataReducer.js" />
         <option value="$PROJECT_DIR$/front/src/pages/Signup/Signup.js" />
         <option value="$PROJECT_DIR$/front/src/redux/actions/dataActions.js" />
+        <option value="$PROJECT_DIR$/front/src/redux/reducers/uiReducer.js" />
+        <option value="$PROJECT_DIR$/front/src/components/Review.js" />
         <option value="$PROJECT_DIR$/front/src/components/PostReview.js" />
+        <option value="$PROJECT_DIR$/front/src/util/RouterPaths.js" />
+        <option value="$PROJECT_DIR$/front/src/redux/types.js" />
+        <option value="$PROJECT_DIR$/front/src/redux/reducers/dataReducer.js" />
+        <option value="$PROJECT_DIR$/front/src/components/ReviewDialog.js" />
       </list>
     </option>
   </component>
@@ -224,9 +236,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1037" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="978" />
+    <option name="height" value="1046" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -288,6 +301,21 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="redux" type="462c0819:PsiDirectoryNode" />
               <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="petsy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="petsy" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="redux" type="462c0819:PsiDirectoryNode" />
+              <item name="reducers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="petsy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="petsy" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -357,12 +385,12 @@
       <workItem from="1589621879532" duration="7258000" />
       <workItem from="1589637560733" duration="3724000" />
       <workItem from="1589644767852" duration="5208000" />
-      <workItem from="1589719155656" duration="1626000" />
+      <workItem from="1589719155656" duration="5469000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189939000" />
+    <option name="totallyTimeSpent" value="193782000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -374,7 +402,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="750" height="796" extended-state="0" />
+    <frame x="-7" y="-7" width="751" height="803" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.5" />
@@ -404,7 +432,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/back/cors.json" />
     <entry file="file://$PROJECT_DIR$/front/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -495,13 +522,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/redux/reducers/uiReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="45" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/redux/store.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -581,20 +601,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/util/RouterPaths.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/redux/reducers/userReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="51" column="92" selection-start-line="51" selection-start-column="92" selection-end-line="51" selection-end-column="92" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -604,17 +613,6 @@
           <caret line="40" selection-start-line="40" selection-end-line="40" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/components/Review.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="114" column="52" selection-start-line="114" selection-start-column="52" selection-end-line="114" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#713#761#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -630,20 +628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/redux/types.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/redux/reducers/dataReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -665,6 +649,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="152" selection-start-line="152" selection-end-line="154" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -706,6 +693,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/components/Review.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="122" column="10" lean-forward="true" selection-start-line="122" selection-start-column="10" selection-end-line="122" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#713#761#0" expanded="true" />
+            <element signature="e#817#859#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/redux/reducers/uiReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="33" column="25" lean-forward="true" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/pages/Signup/Signup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -716,24 +725,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/redux/actions/dataActions.js">
+    <entry file="file://$PROJECT_DIR$/front/src/components/PostReview.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="79" column="40" lean-forward="true" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="40" />
+        <state relative-caret-position="95">
+          <caret line="92" column="16" lean-forward="true" selection-start-line="92" selection-start-column="16" selection-end-line="107" selection-end-column="34" />
           <folding>
-            <element signature="e#0#184#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#87#157#0" expanded="true" />
+            <element signature="e#409#445#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/components/PostReview.js">
+    <entry file="file://$PROJECT_DIR$/front/src/redux/types.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+        <state relative-caret-position="323">
+          <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/redux/reducers/userReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="51" column="92" selection-start-line="51" selection-start-column="92" selection-end-line="51" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/redux/actions/dataActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-209">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/util/RouterPaths.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/redux/reducers/dataReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#133#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/components/ReviewDialog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
-            <element signature="e#409#445#0" expanded="true" />
-            <element signature="e#510#558#0" expanded="true" />
+            <element signature="e#203#251#0" expanded="true" />
+            <element signature="e#264#334#0" expanded="true" />
+            <element signature="e#515#551#0" expanded="true" />
           </folding>
         </state>
       </provider>

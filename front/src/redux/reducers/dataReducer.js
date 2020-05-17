@@ -4,7 +4,8 @@ import {
     UNLIKE_REVIEW,
     LOADING_DATA,
     DELETE_REVIEW,
-    POST_REVIEW
+    POST_REVIEW,
+    SET_REVIEW,
 } from "../types";
 
 const initialState={
@@ -25,6 +26,11 @@ export default function (state = initialState, action) {
                 ...state,
                 reviews: action.payload,
                 loading: false,
+            };
+        case SET_REVIEW:
+            return {
+                ...state,
+                review: action.payload,
             };
         case LIKE_REVIEW:
         case UNLIKE_REVIEW:

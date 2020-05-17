@@ -8,6 +8,8 @@ import {
     CLEAR_ERRORS,
     SET_ERRORS,
     POST_REVIEW,
+    SET_REVIEW,
+    STOP_LOADING_UI,
 } from '../types';
 import axios from 'axios';
 
@@ -27,6 +29,19 @@ export const getReviews = () => (dispatch) => {
                 payload: []
             })
         })
+};
+//Get one review
+export const getReview=(reviewId)=>dispatch=>{
+  dispatch({type:LOADING_UI});
+  axios.get(`/api/review/${reviewId}`)
+      .then(res=>{
+          dispatch({
+              type: SET_REVIEW,
+              payload: res.data
+          });
+          dispatch({type: STOP_LOADING_UI});
+      })
+      .catch(err=>console.log(err));
 };
 //Post a review
 export const postReview = (newReview) => (dispatch) => {

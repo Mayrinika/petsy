@@ -3,4 +3,5 @@ export default {
     signup : '/signup',
     login : '/login',
     reviews: '/userPage',
+    users: '/users',
 }
