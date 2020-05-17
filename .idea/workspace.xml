@@ -22,9 +22,9 @@
           <entry key="project.open.time.5" value="7" />
           <entry key="project.open.time.6" value="5" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.open.time.8" value="2" />
+          <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="22" />
+          <entry key="project.opened" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -33,7 +33,7 @@
           <entry key="css" value="24" />
           <entry key="firebaserc" value="2" />
           <entry key="html" value="4" />
-          <entry key="js" value="202" />
+          <entry key="js" value="203" />
           <entry key="json" value="23" />
           <entry key="md" value="1" />
           <entry key="ts" value="5" />
@@ -44,7 +44,7 @@
           <entry key="CSS" value="24" />
           <entry key="HTML" value="4" />
           <entry key="JSON" value="25" />
-          <entry key="JavaScript" value="202" />
+          <entry key="JavaScript" value="203" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="TypeScript" value="5" />
         </counts>
@@ -55,7 +55,7 @@
           <entry key="css" value="140" />
           <entry key="dummy" value="4" />
           <entry key="html" value="61" />
-          <entry key="js" value="32802" />
+          <entry key="js" value="32931" />
           <entry key="json" value="183" />
           <entry key="md" value="18" />
         </counts>
@@ -65,7 +65,7 @@
           <entry key="CSS" value="140" />
           <entry key="HTML" value="61" />
           <entry key="JSON" value="185" />
-          <entry key="JavaScript" value="32802" />
+          <entry key="JavaScript" value="32931" />
           <entry key="PLAIN_TEXT" value="22" />
         </counts>
       </usages-collector>
@@ -81,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/src/redux/actions/dataActions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+            <state relative-caret-position="399">
+              <caret line="79" column="40" lean-forward="true" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="40" />
               <folding>
                 <element signature="e#0#184#0" expanded="true" />
               </folding>
@@ -90,13 +90,27 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/src/pages/Signup/Signup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
+            <state relative-caret-position="361">
               <caret line="139" column="42" selection-start-line="139" selection-start-column="39" selection-end-line="139" selection-end-column="42" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front/src/components/PostReview.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#409#445#0" expanded="true" />
+                <element signature="e#510#558#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -187,9 +201,9 @@
         <option value="$PROJECT_DIR$/front/src/components/NavigationBar/NavigationBar.js" />
         <option value="$PROJECT_DIR$/front/src/redux/types.js" />
         <option value="$PROJECT_DIR$/front/src/redux/reducers/dataReducer.js" />
-        <option value="$PROJECT_DIR$/front/src/components/PostReview.js" />
-        <option value="$PROJECT_DIR$/front/src/redux/actions/dataActions.js" />
         <option value="$PROJECT_DIR$/front/src/pages/Signup/Signup.js" />
+        <option value="$PROJECT_DIR$/front/src/redux/actions/dataActions.js" />
+        <option value="$PROJECT_DIR$/front/src/components/PostReview.js" />
       </list>
     </option>
   </component>
@@ -209,11 +223,10 @@
       <path value="$PROJECT_DIR$/front/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="978" />
-    <option name="height" value="1046" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1037" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -238,6 +251,13 @@
               <item name="petsy" type="462c0819:PsiDirectoryNode" />
               <item name="front" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="petsy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="petsy" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="petsy" type="b2602c69:ProjectViewProjectNode" />
@@ -337,11 +357,12 @@
       <workItem from="1589621879532" duration="7258000" />
       <workItem from="1589637560733" duration="3724000" />
       <workItem from="1589644767852" duration="5208000" />
+      <workItem from="1589719155656" duration="1626000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188313000" />
+    <option name="totallyTimeSpent" value="189939000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -353,9 +374,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1488" height="803" extended-state="6" />
+    <frame x="-6" y="0" width="750" height="796" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17699724" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.5" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -367,7 +389,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3298351" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3298351" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4993113" visible="true" weight="0.32383808" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4993113" weight="0.32383808" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50068873" side_tool="true" weight="0.3628186" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3298351" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -559,9 +581,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -625,9 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#116#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -645,26 +661,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/components/PostReview.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="150" column="57" selection-start-line="150" selection-start-column="57" selection-end-line="150" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-            <element signature="e#88#140#0" expanded="true" />
-            <element signature="e#357#393#0" expanded="true" />
-            <element signature="e#510#558#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/pages/Login/Login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="152" selection-start-line="152" selection-end-line="154" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -706,22 +706,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/pages/Signup/Signup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="139" column="42" selection-start-line="139" selection-start-column="39" selection-end-line="139" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/redux/actions/dataActions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+        <state relative-caret-position="399">
+          <caret line="79" column="40" lean-forward="true" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="40" />
           <folding>
             <element signature="e#0#184#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/pages/Signup/Signup.js">
+    <entry file="file://$PROJECT_DIR$/front/src/components/PostReview.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="139" column="42" selection-start-line="139" selection-start-column="39" selection-end-line="139" selection-end-column="42" />
+        <state relative-caret-position="190">
+          <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#409#445#0" expanded="true" />
+            <element signature="e#510#558#0" expanded="true" />
           </folding>
         </state>
       </provider>

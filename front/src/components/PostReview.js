@@ -9,7 +9,7 @@ import {Edit as EditIcon, Add as AddIcon, Close as CloseIcon} from '@material-ui
 import {withStyles} from "@material-ui/core";
 //Redux stuff
 import {connect} from 'react-redux';
-import {postReview} from "../redux/actions/dataActions";
+import {postReview, clearErrors} from "../redux/actions/dataActions";
 //Util
 import MyIconButton from '../util/MyIconButton';
 import {loginUser} from "../redux/actions/userActions";
@@ -27,11 +27,13 @@ const styles = {
     },
     submitButton: {
         position: 'relative',
+        float :'right',
+        margin: 10
     },
     closeButton: {
         position: 'absolute',
-        left: '90%',
-        top: '10%'
+        left: '91%',
+        top: '6%'
     }
 };
 
@@ -52,8 +54,11 @@ class PostReview extends React.Component {
             });
         }
         if (!nextProps.UI.errors && !nextProps.UI.loading) {
-            this.setState({body: ''});
-            this.handleClose();
+            this.setState({
+                body: '',
+                open: false,
+                errors: {}
+            });
         }
     }
 
@@ -61,6 +66,7 @@ class PostReview extends React.Component {
         this.setState({open: true})
     };
     handleClose = () => {
+        this.props.clearErrors();
         this.setState({
             open: false,
             errors: {}
@@ -137,6 +143,7 @@ class PostReview extends React.Component {
 
 PostReview.propTypes = {
     postReview: PropTypes.func.isRequired,
+    clearErrors: PropTypes.func.isRequired,
     UI: PropTypes.object.isRequired,
 };
 
@@ -145,7 +152,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapActionsToProps = {
-    postReview
+    postReview,
+    clearErrors
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(PostReview));
