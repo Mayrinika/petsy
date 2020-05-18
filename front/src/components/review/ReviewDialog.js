@@ -59,17 +59,39 @@ class ReviewDialog extends React.Component {
         super(props);
         this.state = {
             open: false,
+            oldPath:'',
+            newPath:'',
         };
     }
 
+    componentDidMount(){
+        if(this.props.openDialog) {
+            this.handleOpen();
+        }
+    }
+
     handleOpen = () => {
+        let oldPath=window.location.pathname;
+        const {userHandle, reviewId}=this.props;
+        const newPath=`/users/${userHandle}/review/${reviewId}`;
+
+        if(oldPath===newPath) {
+            oldPath=`/users/${userHandle}`;
+        }
+
+        window.history.pushState(null,null,newPath);
+
         this.setState({
             open: true,
+            oldPath,
+            newPath
         });
         this.props.getReview(this.props.reviewId);
     };
 
     handleClose = () => {
+        window.history.pushState(null,null,this.state.oldPath);
+
         this.setState({
             open: false,
         });

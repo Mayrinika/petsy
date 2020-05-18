@@ -12,48 +12,63 @@ import {getUserData} from "../../redux/actions/dataActions";
 //Styles
 import styles from './User.css';
 
-class User extends React.Component{
-    constructor(props){
+class User extends React.Component {
+    constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             profile: null,
+            reviewIdParam: null,
         };
     }
 
     componentDidMount() {
-        const handle=this.props.match.params.handle;
+        const handle = this.props.match.params.handle;
+        const reviewId = this.props.match.params.reviewId;
+
+        if (reviewId) {
+            this.setState({
+                reviewIdParam: reviewId,
+            });
+        }
+
         this.props.getUserData(handle);
         axios.get(`/api/user/${handle}`)
-            .then(res=>{
+            .then(res => {
                 this.setState({
-                    profile:res.data.user,
+                    profile: res.data.user,
                 });
             })
-            .catch(err=>console.log(err));
+            .catch(err => console.log(err));
     }
 
     render() {
-        const {reviews,loading}=this.props.data;
-        const reviewsMarkup=loading ? (
+        const {reviews, loading} = this.props.data;
+        const {reviewIdParam} = this.state;
+        const reviewsMarkup = loading ? (
             <p>Загрузка...</p>
-        ):(
-            reviews ===null ? (
-                <p>У данного пользователя еще нт отзывов</p>
-            ):(
-                reviews.map(review=><Review key={review.reviewId} review={review}/>)
-            )
-        );
+        ) : reviews === null ? (
+                <p>У данного пользователя еще нет отзывов</p>
+            ) : !reviewIdParam ? (
+                reviews.map(review => <Review key={review.reviewId} review={review}/>)
+            ) : (
+                reviews.map(review => {
+                    if (review.reviewId !== reviewIdParam)
+                        return <Review key={review.reviewId} review={review}/>;
+                    else
+                        return <Review key={review.reviewId} review={review} openDialog/>;
+                })
+            );
 
-        return(
+        return (
             <div className={styles.container}>
                 <Grid container spacing={3}> {/*16*/}
                     <Grid item sm={8} xs={12}>
                         {reviewsMarkup}
                     </Grid>
                     <Grid item sm={4} xs={12}>
-                        { this.state.profile===null ? (
+                        {this.state.profile === null ? (
                             <p>Загрузка профиля...</p>
-                        ):(
+                        ) : (
                             <StaticProfile profile={this.state.profile}/>
                         )}
                     </Grid>
@@ -63,12 +78,12 @@ class User extends React.Component{
     }
 }
 
-User.propTypes={
-  getUserData: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
+User.propTypes = {
+    getUserData: PropTypes.func.isRequired,
+    data: PropTypes.object.isRequired,
 };
 
-const mapStateToProps=state=>({
+const mapStateToProps = state => ({
     data: state.data,
 });
 

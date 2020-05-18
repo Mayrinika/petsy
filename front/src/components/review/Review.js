@@ -92,7 +92,7 @@ class Review extends React.Component {
                         <ChatIcon color='primary'/>
                     </MyIconButton>
                     <span>{commentCount}</span>
-                    <ReviewDialog reviewId={reviewId} userHandle={userHandle}/>
+                    <ReviewDialog reviewId={reviewId} userHandle={userHandle} openDialog={this.props.openDialog}/>
                 </CardContent>
             </Card>
         );
@@ -103,6 +103,7 @@ Review.propTypes = {
     user: PropTypes.object.isRequired,
     review: PropTypes.object.isRequired,
     classes: PropTypes.object.isRequired,
+    openDialog: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => ({

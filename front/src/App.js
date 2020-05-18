@@ -78,6 +78,7 @@ class App extends React.Component {
                                 />
                                 <Route exact path={routes.reviews} component={Reviews}/>
                                 <Route exact path={`${routes.users}/:handle`} component={User}/>
+                                <Route exact path={`${routes.users}/:handle/review/:reviewId`} component={User}/>
                             </Switch>
                         </div>
                     </BrowserRouter>
