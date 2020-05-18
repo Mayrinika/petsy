@@ -25,6 +25,7 @@ import routes from '../util/RouterPaths';
 //Components
 import DeleteReview from './DeleteReview';
 import ReviewDialog from './ReviewDialog';
+import LikeButton from "./LikeButton";
 
 const styles = {
     card: {
@@ -45,17 +46,7 @@ const styles = {
 };
 
 class Review extends React.Component {
-    likedReview=()=>{
-        if(this.props.user.likes && this.props.user.likes.find(like=>like.reviewId===this.props.review.reviewId))
-            return true;
-        else return false;
-    };
-    likeReview=()=>{
-        this.props.likeReview(this.props.review.reviewId);
-    };
-    unlikeReview=()=>{
-        this.props.unlikeReview(this.props.review.reviewId);
-    };
+    
     render() {
         dayjs.extend(reletiveTime);
         const {
@@ -76,23 +67,7 @@ class Review extends React.Component {
                 }
             }
         } = this.props;
-        const likeButton=!authenticated ? (
-            <MyIconButton tip='Лайк'>
-                <Link to={routes.login}>
-                    <FavoriteBorder color='primary'/>
-                </Link>
-            </MyIconButton>
-        ):(
-            this.likedReview() ? (
-                <MyIconButton tip='Убрать лайк' onClick={this.unlikeReview}>
-                    <FavoriteIcon color='primary'/>
-                </MyIconButton>
-            ):(
-                <MyIconButton tip='Лайк' onClick={this.likeReview}>
-                    <FavoriteBorder color='primary'/>
-                </MyIconButton>
-            )
-        );
+
         const deleteButton=authenticated && userHandle===handle ? (
             <DeleteReview reviewId={reviewId}/>
         ):null;
@@ -111,7 +86,7 @@ class Review extends React.Component {
                     {deleteButton}
                     <Typography variant='body2' color='textSecondary'>{dayjs(createdAt).fromNow()}</Typography>
                     <Typography variant='body1'>{body}</Typography>
-                    {likeButton}
+                    <LikeButton reviewId={reviewId}/>
                     <span>{likeCount}</span>
                     <MyIconButton tip='Комментарии'>
                         <ChatIcon color='primary'/>
@@ -125,8 +100,6 @@ class Review extends React.Component {
 }
 
 Review.propTypes = {
-    likeReview: PropTypes.func.isRequired,
-    unlikeReview: PropTypes.func.isRequired,
     user: PropTypes.object.isRequired,
     review: PropTypes.object.isRequired,
     classes: PropTypes.object.isRequired,
@@ -136,10 +109,5 @@ const mapStateToProps = (state) => ({
     user: state.user,
 });
 
-const mapActionsToProps = {
-    likeReview,
-    unlikeReview,
-};
-
-export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(Review));
+export default connect(mapStateToProps)(withStyles(styles)(Review));
 

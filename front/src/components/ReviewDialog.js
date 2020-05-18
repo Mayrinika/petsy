@@ -7,21 +7,23 @@ import {withStyles} from "@material-ui/core";
 //Util
 import MyIconButton from '../util/MyIconButton';
 import routes from '../util/RouterPaths';
+//Components
+import LikeButton from "./LikeButton";
 //MUI stuff
 import {TextField, Button, CircularProgress, Grid, Typography} from '@material-ui/core';
 import {Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
 //Icons
-import {Close as CloseIcon, UnfoldMore} from '@material-ui/icons';
+import {Chat as ChatIcon, Close as CloseIcon, UnfoldMore} from '@material-ui/icons';
 //Redux stuff
 import {connect} from 'react-redux';
 import {getReview} from "../redux/actions/dataActions";
 
 const styles = {
-    invisibleSeparator:{
-        border:'none',
+    invisibleSeparator: {
+        border: 'none',
         margin: 4,
     },
-    profileImage:{
+    profileImage: {
         maxWidth: 200,
         height: 200,
         borderRadius: '50%',
@@ -33,6 +35,15 @@ const styles = {
     closeButton: {
         position: 'absolute',
         left: '90%'
+    },
+    expandButton: {
+        position: 'absolute',
+        left: '90%'
+    },
+    spinnerDiv: {
+        textAlign: 'center',
+        marginTop: 50,
+        marginBottom: 50,
     }
 };
 
@@ -72,9 +83,11 @@ class ReviewDialog extends React.Component {
             UI: {loading}
         } = this.props;
 
-        const dialogMarkup= loading ?(
-            <CircularProgress size={200}/>
-        ):(
+        const dialogMarkup = loading ? (
+            <div className={classes.spinnerDiv}>
+                <CircularProgress size={200} thickness={2}/>
+            </div>
+        ) : (
             <Grid container spacing={16}>
                 <Grid item={5}>
                     <img
@@ -103,6 +116,12 @@ class ReviewDialog extends React.Component {
                     <Typography variant='body1'>
                         {body}
                     </Typography>
+                    <LikeButton reviewId={reviewId}/>
+                    <span>{likeCount}</span>
+                    <MyIconButton tip='Комментарии'>
+                        <ChatIcon color='primary'/>
+                    </MyIconButton>
+                    <span>{commentCount}</span>
                 </Grid>
             </Grid>
         );

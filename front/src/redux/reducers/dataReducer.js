@@ -37,6 +37,9 @@ export default function (state = initialState, action) {
             let index = state.reviews.findIndex(
                 (review)=>review.reviewId===action.payload.reviewId);
             state.reviews[index]=action.payload;
+            if(state.review.reviewId===action.payload.reviewId) {
+                state.review=action.payload;
+            }
             return{
                 ...state,
             };
