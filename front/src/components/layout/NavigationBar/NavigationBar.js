@@ -2,10 +2,10 @@ import React, {Fragment} from "react";
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 //Components
-import routes from '../../util/RouterPaths';
-import PostReview from '../PostReview';
+import routes from '../../../util/RouterPaths';
+import PostReview from '../../review/PostReview';
 //Util
-import MyIconButton from '../../util/MyIconButton';
+import MyIconButton from '../../../util/MyIconButton';
 //MUI stuff
 import {AppBar, Toolbar} from '@material-ui/core';
 import {Button} from '@material-ui/core';

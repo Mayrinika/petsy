@@ -10,9 +10,9 @@ import {Edit as EditIcon,} from '@material-ui/icons';
 import {withStyles} from "@material-ui/core";
 //Redux stuff
 import {connect} from 'react-redux';
-import {editUserDetails,} from "../redux/actions/userActions";
+import {editUserDetails,} from "../../redux/actions/userActions";
 //Util
-import MyIconButton from '../util/MyIconButton';
+import MyIconButton from '../../util/MyIconButton';
 
 const styles = {
     button: {

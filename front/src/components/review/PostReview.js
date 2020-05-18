@@ -9,10 +9,10 @@ import {Edit as EditIcon, Add as AddIcon, Close as CloseIcon} from '@material-ui
 import {withStyles} from "@material-ui/core";
 //Redux stuff
 import {connect} from 'react-redux';
-import {postReview, clearErrors} from "../redux/actions/dataActions";
-import {loginUser} from "../redux/actions/userActions";
+import {postReview, clearErrors} from "../../redux/actions/dataActions";
+import {loginUser} from "../../redux/actions/userActions";
 //Util
-import MyIconButton from '../util/MyIconButton';
+import MyIconButton from '../../util/MyIconButton';
 
 // const styles=theme=>({
 //     ...theme

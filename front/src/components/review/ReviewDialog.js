@@ -5,10 +5,11 @@ import dayjs from 'dayjs';
 //Styles
 import {withStyles} from "@material-ui/core";
 //Util
-import MyIconButton from '../util/MyIconButton';
-import routes from '../util/RouterPaths';
+import MyIconButton from '../../util/MyIconButton';
+import routes from '../../util/RouterPaths';
 //Components
 import LikeButton from "./LikeButton";
+import Comments from './Comments';
 //MUI stuff
 import {TextField, Button, CircularProgress, Grid, Typography} from '@material-ui/core';
 import {Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
@@ -16,12 +17,17 @@ import {Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/co
 import {Chat as ChatIcon, Close as CloseIcon, UnfoldMore} from '@material-ui/icons';
 //Redux stuff
 import {connect} from 'react-redux';
-import {getReview} from "../redux/actions/dataActions";
+import {getReview} from "../../redux/actions/dataActions";
 
 const styles = {
     invisibleSeparator: {
         border: 'none',
         margin: 4,
+    },
+    visibleSeparator: {
+        width:'100%',
+        borderBottom: '1px solid rgba(0,0,0,0.1)',
+        marginBottom: 20
     },
     profileImage: {
         maxWidth: 200,
@@ -78,7 +84,8 @@ class ReviewDialog extends React.Component {
                 likeCount,
                 commentCount,
                 userImage,
-                userHandle
+                userHandle,
+                comments
             },
             UI: {loading}
         } = this.props;
@@ -123,6 +130,9 @@ class ReviewDialog extends React.Component {
                     </MyIconButton>
                     <span>{commentCount}</span>
                 </Grid>
+                {/* TODO comment input*/}
+                <hr className={classes.visibleSeparator}/>
+                <Comments comments={comments}/>
             </Grid>
         );
         return (

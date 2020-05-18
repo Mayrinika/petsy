@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import {withStyles} from '@material-ui/core/styles';
 //Redux stuff
 import {connect} from 'react-redux';
-import {likeReview, unlikeReview} from "../redux/actions/dataActions";
+import {likeReview, unlikeReview} from "../../redux/actions/dataActions";
 //Icons
 import {
     Chat as ChatIcon,
@@ -20,8 +20,8 @@ import {
     FavoriteBorder,
 } from '@material-ui/icons';
 //Utils
-import MyIconButton from '../util/MyIconButton';
-import routes from '../util/RouterPaths';
+import MyIconButton from '../../util/MyIconButton';
+import routes from '../../util/RouterPaths';
 //Components
 import DeleteReview from './DeleteReview';
 import ReviewDialog from './ReviewDialog';

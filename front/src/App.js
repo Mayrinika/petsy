@@ -8,7 +8,8 @@ import store from './redux/store';
 import {SET_AUTHENTICATED} from "./redux/types";
 import {logoutUser, getUserData} from "./redux/actions/userActions";
 //Components
-import NavigationBar from './components/NavigationBar/NavigationBar';
+import NavigationBar from './components/layout/NavigationBar/NavigationBar';
+//Utils
 import AuthRoute from './util/AuthRoute';
 import routes from './util/RouterPaths';
 //Pages

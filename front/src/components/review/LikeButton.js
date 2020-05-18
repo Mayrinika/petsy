@@ -2,8 +2,8 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 //Utils
-import MyIconButton from "../util/MyIconButton";
-import routes from "../util/RouterPaths";
+import MyIconButton from "../../util/MyIconButton";
+import routes from "../../util/RouterPaths";
 //Icons
 import {
     Favorite as FavoriteIcon,
@@ -11,7 +11,7 @@ import {
 } from "@material-ui/icons";
 //Redux stuff
 import {connect} from 'react-redux';
-import {likeReview, unlikeReview} from "../redux/actions/dataActions";
+import {likeReview, unlikeReview} from "../../redux/actions/dataActions";
 
 class LikeButton extends React.Component {
     likedReview = () => {

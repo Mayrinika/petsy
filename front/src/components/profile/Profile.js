@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 //Util
-import routes from '../util/RouterPaths';
-import MyIconButton from '../util/MyIconButton';
+import routes from '../../util/RouterPaths';
+import MyIconButton from '../../util/MyIconButton';
 //Components
 import EditDetails from './EditDetails';
 //Styles
@@ -23,7 +23,7 @@ import {
 } from '@material-ui/icons';
 //Redux
 import {connect} from 'react-redux';
-import {logoutUser, uploadImage} from "../redux/actions/userActions";
+import {logoutUser, uploadImage} from "../../redux/actions/userActions";
 
 const styles = (theme) => ({
     paper: {

@@ -1,9 +1,8 @@
 import React from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 //Components
-import Review from '../../components/Review';
-import Profile from '../../components/Profile';
+import Review from '../../components/review/Review';
+import Profile from '../../components/profile/Profile';
 //Styles
 import styles from './UserPage.css';
 //MUI stuff
