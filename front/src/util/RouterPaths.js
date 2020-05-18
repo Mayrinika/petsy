@@ -2,6 +2,6 @@ export default {
     home : '/',
     signup : '/signup',
     login : '/login',
-    reviews: '/userPage',
+    reviews: '/reviews',
     users: '/users',
 }

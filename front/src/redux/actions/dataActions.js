@@ -113,6 +113,25 @@ export const deleteReview = (reviewId) => (dispatch => {
         .catch(err => console.log(err));
 });
 
+export const getUserData=(userHandle)=>(dispatch)=>{
+    dispatch({
+        type: LOADING_DATA
+    });
+    axios.get(`/api/user/${userHandle}`)
+        .then(res=>{ //TODO: user details
+            dispatch({
+                type: SET_REVIEWS,
+                payload: res.data.reviews
+            });
+        })
+        .catch(()=>{
+            dispatch({
+                type: SET_REVIEWS,
+                payload: null
+            });
+        });
+};
+
 export const clearErrors=()=>(dispatch)=>{
     dispatch({type:CLEAR_ERRORS});
 };

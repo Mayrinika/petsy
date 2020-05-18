@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import Review from '../../components/review/Review';
 import Profile from '../../components/profile/Profile';
 //Styles
-import styles from './UserPage.css';
+import styles from './Reviews.css';
 //MUI stuff
 import Grid from '@material-ui/core/Grid';
 //Redux stuff
 import {connect} from 'react-redux';
 import {getReviews} from "../../redux/actions/dataActions";
 
-class UserPage extends React.Component {
+class Reviews extends React.Component {
     componentDidMount() {
         this.props.getReviews();
     }
@@ -38,7 +38,7 @@ class UserPage extends React.Component {
     }
 }
 
-UserPage.propTypes={
+Reviews.propTypes={
     getReviews: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
 };
@@ -47,4 +47,4 @@ const maoStateToProps=state=>({
     data: state.data
 });
 
-export default connect(maoStateToProps,{getReviews})(UserPage);
+export default connect(maoStateToProps,{getReviews})(Reviews);

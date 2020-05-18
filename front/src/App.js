@@ -16,7 +16,8 @@ import routes from './util/RouterPaths';
 import Home from "./pages/Home/Home";
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
-import UserPage from './pages/UserPage/UserPage';
+import Reviews from './pages/Reviews/Reviews';
+import User from './pages/User/User';
 //Styles
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import styles from './App.css';
@@ -75,7 +76,8 @@ class App extends React.Component {
                                     path={routes.signup}
                                     component={Signup}
                                 />
-                                <Route exact path={routes.reviews} component={UserPage}/>
+                                <Route exact path={routes.reviews} component={Reviews}/>
+                                <Route exact path={`${routes.users}/:handle`} component={User}/>
                             </Switch>
                         </div>
                     </BrowserRouter>

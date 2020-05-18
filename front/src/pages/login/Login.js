@@ -1,11 +1,12 @@
 import React from 'react';
-
-import {Typography, Grid, TextField, Button, CircularProgress} from '@material-ui/core';
 import {Link} from 'react-router-dom';
-import icon from '../../images/icon.png';
-import routes from '../../util/RouterPaths';
-
 import PropTypes from 'prop-types';
+//MUI stuff
+import {Typography, Grid, TextField, Button, CircularProgress} from '@material-ui/core';
+//Icons
+import icon from '../../images/icon.png';
+//Utils
+import routes from '../../util/RouterPaths';
 //Styles
 import {withStyles} from '@material-ui/core/styles';
 import loginStyles from './Login.css';
