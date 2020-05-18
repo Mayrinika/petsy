@@ -10,11 +10,11 @@ import {TextField, Button, CircularProgress, Grid, Typography} from '@material-u
 import routes from '../../util/RouterPaths';
 
 const styles={
-    invisibleSeparator: {
+    invisibleSeparator: { //all
         border: 'none',
         margin: 4,
     },
-    visibleSeparator: {
+    visibleSeparator: { //all
         width:'100%',
         borderBottom: '1px solid rgba(0,0,0,0.1)',
         marginBottom: 20

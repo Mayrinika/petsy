@@ -6,6 +6,7 @@ import {
     DELETE_REVIEW,
     POST_REVIEW,
     SET_REVIEW,
+    SUBMIT_COMMENT,
 } from "../types";
 
 const initialState={
@@ -57,6 +58,17 @@ export default function (state = initialState, action) {
                     action.payload,
                     ...state.reviews
                 ]
+            };
+        case SUBMIT_COMMENT:
+            return {
+                ...state,
+                review: {
+                    ...state.review,
+                    comments: [
+                        action.payload,
+                        ...state.review.comments
+                    ]
+                }
             };
         default:
             return state;

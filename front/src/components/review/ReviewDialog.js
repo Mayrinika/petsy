@@ -10,6 +10,7 @@ import routes from '../../util/RouterPaths';
 //Components
 import LikeButton from "./LikeButton";
 import Comments from './Comments';
+import CommentForm from './CommentForm';
 //MUI stuff
 import {TextField, Button, CircularProgress, Grid, Typography} from '@material-ui/core';
 import {Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
@@ -17,7 +18,7 @@ import {Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/co
 import {Chat as ChatIcon, Close as CloseIcon, UnfoldMore} from '@material-ui/icons';
 //Redux stuff
 import {connect} from 'react-redux';
-import {getReview} from "../../redux/actions/dataActions";
+import {getReview, clearErrors} from "../../redux/actions/dataActions";
 
 const styles = {
     invisibleSeparator: {
@@ -25,7 +26,7 @@ const styles = {
         margin: 4,
     },
     visibleSeparator: {
-        width:'100%',
+        width: '100%',
         borderBottom: '1px solid rgba(0,0,0,0.1)',
         marginBottom: 20
     },
@@ -72,6 +73,7 @@ class ReviewDialog extends React.Component {
         this.setState({
             open: false,
         });
+        this.props.clearErrors();
     };
 
     render() {
@@ -130,8 +132,8 @@ class ReviewDialog extends React.Component {
                     </MyIconButton>
                     <span>{commentCount}</span>
                 </Grid>
-                {/* TODO comment input*/}
                 <hr className={classes.visibleSeparator}/>
+                <CommentForm reviewId={reviewId}/>
                 <Comments comments={comments}/>
             </Grid>
         );
@@ -167,6 +169,7 @@ class ReviewDialog extends React.Component {
 }
 
 ReviewDialog.propTypes = {
+    clearErrors: PropTypes.func.isRequired,
     getReview: PropTypes.func.isRequired,
     reviewId: PropTypes.string.isRequired,
     userHandle: PropTypes.string.isRequired,
@@ -182,6 +185,7 @@ const mapStateToProps = (state) => ({
 
 const mapActionsToProps = {
     getReview,
+    clearErrors
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(ReviewDialog));
