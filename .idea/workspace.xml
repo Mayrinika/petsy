@@ -15,7 +15,7 @@
     <session id="-673062240">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="21" />
+          <entry key="project.closed" value="22" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.4" value="3" />
@@ -33,8 +33,8 @@
           <entry key="css" value="28" />
           <entry key="firebaserc" value="2" />
           <entry key="html" value="4" />
-          <entry key="js" value="257" />
-          <entry key="json" value="23" />
+          <entry key="js" value="265" />
+          <entry key="json" value="24" />
           <entry key="md" value="1" />
           <entry key="ts" value="5" />
         </counts>
@@ -43,8 +43,8 @@
         <counts>
           <entry key="CSS" value="28" />
           <entry key="HTML" value="4" />
-          <entry key="JSON" value="25" />
-          <entry key="JavaScript" value="257" />
+          <entry key="JSON" value="26" />
+          <entry key="JavaScript" value="265" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="TypeScript" value="5" />
         </counts>
@@ -55,7 +55,7 @@
           <entry key="css" value="140" />
           <entry key="dummy" value="4" />
           <entry key="html" value="61" />
-          <entry key="js" value="40314" />
+          <entry key="js" value="42309" />
           <entry key="json" value="183" />
           <entry key="md" value="18" />
         </counts>
@@ -65,7 +65,7 @@
           <entry key="CSS" value="140" />
           <entry key="HTML" value="61" />
           <entry key="JSON" value="185" />
-          <entry key="JavaScript" value="40314" />
+          <entry key="JavaScript" value="42309" />
           <entry key="PLAIN_TEXT" value="22" />
         </counts>
       </usages-collector>
@@ -78,27 +78,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front/src/App.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front/src/components/layout/NavigationBar/Notifications.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="67" column="43" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
+            <state relative-caret-position="323">
+              <caret line="89" column="53" lean-forward="true" selection-start-line="89" selection-start-column="53" selection-end-line="89" selection-end-column="53" />
               <folding>
-                <element signature="e#541#578#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#195#289#0" expanded="true" />
+                <element signature="e#319#394#0" expanded="true" />
+                <element signature="e#463#499#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/front/src/components/review/ReviewDialog.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front/src/redux/actions/userActions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+            <state relative-caret-position="380">
+              <caret line="91" column="38" lean-forward="true" selection-start-line="91" selection-start-column="38" selection-end-line="91" selection-end-column="38" />
               <folding>
-                <element signature="e#0#38#0" expanded="true" />
-                <element signature="e#313#351#0" expanded="true" />
+                <element signature="e#0#107#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front/src/redux/reducers/userReducer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="499">
+              <caret line="58" column="14" selection-end-line="62" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#143#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front/src/redux/types.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="49" lean-forward="true" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -106,10 +129,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/src/pages/User/User.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="57" column="87" selection-start-line="57" selection-start-column="77" selection-end-line="57" selection-end-column="87" />
+            <state relative-caret-position="152">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="10" selection-end-column="60" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#302#338#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -118,11 +142,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/src/components/review/Review.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="94" column="111" selection-start-line="94" selection-start-column="101" selection-end-line="94" selection-end-column="111" />
+            <state relative-caret-position="132">
+              <caret line="10" selection-start-line="10" selection-end-line="11" selection-end-column="52" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#479#515#0" expanded="true" />
+                <element signature="e#598#707#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,6 +179,7 @@
       <find>render</find>
       <find>userReducer</find>
       <find>ba</find>
+      <find>notification</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Mayrinika\Diplom\petsy\front\src</dir>
@@ -165,13 +191,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/back/package.json" />
-        <option value="$PROJECT_DIR$/front/webpack.config.js" />
         <option value="$PROJECT_DIR$/front/package.json" />
         <option value="$PROJECT_DIR$/back/firebase.json" />
         <option value="$PROJECT_DIR$/front/src/components/navbar/Navbar.js" />
         <option value="$PROJECT_DIR$/front/src/pages/reviews/Reviews.js" />
-        <option value="$PROJECT_DIR$/back/functions/handlers/users.js" />
         <option value="$PROJECT_DIR$/back/functions/util/validators.js" />
         <option value="$PROJECT_DIR$/front/src/pages/login/Login.js" />
         <option value="$PROJECT_DIR$/front/src/pages/Reviews/Reviews.js" />
@@ -185,13 +208,11 @@
         <option value="$PROJECT_DIR$/back/functions/util/fbAuth.js" />
         <option value="$PROJECT_DIR$/back/functions/index.js" />
         <option value="$PROJECT_DIR$/back/functions/handlers/reviews.js" />
-        <option value="$PROJECT_DIR$/front/src/redux/actions/userActions.js" />
         <option value="$PROJECT_DIR$/front/src/util/IconButton.js" />
         <option value="$PROJECT_DIR$/front/src/components/NavigationBar/NavigationBar.css" />
         <option value="$PROJECT_DIR$/front/src/util/MyIconButton.js" />
         <option value="$PROJECT_DIR$/front/src/components/Profile.js" />
         <option value="$PROJECT_DIR$/front/src/components/EditDetails.js" />
-        <option value="$PROJECT_DIR$/front/src/redux/reducers/userReducer.js" />
         <option value="$PROJECT_DIR$/front/src/components/DeleteReview.js" />
         <option value="$PROJECT_DIR$/front/src/components/NavigationBar/NavigationBar.js" />
         <option value="$PROJECT_DIR$/front/src/pages/Signup/Signup.js" />
@@ -201,7 +222,6 @@
         <option value="$PROJECT_DIR$/front/src/components/LikeButton.js" />
         <option value="$PROJECT_DIR$/front/src/components/ReviewDialog.js" />
         <option value="$PROJECT_DIR$/front/src/pages/UserPage/UserPage.js" />
-        <option value="$PROJECT_DIR$/front/src/redux/types.js" />
         <option value="$PROJECT_DIR$/front/src/redux/reducers/dataReducer.js" />
         <option value="$PROJECT_DIR$/front/src/components/review/Comments.js" />
         <option value="$PROJECT_DIR$/front/src/components/review/CommentForm.js" />
@@ -216,6 +236,12 @@
         <option value="$PROJECT_DIR$/front/src/pages/User/User.js" />
         <option value="$PROJECT_DIR$/front/src/App.js" />
         <option value="$PROJECT_DIR$/front/src/components/review/ReviewDialog.js" />
+        <option value="$PROJECT_DIR$/front/src/components/layout/NavigationBar/NavigationBar.js" />
+        <option value="$PROJECT_DIR$/front/src/redux/types.js" />
+        <option value="$PROJECT_DIR$/front/src/redux/actions/userActions.js" />
+        <option value="$PROJECT_DIR$/front/src/redux/reducers/userReducer.js" />
+        <option value="$PROJECT_DIR$/back/functions/handlers/users.js" />
+        <option value="$PROJECT_DIR$/front/src/components/layout/NavigationBar/Notifications.js" />
       </list>
     </option>
   </component>
@@ -235,7 +261,7 @@
       <path value="$PROJECT_DIR$/front/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="977" />
     <option name="height" value="1037" />
@@ -253,6 +279,24 @@
             <path>
               <item name="petsy" type="b2602c69:ProjectViewProjectNode" />
               <item name="petsy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="petsy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="petsy" type="462c0819:PsiDirectoryNode" />
+              <item name="back" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="petsy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="petsy" type="462c0819:PsiDirectoryNode" />
+              <item name="back" type="462c0819:PsiDirectoryNode" />
+              <item name="functions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="petsy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="petsy" type="462c0819:PsiDirectoryNode" />
+              <item name="back" type="462c0819:PsiDirectoryNode" />
+              <item name="functions" type="462c0819:PsiDirectoryNode" />
+              <item name="handlers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="petsy" type="b2602c69:ProjectViewProjectNode" />
@@ -435,12 +479,12 @@
       <workItem from="1589644767852" duration="5208000" />
       <workItem from="1589719155656" duration="5469000" />
       <workItem from="1589726799426" duration="1604000" />
-      <workItem from="1589792658817" duration="18756000" />
+      <workItem from="1589792658817" duration="24467000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214142000" />
+    <option name="totallyTimeSpent" value="219853000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -452,10 +496,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="750" height="796" extended-state="0" />
+    <frame x="-7" y="-7" width="1488" height="803" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.31512606" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.36914602" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -482,7 +526,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/back/node_modules/@types/express-serve-static-core/index.d.ts" />
     <entry file="file://$PROJECT_DIR$/back/node_modules/cors/lib/index.js" />
     <entry file="file://$PROJECT_DIR$/back/package.json" />
     <entry file="file://$PROJECT_DIR$/front/package.json">
@@ -549,23 +592,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/back/functions/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="47" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/back/functions/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2565" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back/functions/handlers/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="243" column="27" lean-forward="true" selection-start-line="243" selection-start-column="27" selection-end-line="243" selection-end-column="27" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/back/exampleData.js">
@@ -603,20 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/back/functions/handlers/reviews.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3179">
-          <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back/functions/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1836">
-          <caret line="29" column="41" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/back/functions/util/fbAuth.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -638,13 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/redux/reducers/userReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="51" column="92" selection-start-line="51" selection-start-column="92" selection-end-line="51" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/util/PrimaryButton.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -663,13 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/redux/types.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="47" lean-forward="true" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -698,13 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/redux/actions/userActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1208">
-          <caret line="69" column="25" lean-forward="true" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -785,16 +779,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/components/layout/NavigationBar/NavigationBar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="5" column="49" lean-forward="true" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
-          <folding>
-            <element signature="e#127#174#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/components/review/Comments.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -822,27 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/pages/User/User.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="57" column="87" selection-start-line="57" selection-start-column="77" selection-end-line="57" selection-end-column="87" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/components/review/Review.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="94" column="111" selection-start-line="94" selection-start-column="101" selection-end-line="94" selection-end-column="111" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#479#515#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -855,11 +818,113 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front/src/components/review/ReviewDialog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+        <state relative-caret-position="26">
+          <caret line="72" selection-start-line="72" selection-end-line="73" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
             <element signature="e#313#351#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/components/layout/NavigationBar/NavigationBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+          <folding>
+            <element signature="e#127#174#0" expanded="true" />
+            <element signature="e#502#683#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/components/review/Review.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="10" selection-start-line="10" selection-end-line="11" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#479#515#0" expanded="true" />
+            <element signature="e#598#707#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/pages/User/User.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="10" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#302#338#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/redux/types.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="49" lean-forward="true" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/redux/actions/userActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="91" column="38" lean-forward="true" selection-start-line="91" selection-start-column="38" selection-end-line="91" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/redux/reducers/userReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="58" column="14" selection-end-line="62" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#143#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/functions/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="47" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/functions/handlers/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="170" column="52" lean-forward="true" selection-start-line="170" selection-start-column="52" selection-end-line="170" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/functions/handlers/reviews.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back/functions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1658">
+          <caret line="43" column="23" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/components/layout/NavigationBar/Notifications.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="89" column="53" lean-forward="true" selection-start-line="89" selection-start-column="53" selection-end-line="89" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#195#289#0" expanded="true" />
+            <element signature="e#319#394#0" expanded="true" />
+            <element signature="e#463#499#0" expanded="true" />
           </folding>
         </state>
       </provider>

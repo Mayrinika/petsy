@@ -166,9 +166,9 @@ exports.getAuthenticatedUser = (req, res) => {
                 .get();
         })
         .then(data => {
-            userData.notification = [];
+            userData.notifications = []; //TODO
             data.forEach(doc => {
-                userData.notification.push({
+                userData.notifications.push({ //TODO
                     recipient: doc.data().recipient,
                     sender: doc.data().sender,
                     read: doc.data().read,

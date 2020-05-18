@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 //Components
 import routes from '../../../util/RouterPaths';
 import PostReview from '../../review/PostReview';
+import Notifications from './Notifications';
 //Util
 import MyIconButton from '../../../util/MyIconButton';
 //MUI stuff
@@ -18,7 +19,6 @@ import {
     Edit as EditIcon,
     Add as AddIcon,
     Home as HomeIcon,
-    Notifications as NotificationsIcon,
     AccountCircle as AccountCircleIcon,
 } from "@material-ui/icons";
 
@@ -36,9 +36,7 @@ class NavigationBar extends React.Component {
                                     <HomeIcon/>
                                 </MyIconButton>
                             </Link>
-                            <MyIconButton tip='Уведомления'>
-                                <NotificationsIcon/>
-                            </MyIconButton>
+                                <Notifications/>
                             <Link to={routes.reviews}>
                                 <MyIconButton tip='Моя страница'>
                                     <AccountCircleIcon/>
