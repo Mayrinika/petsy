@@ -59,27 +59,27 @@ class ReviewDialog extends React.Component {
         super(props);
         this.state = {
             open: false,
-            oldPath:'',
-            newPath:'',
+            oldPath: '',
+            newPath: '',
         };
     }
 
-    componentDidMount(){
-        if(this.props.openDialog) {
+    componentDidMount() {
+        if (this.props.openDialog) {
             this.handleOpen();
         }
     }
 
     handleOpen = () => {
-        let oldPath=window.location.pathname;
-        const {userHandle, reviewId}=this.props;
-        const newPath=`/users/${userHandle}/review/${reviewId}`;
+        let oldPath = window.location.pathname;
+        const {userHandle, reviewId} = this.props;
+        const newPath = `/users/${userHandle}/review/${reviewId}`;
 
-        if(oldPath===newPath) {
-            oldPath=`/users/${userHandle}`;
+        if (oldPath === newPath) {
+            oldPath = `/users/${userHandle}`;
         }
 
-        window.history.pushState(null,null,newPath);
+        window.history.pushState(null, null, newPath);
 
         this.setState({
             open: true,
@@ -90,7 +90,7 @@ class ReviewDialog extends React.Component {
     };
 
     handleClose = () => {
-        window.history.pushState(null,null,this.state.oldPath);
+        window.history.pushState(null, null, this.state.oldPath);
 
         this.setState({
             open: false,
@@ -119,15 +119,15 @@ class ReviewDialog extends React.Component {
                 <CircularProgress size={200} thickness={2}/>
             </div>
         ) : (
-            <Grid container spacing={16}>
-                <Grid item={5}>
+            <Grid container spacing={5}>
+                <Grid item={true}>
                     <img
                         src={userImage}
                         alt='Profile'
                         className={classes.profileImage}
                     />
                 </Grid>
-                <Grid item={7}>
+                <Grid item={true}>
                     <Typography
                         component={Link}
                         color='primary'

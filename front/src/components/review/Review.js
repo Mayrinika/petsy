@@ -65,12 +65,14 @@ class Review extends React.Component {
                 credentials:{
                     handle
                 }
-            }
+            },
+            openDialog,
         } = this.props;
 
         const deleteButton=authenticated && userHandle===handle ? (
             <DeleteReview reviewId={reviewId}/>
         ):null;
+
         return (
             <Card className={classes.card}>
                 <CardMedia image={userImage} title='Profile image' className={classes.image}/>
@@ -92,7 +94,7 @@ class Review extends React.Component {
                         <ChatIcon color='primary'/>
                     </MyIconButton>
                     <span>{commentCount}</span>
-                    <ReviewDialog reviewId={reviewId} userHandle={userHandle} openDialog={this.props.openDialog}/>
+                    <ReviewDialog reviewId={reviewId} userHandle={userHandle} openDialog={openDialog}/>
                 </CardContent>
             </Card>
         );

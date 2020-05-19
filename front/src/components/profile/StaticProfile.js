@@ -17,7 +17,7 @@ import {withStyles} from '@material-ui/core/styles';
 import MyIconButton from "../../util/MyIconButton";
 import EditDetails from "./EditDetails";
 
-const styles = (theme) => ({
+const styles = (theme) => ({ //all
     paper: {
         padding: 20,
     },

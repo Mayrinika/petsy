@@ -6,6 +6,7 @@ import dayjs from 'dayjs';
 //Util
 import routes from '../../util/RouterPaths';
 import MyIconButton from '../../util/MyIconButton';
+import ProfileSkeleton from '../../util/ProfileSkeleton';
 //Components
 import EditDetails from './EditDetails';
 //Styles
@@ -25,7 +26,7 @@ import {
 import {connect} from 'react-redux';
 import {logoutUser, uploadImage} from "../../redux/actions/userActions";
 
-const styles = (theme) => ({
+const styles = (theme) => ({ //all
     paper: {
         padding: 20,
     },
@@ -160,7 +161,7 @@ class Profile extends React.Component {
                     </Button>
                 </div>
             </Paper>
-        )) : (<p>Загрузка...</p>);
+        )) : (<ProfileSkeleton/>);
 
         return profileMarkup;
     }

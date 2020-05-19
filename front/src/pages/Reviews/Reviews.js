@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 //Components
 import Review from '../../components/review/Review';
 import Profile from '../../components/profile/Profile';
+//Utils
+import ReviewSkeleton from '../../util/ReviewSkeleton';
 //Styles
 import styles from './Reviews.css';
 //MUI stuff
@@ -21,7 +23,7 @@ class Reviews extends React.Component {
         let recentReviewsMarkup = !loading ? (
             reviews.map(review => <Review key={review.reviewId} review={review}/>)
         ) : (
-            <p>Загрузка...</p>
+            <ReviewSkeleton/>
         );
         return (
             <div className={styles.container}>

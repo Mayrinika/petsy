@@ -76,19 +76,18 @@ class Notifications extends React.Component {
                 notifications.map(not => {
                     const verb = not.type === 'like' ? 'нравится' : 'прокомментировал';
                     const time = dayjs(not.createdAt).fromNow();
-                    const iconColor = not.read ? 'primary' : 'secondary'; //TODO
+                    const iconColor = not.read ? 'primary' : 'secondary';
                     const icon = not.type === 'like' ? (
                         <FavoriteIcon color={iconColor} style={{marginRight: 10}}/>
                     ) : (
                         <ChatIcon color={iconColor} style={{marginRight: 10}}/>
-                    )
+                    );
                     return (
                         <MenuItem key={not.createdAt} onClick={this.handleClose}>
                             {icon}
                             <Typography
                                 component={Link}
                                 color='textSecondary'
-                                textAlig
                                 variant='body1'
                                 to={`/users/${not.recipient}/review/${not.reviewId}`}
                             >
@@ -124,12 +123,11 @@ class Notifications extends React.Component {
             </Fragment>
         )
     }
-
 }
 
 Notifications.propTypes = {
     markNotificationsRead: PropTypes.func.isRequired,
-    notifications: PropTypes.object.isRequired,
+    notifications: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => ({

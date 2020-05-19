@@ -82,7 +82,7 @@ class CommentForm extends React.Component {
                         type='submit'
                         variant='contained'
                         color='primary'
-                        classname={classes.button}
+                        className={classes.button}
                     >
                         Отправить
                     </Button>
