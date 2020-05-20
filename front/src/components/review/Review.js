@@ -89,11 +89,7 @@ class Review extends React.Component {
                     <Typography variant='body1'>{body}</Typography>
                     <LikeButton reviewId={reviewId}/>
                     <span>{likeCount}</span>
-                    <MyIconButton tip='Комментарии'>
-                        <ChatIcon color='primary'/>
-                    </MyIconButton>
-                    <span>{commentCount}</span>
-                    <ReviewDialog reviewId={reviewId} userHandle={userHandle} openDialog={this.props.openDialog}/>
+                    <ReviewDialog commentCount={commentCount} reviewId={reviewId} userHandle={userHandle} openDialog={this.props.openDialog}/>
                 </CardContent>
             </Card>
         );

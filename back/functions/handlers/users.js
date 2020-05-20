@@ -162,11 +162,33 @@ exports.getAuthenticatedUser = (req, res) => {
             return db.collection('notifications')
                 .where('recipient', '==', req.user.handle)
                 .orderBy('createdAt', 'desc')
-                .limit(10)
                 .get();
         })
         .then(data => {
             userData.notifications = []; //TODO
+            data.forEach(doc => {
+                userData.notifications.push({ //TODO
+                    recipient: doc.data().recipient,
+                    sender: doc.data().sender,
+                    read: doc.data().read,
+                    reviewId: doc.data().reviewId,
+                    reviewHandle: doc.data().reviewHandle,
+                    type: doc.data().type,
+                    createdAt: doc.data().createdAt,
+                    notificationId: doc.id
+                })
+            });
+            return db.collection('notifications')
+                .where('reviewHandle', '==', req.user.handle)
+                .orderBy('createdAt', 'desc')
+                .get()
+                .then((snapshot) => {
+                    return snapshot.docs.filter( (notification) =>
+                        notification.data().reviewHandle !== notification.data().sender
+                    );
+                });
+        })
+        .then(data=>{
             data.forEach(doc => {
                 userData.notifications.push({ //TODO
                     recipient: doc.data().recipient,

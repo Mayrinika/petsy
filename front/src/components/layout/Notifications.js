@@ -81,17 +81,18 @@ class Notifications extends React.Component {
                         <ChatIcon color={iconColor} style={{marginRight: 10}}/>
                     );
                     return (
-                        <MenuItem key={not.createdAt} onClick={this.handleClose}>
-                            {icon}
-                            <Typography
-                                component={Link}
-                                color='textSecondary' //TODO default
-                                variant='body1'
-                                to={`/users/${not.reviewHandle}/review/${not.reviewId}`}
-                            >
-                                {not.sender} {verb} ваш отзыв {time}
-                            </Typography>
-                        </MenuItem>
+                        <Link key={not.createdAt} to={`/users/${not.reviewHandle}/review/${not.reviewId}`}>
+                            <MenuItem onClick={this.handleClose}>
+                                {icon}
+                                <Typography
+                                    color='textSecondary' //TODO default
+                                    variant='body1'
+                                >
+                                    {not.sender} {verb} ваш отзыв {time}
+                                </Typography>
+                            </MenuItem>
+                        </Link>
+
                     );
                 })
             ) : (

@@ -31,16 +31,10 @@ class User extends React.Component {
 
     loadProfile = () => {
         const handle = this.props.match.params.handle;
-        const reviewId = this.props.match.params.reviewId;
 
         this.setState({
             profile: null,
         });
-
-        if (reviewId)
-            this.setState({
-                reviewIdParam: reviewId,
-            });
 
         this.props.getUserData(handle);
         axios.get(`/api/user/${handle}`)
@@ -54,32 +48,23 @@ class User extends React.Component {
 
     componentDidUpdate(prevProps) {
         const handle = this.props.match.params.handle;
-        const newHandle = prevProps.match.params.handle;
-        if (handle !== newHandle) {
+        const prevHandle = prevProps.match.params.handle;
+
+        if (handle !== prevHandle) {
             this.loadProfile();
         }
     }
 
     render() {
-        const {reviews, loading,} = this.props.data;
-        const {userHandle,} = this.props;
-        const {reviewIdParam} = this.state;
-        const handle = this.props.match.params.handle;
-
+        const {userHandle, match, data,} = this.props;
+        const {reviews, loading,} = data;
+        const reviewId = match.params.reviewId;
+        const handle = match.params.handle;
         const reviewsMarkup = loading ? (
             <ReviewSkeleton/>
         ) : reviews === null ? (
             <p>У данного пользователя еще нет отзывов</p>
-        ) : !reviewIdParam ? (
-            reviews.map(review => <Review key={review.reviewId} review={review}/>)
-        ) : (
-            reviews.map(review => {
-                if (review.reviewId !== reviewIdParam)
-                    return (<Review key={review.reviewId} review={review}/>);
-                else
-                    return (<Review key={review.reviewId} review={review} openDialog/>);
-            })
-        );
+        ) : reviews.map(review => <Review key={review.reviewId} review={review} openDialog={review.reviewId === reviewId}/>);
 
         return (
             <div className={styles.container}>

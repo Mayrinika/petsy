@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 //Styles
@@ -19,6 +19,7 @@ import {Chat as ChatIcon, Close as CloseIcon, UnfoldMore} from '@material-ui/ico
 //Redux stuff
 import {connect} from 'react-redux';
 import {getReview, clearErrors} from "../../redux/actions/dataActions";
+import CardContent from "@material-ui/core/CardContent/CardContent";
 
 const styles = {
     invisibleSeparator: {
@@ -70,16 +71,23 @@ class ReviewDialog extends React.Component {
         }
     }
 
+    componentDidUpdate(prevProps) {
+        if (!this.state.open && this.props.openDialog) {
+            this.handleOpen();
+        }
+    }
+
     handleOpen = () => {
-        let oldPath = window.location.pathname;
+        const {history, match} = this.props;
+        let oldPath = history.location.pathname;
         const {reviewId} = this.props;
-        const newPath = `${oldPath}/review/${reviewId}`;
+        const newPath = `/users/${match.params.handle}/review/${reviewId}`;
 
-/*        if (oldPath === newPath) {
-            oldPath = `/users/${0}`;
-        }*/
-
-        window.history.pushState(null, null, newPath);
+        if (match.params.reviewId !== reviewId) {
+            history.push(newPath);
+        } else {
+            oldPath = `/users/${match.params.handle}`;
+        }
 
         this.setState({
             open: true,
@@ -90,7 +98,9 @@ class ReviewDialog extends React.Component {
     };
 
     handleClose = () => {
-        window.history.pushState(null, null, this.state.oldPath);
+        const {history,} = this.props;
+
+        history.push(this.state.oldPath);
 
         this.setState({
             open: false,
@@ -106,12 +116,12 @@ class ReviewDialog extends React.Component {
                 body,
                 createdAt,
                 likeCount,
-                commentCount,
                 userImage,
                 userHandle,
                 comments,
             },
-            UI: {loading}
+            UI: {loading},
+            commentCount,
         } = this.props;
 
         const dialogMarkup = loading ? (
@@ -149,10 +159,6 @@ class ReviewDialog extends React.Component {
                     </Typography>
                     <LikeButton reviewId={reviewId}/>
                     <span>{likeCount}</span>
-                    <MyIconButton tip='Комментарии'>
-                        <ChatIcon color='primary'/>
-                    </MyIconButton>
-                    <span>{commentCount}</span>
                 </Grid>
                 <hr className={classes.visibleSeparator}/>
                 <CommentForm reviewId={reviewId}/>
@@ -161,13 +167,10 @@ class ReviewDialog extends React.Component {
         );
         return (
             < Fragment>
-                <MyIconButton
-                    tip='Раскрыть отзыв'
-                    onClick={this.handleOpen}
-                    tipClassName={classes.expandButton}
-                >
-                    <UnfoldMore color='primary'/>
+                <MyIconButton tip='Комментарии' onClick={this.handleOpen}>
+                    <ChatIcon color='primary'/>
                 </MyIconButton>
+                <span>{commentCount}</span>
                 <Dialog
                     open={this.state.open}
                     onClose={this.handleClose}
@@ -191,6 +194,9 @@ class ReviewDialog extends React.Component {
 }
 
 ReviewDialog.propTypes = {
+    history: PropTypes.shape({
+        push: PropTypes.func.isRequired,
+    }),
     clearErrors: PropTypes.func.isRequired,
     getReview: PropTypes.func.isRequired,
     reviewId: PropTypes.string.isRequired,
@@ -210,5 +216,5 @@ const mapActionsToProps = {
     clearErrors
 };
 
-export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(ReviewDialog));
+export default connect(mapStateToProps, mapActionsToProps)(withRouter(withStyles(styles)(ReviewDialog)));
 
