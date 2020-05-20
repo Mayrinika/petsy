@@ -27,7 +27,7 @@ const styles = {
     },
     submitButton: {
         position: 'relative',
-        float :'right',
+        float: 'right',
         margin: 10
     },
     closeButton: {
@@ -79,7 +79,8 @@ class PostReview extends React.Component {
     };
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.postReview({body: this.state.body})
+
+        this.props.postReview({body: this.state.body, recipientHandle: this.props.handle})
     };
 
     render() {
@@ -143,6 +144,7 @@ class PostReview extends React.Component {
 
 PostReview.propTypes = {
     postReview: PropTypes.func.isRequired,
+    handle: PropTypes.string.isRequired,
     clearErrors: PropTypes.func.isRequired,
     UI: PropTypes.object.isRequired,
 };

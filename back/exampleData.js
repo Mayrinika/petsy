@@ -10,15 +10,16 @@ const db = {
             location: "Yekaterinburg",
         },
     ],
-    reviews: [
-        {
+    reviews: {
+        "Лиза": [{
             userHandle: "Наталья",
             body: "Все понравилось!",
             createdAt: "2020-04-29T10:38:43.475Z",
             likeCount: 5,
             commentCount: 3,
         },
-    ],
+        ],
+    },
     comments: [
         {
             userHandle: "Наталья",

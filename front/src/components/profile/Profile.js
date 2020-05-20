@@ -29,6 +29,9 @@ import {logoutUser, uploadImage} from "../../redux/actions/userActions";
 const styles = (theme) => ({ //all
     paper: {
         padding: 20,
+        position: "sticky",
+        top: "80px",
+        alignSelf: "flex-start",
     },
     profile: {
         '& .image-wrapper': {
@@ -115,7 +118,7 @@ class Profile extends React.Component {
                     </div>
                     <hr/>
                     <div className='profile-details'>
-                        <MuiLink component={Link} to={`/user/${handle}`} color='primary' variant='h5'>
+                        <MuiLink component={Link} to={`/users/${handle}`} color='primary' variant='h5'>
                             @{handle}
                         </MuiLink>
                         <hr/>

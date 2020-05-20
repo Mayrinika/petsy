@@ -100,7 +100,7 @@ exports.addUserDetails = (req, res) => {
         })
         .catch(err => {
             console.error(err);
-            return res.status(500).json({error: err.code});
+            return res.status(400).json({error: err.code});
         })
 };
 
@@ -112,7 +112,7 @@ exports.getUserDetails = (req, res) => {
             if (doc.exists) {
                 userData.user = doc.data();
                 return db.collection('reviews')
-                    .where('userHandle', '==', req.params.handle)
+                    .where('recipientHandle', '==', req.params.handle)
                     .orderBy('createdAt', 'desc')
                     .get();
             } else {
@@ -173,6 +173,7 @@ exports.getAuthenticatedUser = (req, res) => {
                     sender: doc.data().sender,
                     read: doc.data().read,
                     reviewId: doc.data().reviewId,
+                    reviewHandle: doc.data().reviewHandle,
                     type: doc.data().type,
                     createdAt: doc.data().createdAt,
                     notificationId: doc.id

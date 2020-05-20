@@ -7,6 +7,7 @@ const FBAuth = require('./util/fbAuth');
 
 const {
     getAllReviews,
+    getAllReviewsForUser,
     postOneReview,
     getReview,
     commentOnReview,
@@ -27,6 +28,7 @@ const {
 
 //Reviews routes
 app.get('/reviews', getAllReviews);
+app.get('/reviews/:recipientHandle', getAllReviewsForUser);
 app.post('/review', FBAuth, postOneReview);
 app.get('/review/:reviewId', getReview);
 app.post('/review/:reviewId/comment', FBAuth, commentOnReview);
@@ -55,6 +57,7 @@ exports.createNotificationOnLike = functions.firestore.document('likes/{id}')
                         sender: snapshot.data().userHandle,
                         read: false,
                         reviewId: doc.id,
+                        reviewHandle: doc.data().recipientHandle,
                         type: 'like',
                         createdAt: new Date().toISOString(),
                     });
@@ -86,6 +89,7 @@ exports.createNotificationOnComment = functions.firestore.document('comments/{id
                         sender: snapshot.data().userHandle,
                         read: false,
                         reviewId: doc.id,
+                        reviewHandle: doc.data().recipientHandle,
                         type: 'comment',
                         createdAt: new Date().toISOString(),
                     });

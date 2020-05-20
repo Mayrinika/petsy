@@ -9,7 +9,7 @@ import {
     SUBMIT_COMMENT,
 } from "../types";
 
-const initialState={
+const initialState = {
     reviews: [],
     review: {},
     loading: false,
@@ -36,18 +36,18 @@ export default function (state = initialState, action) {
         case LIKE_REVIEW:
         case UNLIKE_REVIEW:
             let index = state.reviews.findIndex(
-                (review)=>review.reviewId===action.payload.reviewId);
-            state.reviews[index]=action.payload;
-            if(state.review.reviewId===action.payload.reviewId) {
-                state.review=action.payload;
+                (review) => review.reviewId === action.payload.reviewId);
+            state.reviews[index] = action.payload;
+            if (state.review.reviewId === action.payload.reviewId) {
+                state.review = {...action.payload, comments: [...state.review.comments]};
             }
-            return{
+            return {
                 ...state,
             };
         case DELETE_REVIEW:
-            index=state.reviews.findIndex(
-                (review)=>review.reviewId===action.payload);
-            state.reviews.splice(index,1);
+            index = state.reviews.findIndex(
+                (review) => review.reviewId === action.payload);
+            state.reviews.splice(index, 1);
             return {
                 ...state
             };

@@ -3,8 +3,7 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 //Components
 import routes from '../../../util/RouterPaths';
-import PostReview from '../../review/PostReview';
-import Notifications from './Notifications';
+import Notifications from '../Notifications';
 //Util
 import MyIconButton from '../../../util/MyIconButton';
 //MUI stuff
@@ -24,20 +23,19 @@ import {
 
 class NavigationBar extends React.Component {
     render() {
-        const {authenticated} = this.props;
+        const {authenticated, userHandle,} = this.props;
         return (
             <AppBar>
                 <Toolbar className={styles.navContainer}>
                     {authenticated ? (
                         <Fragment>
-                            <PostReview/>
                             <Link to={routes.home}>
                                 <MyIconButton tip='Главная'>
                                     <HomeIcon/>
                                 </MyIconButton>
                             </Link>
-                                <Notifications/>
-                            <Link to={routes.reviews}>
+                            <Notifications/>
+                            <Link to={`/users/${userHandle}`}>
                                 <MyIconButton tip='Моя страница'>
                                     <AccountCircleIcon/>
                                 </MyIconButton>
@@ -59,10 +57,12 @@ class NavigationBar extends React.Component {
 
 NavigationBar.propsTypes = {
     authenticated: PropTypes.bool.isRequired,
+    userHandle: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     authenticated: state.user.authenticated,
+    userHandle: state.user.credentials.handle,
 });
 
 export default connect(mapStateToProps)(NavigationBar);

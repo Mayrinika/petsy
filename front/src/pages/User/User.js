@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 //Components
 import Review from '../../components/review/Review';
+import Profile from "../../components/profile/Profile";
 import StaticProfile from "../../components/profile/StaticProfile";
 //Utils
 import ReviewSkeleton from '../../util/ReviewSkeleton';
@@ -20,11 +21,26 @@ class User extends React.Component {
         super(props);
         this.state = {
             profile: null,
+            reviewIdParam: null,
         };
     }
 
     componentDidMount() {
+        this.loadProfile();
+    }
+
+    loadProfile = () => {
         const handle = this.props.match.params.handle;
+        const reviewId = this.props.match.params.reviewId;
+
+        this.setState({
+            profile: null,
+        });
+
+        if (reviewId)
+            this.setState({
+                reviewIdParam: reviewId,
+            });
 
         this.props.getUserData(handle);
         axios.get(`/api/user/${handle}`)
@@ -34,26 +50,36 @@ class User extends React.Component {
                 });
             })
             .catch(err => console.log(err));
+    };
+
+    componentDidUpdate(prevProps) {
+        const handle = this.props.match.params.handle;
+        const newHandle = prevProps.match.params.handle;
+        if (handle !== newHandle) {
+            this.loadProfile();
+        }
     }
 
     render() {
-        const {reviews, loading} = this.props.data;
-        const reviewId = this.props.match.params.reviewId;
+        const {reviews, loading,} = this.props.data;
+        const {userHandle,} = this.props;
+        const {reviewIdParam} = this.state;
+        const handle = this.props.match.params.handle;
 
         const reviewsMarkup = loading ? (
             <ReviewSkeleton/>
         ) : reviews === null ? (
-                <p>У данного пользователя еще нет отзывов</p>
-            ) : !reviewId ? (
-                reviews.map(review => <Review key={review.reviewId} review={review}/>)
-            ) : (
-                reviews.map(review => {
-                    if (review.reviewId !== reviewId)
-                        return <Review key={review.reviewId} review={review}/>;
-                    else
-                        return <Review key={review.reviewId} review={review} openDialog/>;
-                })
-            );
+            <p>У данного пользователя еще нет отзывов</p>
+        ) : !reviewIdParam ? (
+            reviews.map(review => <Review key={review.reviewId} review={review}/>)
+        ) : (
+            reviews.map(review => {
+                if (review.reviewId !== reviewIdParam)
+                    return (<Review key={review.reviewId} review={review}/>);
+                else
+                    return (<Review key={review.reviewId} review={review} openDialog/>);
+            })
+        );
 
         return (
             <div className={styles.container}>
@@ -65,7 +91,9 @@ class User extends React.Component {
                         {this.state.profile === null ? (
                             <ProfileSkeleton/>
                         ) : (
-                            <StaticProfile profile={this.state.profile}/>
+                            handle === userHandle
+                                ? <Profile/>
+                                : <StaticProfile authenticated={this.props.authenticated} profile={this.state.profile}/>
                         )}
                     </Grid>
                 </Grid>
@@ -77,10 +105,13 @@ class User extends React.Component {
 User.propTypes = {
     getUserData: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
+    userHandle: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
     data: state.data,
+    userHandle: state.user.credentials.handle,
+    authenticated: state.user.authenticated,
 });
 
 export default connect(mapStateToProps, {getUserData})(User);

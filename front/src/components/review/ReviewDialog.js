@@ -72,12 +72,12 @@ class ReviewDialog extends React.Component {
 
     handleOpen = () => {
         let oldPath = window.location.pathname;
-        const {userHandle, reviewId} = this.props;
-        const newPath = `/users/${userHandle}/review/${reviewId}`;
+        const {reviewId} = this.props;
+        const newPath = `${oldPath}/review/${reviewId}`;
 
-        if (oldPath === newPath) {
-            oldPath = `/users/${userHandle}`;
-        }
+/*        if (oldPath === newPath) {
+            oldPath = `/users/${0}`;
+        }*/
 
         window.history.pushState(null, null, newPath);
 
@@ -109,7 +109,7 @@ class ReviewDialog extends React.Component {
                 commentCount,
                 userImage,
                 userHandle,
-                comments
+                comments,
             },
             UI: {loading}
         } = this.props;

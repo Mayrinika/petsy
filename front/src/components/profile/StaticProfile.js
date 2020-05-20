@@ -16,54 +16,60 @@ import {
 import {withStyles} from '@material-ui/core/styles';
 import MyIconButton from "../../util/MyIconButton";
 import EditDetails from "./EditDetails";
+import PostReview from "../review/PostReview";
 
 const styles = (theme) => ({ //all
-    paper: {
-        padding: 20,
-    },
-    profile: {
-        '& .image-wrapper': {
-            textAlign: 'center',
-            position: 'relative',
-            // '& button': {
-            //     position: 'absolute',
-            //     top: '80%',
-            //     left: '70%',
-            // }
-        },
-        '& .profile-image': {
-            width: 200,
-            height: 200,
-            objectFit: 'cover',
-            maxWidth: '100%',
-            borderRadius: '50%',
-        },
-        '& .profile-details': {
-            textAlign: 'center',
-            '& span, svg': {
-                verticalAlign: 'middle'
+            paper: {
+                padding: 20,
+                position: "sticky",
+                top: "80px",
+                alignSelf: "flex-start",
             },
-            '& a': {
-                color: theme.palette.primary.main
-            }
-        },
-        '& hr': {
-            border: 'none',
-            margin: '0 0 10px 0'
-        },
-        // '& svg.button': {
-        //     '&:hover': {
-        //         cursor: 'pointer'
-        //     }
-        // }
-    },
-    // buttons: {
-    //     textAlign: 'center',
-    //     '& a': {
-    //         margin: '20px 20px'
-    //     }
-    // }
-});
+            profile: {
+                '& .image-wrapper': {
+                    textAlign: 'center',
+                    position: 'relative',
+                    // '& button': {
+                    //     position: 'absolute',
+                    //     top: '80%',
+                    //     left: '70%',
+                    // }
+                },
+                '& .profile-image': {
+                    width: 200,
+                    height: 200,
+                    objectFit: 'cover',
+                    maxWidth: '100%',
+                    borderRadius: '50%',
+                },
+                '& .profile-details': {
+                    textAlign: 'center',
+                    '& span, svg': {
+                        verticalAlign: 'middle'
+                    },
+                    '& a': {
+                        color: theme.palette.primary.main
+                    }
+                },
+                '& hr': {
+                    border: 'none',
+                    margin: '0 0 10px 0'
+                },
+                // '& svg.button': {
+                //     '&:hover': {
+                //         cursor: 'pointer'
+                //     }
+                // }
+            },
+            // buttons: {
+            //     textAlign: 'center',
+            //     '& a': {
+            //         margin: '20px 20px'
+            //     }
+            // }
+        }
+    )
+;
 
 const StaticProfile = (props) => {
     const {
@@ -74,7 +80,8 @@ const StaticProfile = (props) => {
             imageUrl,
             bio,
             location,
-        }
+        },
+        authenticated,
     } = props;
 
     return (
@@ -84,12 +91,12 @@ const StaticProfile = (props) => {
                     <img src={imageUrl} alt='profile' className='profile-image'/>
                     {/*<input type='file' id='imageInput' hidden='hidden' onChange={this.handleImageChange}/>*/}
                     {/*<MyIconButton tip='Выбрать фото профиля' placement='top' onClick={this.handleEditPicture} btnClassName='button'>*/}
-                        {/*<EditIcon color='primary'/>*/}
+                    {/*<EditIcon color='primary'/>*/}
                     {/*</MyIconButton>*/}
                 </div>
                 <hr/>
                 <div className='profile-details'>
-                    <MuiLink component={Link} to={`/user/${handle}`} color='primary' variant='h5'>
+                    <MuiLink component={Link} to={`/users/${handle}`} color='primary' variant='h5'>
                         @{handle}
                     </MuiLink>
                     <hr/>
@@ -106,17 +113,19 @@ const StaticProfile = (props) => {
                     <span>Joined {dayjs(createdAt).format('MMM YYYY')}</span>
                 </div>
                 {/*<MyIconButton tip='Выйти' placement='top' onClick={this.handleLogout}>*/}
-                    {/*<KeyboardReturn color='primary'/>*/}
+                {/*<KeyboardReturn color='primary'/>*/}
                 {/*</MyIconButton>*/}
                 {/*<EditDetails/>*/}
+                {authenticated && <PostReview handle={handle}/>}
             </div>
         </Paper>
     );
-}
+};
 
-StaticProfile.propTypes={
+StaticProfile.propTypes = {
     profile: PropTypes.object.isRequired,
     classes: PropTypes.object.isRequired,
+    authenticated: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(StaticProfile);

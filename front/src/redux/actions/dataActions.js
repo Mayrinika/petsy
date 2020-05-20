@@ -15,9 +15,9 @@ import {
 import axios from 'axios';
 
 //Get all reviews
-export const getReviews = () => (dispatch) => {
+export const getReviews = (recipientHandle) => (dispatch) => {
     dispatch({type: LOADING_DATA});
-    axios.get('/api/reviews')
+    axios.get(`/api/reviews/${recipientHandle}`)
         .then(res => {
             dispatch({
                 type: SET_REVIEWS,
@@ -32,17 +32,17 @@ export const getReviews = () => (dispatch) => {
         })
 };
 //Get one review
-export const getReview=(reviewId)=>dispatch=>{
-  dispatch({type:LOADING_UI});
-  axios.get(`/api/review/${reviewId}`)
-      .then(res=>{
-          dispatch({
-              type: SET_REVIEW,
-              payload: res.data
-          });
-          dispatch({type: STOP_LOADING_UI});
-      })
-      .catch(err=>console.log(err));
+export const getReview = (reviewId) => dispatch => {
+    dispatch({type: LOADING_UI});
+    axios.get(`/api/review/${reviewId}`)
+        .then(res => {
+            dispatch({
+                type: SET_REVIEW,
+                payload: res.data
+            });
+            dispatch({type: STOP_LOADING_UI});
+        })
+        .catch(err => console.log(err));
 };
 //Post a review
 export const postReview = (newReview) => (dispatch) => {
@@ -57,7 +57,7 @@ export const postReview = (newReview) => (dispatch) => {
         })
         .catch(err => {
             dispatch({
-                type:SET_ERRORS,
+                type: SET_ERRORS,
                 payload: err.response.data,
             });
         });
@@ -85,21 +85,21 @@ export const unlikeReview = (reviewId) => (dispatch) => {
         .catch(err => console.log(err));
 };
 //Submit a comment
-export const submitComment =(reviewId, commentData)=>(dispatch)=>{
-  axios.post(`/api/review/${reviewId}/comment`,commentData)
-      .then(res=>{
-          dispatch({
-              type: SUBMIT_COMMENT,
-              payload: res.data
-          });
-          dispatch(clearErrors());
-      })
-      .catch(err=>{
-          dispatch({
-              type: SET_ERRORS,
-              payload: err.response.data,
-          })
-      });
+export const submitComment = (reviewId, commentData) => (dispatch) => {
+    axios.post(`/api/review/${reviewId}/comment`, commentData)
+        .then(res => {
+            dispatch({
+                type: SUBMIT_COMMENT,
+                payload: res.data
+            });
+            dispatch(clearErrors());
+        })
+        .catch(err => {
+            dispatch({
+                type: SET_ERRORS,
+                payload: err.response.data,
+            })
+        });
 };
 
 export const deleteReview = (reviewId) => (dispatch => {
@@ -113,18 +113,18 @@ export const deleteReview = (reviewId) => (dispatch => {
         .catch(err => console.log(err));
 });
 
-export const getUserData=(userHandle)=>(dispatch)=>{
+export const getUserData = (userHandle) => (dispatch) => {
     dispatch({
         type: LOADING_DATA
     });
     axios.get(`/api/user/${userHandle}`)
-        .then(res=>{ //TODO: user details
+        .then(res => { //TODO: user details
             dispatch({
                 type: SET_REVIEWS,
                 payload: res.data.reviews
             });
         })
-        .catch(()=>{
+        .catch(() => {
             dispatch({
                 type: SET_REVIEWS,
                 payload: null
@@ -132,6 +132,6 @@ export const getUserData=(userHandle)=>(dispatch)=>{
         });
 };
 
-export const clearErrors=()=>(dispatch)=>{
-    dispatch({type:CLEAR_ERRORS});
+export const clearErrors = () => (dispatch) => {
+    dispatch({type: CLEAR_ERRORS});
 };

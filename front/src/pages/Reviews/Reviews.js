@@ -15,11 +15,23 @@ import {getReviews} from "../../redux/actions/dataActions";
 
 class Reviews extends React.Component {
     componentDidMount() {
-        this.props.getReviews();
+        const {getReviews, user} = this.props;
+        if (user.credentials.handle) {
+            getReviews(user.credentials.handle);
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        const {getReviews, user, data} = this.props;
+        const {loading} = data;
+
+        if (!loading && prevProps.user.credentials.handle !== user.credentials.handle) {
+            getReviews(user.credentials.handle);
+        }
     }
 
     render() {
-        const {reviews, loading}=this.props.data;
+        const {reviews, loading} = this.props.data;
         let recentReviewsMarkup = !loading ? (
             reviews.map(review => <Review key={review.reviewId} review={review}/>)
         ) : (
@@ -40,13 +52,14 @@ class Reviews extends React.Component {
     }
 }
 
-Reviews.propTypes={
+Reviews.propTypes = {
     getReviews: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
 };
 
-const maoStateToProps=state=>({
-    data: state.data
+const maoStateToProps = state => ({
+    data: state.data,
+    user: state.user,
 });
 
-export default connect(maoStateToProps,{getReviews})(Reviews);
+export default connect(maoStateToProps, {getReviews})(Reviews);

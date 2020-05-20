@@ -20,7 +20,7 @@ import {
 } from '@material-ui/icons';
 //Redux stuff
 import {connect} from 'react-redux';
-import {markNotificationsRead} from "../../../redux/actions/userActions";
+import {markNotificationsRead} from "../../redux/actions/userActions";
 
 class Notifications extends React.Component {
     constructor(props) {
@@ -56,15 +56,13 @@ class Notifications extends React.Component {
         let notificationsIcon;
         if (notifications && notifications.length > 0) {
             notifications.filter(not => not.read === false).length > 0 ?
-                (
-                    notificationsIcon = (
-                        <Badge
-                            badgeContent={notifications.filter(not => not.read === false).length}
-                            color='secondary'
-                        >
-                            <NotificationsIcon/>
-                        </Badge>
-                    )
+                notificationsIcon = (
+                    <Badge
+                        badgeContent={notifications.filter(not => not.read === false).length}
+                        color='secondary'
+                    >
+                        <NotificationsIcon/>
+                    </Badge>
                 ) : (
                     notificationsIcon = <NotificationsIcon/>
                 )
@@ -87,9 +85,9 @@ class Notifications extends React.Component {
                             {icon}
                             <Typography
                                 component={Link}
-                                color='textSecondary'
+                                color='textSecondary' //TODO default
                                 variant='body1'
-                                to={`/users/${not.recipient}/review/${not.reviewId}`}
+                                to={`/users/${not.reviewHandle}/review/${not.reviewId}`}
                             >
                                 {not.sender} {verb} ваш отзыв {time}
                             </Typography>

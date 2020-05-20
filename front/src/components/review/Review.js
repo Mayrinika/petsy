@@ -66,7 +66,6 @@ class Review extends React.Component {
                     handle
                 }
             },
-            openDialog,
         } = this.props;
 
         const deleteButton=authenticated && userHandle===handle ? (
@@ -94,7 +93,7 @@ class Review extends React.Component {
                         <ChatIcon color='primary'/>
                     </MyIconButton>
                     <span>{commentCount}</span>
-                    <ReviewDialog reviewId={reviewId} userHandle={userHandle} openDialog={openDialog}/>
+                    <ReviewDialog reviewId={reviewId} userHandle={userHandle} openDialog={this.props.openDialog}/>
                 </CardContent>
             </Card>
         );

@@ -53,7 +53,7 @@ export default function (state = initialState, action) {
                 likes: state.likes.filter(like => like.reviewId !== action.payload.reviewId)
             };
         case MARK_NOTIFICATIONS_READ:
-            state.notifications.forEach(not => not.read = true);
+            state.notifications.forEach(not => (not.read = true));
             return {
                 ...state
             };

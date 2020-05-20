@@ -76,9 +76,8 @@ class App extends React.Component {
                                     path={routes.signup}
                                     component={Signup}
                                 />
-                                <Route exact path={routes.reviews} component={Reviews}/>
-                                <Route exact path={`${routes.users}/:handle`} component={User}/>
-                                <Route exact path={`${routes.users}/:handle/review/:reviewId`} component={User}/>
+                                <Route exact path={`/users/:handle`} component={User}/>
+                                <Route exact path={`/users/:handle/review/:reviewId`} component={User}/>
                             </Switch>
                         </div>
                     </BrowserRouter>

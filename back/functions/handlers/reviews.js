@@ -26,6 +26,33 @@ exports.getAllReviews = (req, res) => {
         });
 };
 
+exports.getAllReviewsForUser = (req, res) => {
+    db
+        .collection('reviews')
+        .orderBy('createdAt', 'desc')
+        .where('recipientHandle', '==', req.params.recipientHandle)
+        .get()
+        .then(data => {
+            let reviews = [];
+            data.forEach(doc => {
+                reviews.push({
+                    reviewId: doc.id,
+                    body: doc.data().body,
+                    userHandle: doc.data().userHandle,
+                    createdAt: doc.data().createdAt,
+                    commentCount: doc.data().commentCount,
+                    likeCount: doc.data().likeCount,
+                    userImage: doc.data().userImage,
+                });
+            });
+            return res.json(reviews);
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).json({error: err.code});
+        });
+};
+
 exports.postOneReview = (req, res) => {
     if (req.body.body.trim() === '') {
         return res.status(400).json({body: 'Поле не может быть пустым'});
@@ -33,6 +60,7 @@ exports.postOneReview = (req, res) => {
 
     const newReview = {
         body: req.body.body,
+        recipientHandle: req.body.recipientHandle,
         userHandle: req.user.handle,
         userImage: req.user.imageUrl,
         createdAt: new Date().toISOString(),
