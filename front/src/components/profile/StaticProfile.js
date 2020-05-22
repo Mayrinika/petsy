@@ -10,7 +10,7 @@ import {
     CalendarToday,
     Link as LinkIcon,
     Edit as EditIcon,
-    KeyboardReturn
+    KeyboardReturn, Pets
 } from '@material-ui/icons';
 //Styles
 import {withStyles} from '@material-ui/core/styles';
@@ -80,6 +80,7 @@ const StaticProfile = (props) => {
             imageUrl,
             bio,
             location,
+            isSitter
         },
         authenticated,
     } = props;
@@ -87,6 +88,7 @@ const StaticProfile = (props) => {
     return (
         <Paper className={classes.paper}>
             <div className={classes.profile}>
+                {isSitter && <Pets fontSize="large" color='primary'/>}
                 <div className='image-wrapper'>
                     <img src={imageUrl} alt='profile' className='profile-image'/>
                     {/*<input type='file' id='imageInput' hidden='hidden' onChange={this.handleImageChange}/>*/}

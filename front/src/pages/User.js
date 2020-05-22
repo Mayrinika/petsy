@@ -2,19 +2,26 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 //Components
-import Review from '../../components/review/Review';
-import Profile from "../../components/profile/Profile";
-import StaticProfile from "../../components/profile/StaticProfile";
-//Utils
-import ReviewSkeleton from '../../util/ReviewSkeleton';
-import ProfileSkeleton from '../../util/ProfileSkeleton';
+import Review from '../components/review/Review';
+import Profile from "../components/profile/Profile";
+import StaticProfile from "../components/profile/StaticProfile";
 //MUI stuff
 import {Grid} from '@material-ui/core';
 //Redux stuff
 import {connect} from 'react-redux';
-import {getUserData} from "../../redux/actions/dataActions";
+import {getUserData} from "../redux/actions/dataActions";
 //Styles
-import styles from './User.css';
+import {withStyles} from "@material-ui/core";
+//Utils
+import ReviewSkeleton from '../util/ReviewSkeleton';
+import ProfileSkeleton from '../util/ProfileSkeleton';
+
+const styles={
+    container: {
+        margin: '80px auto 0 auto',
+        maxWidth: 1200,
+    },
+};
 
 class User extends React.Component {
     constructor(props) {
@@ -56,7 +63,7 @@ class User extends React.Component {
     }
 
     render() {
-        const {userHandle, match, data,} = this.props;
+        const {userHandle, match, data, classes} = this.props;
         const {reviews, loading,} = data;
         const reviewId = match.params.reviewId;
         const handle = match.params.handle;
@@ -67,7 +74,7 @@ class User extends React.Component {
         ) : reviews.map(review => <Review key={review.reviewId} review={review} openDialog={review.reviewId === reviewId}/>);
 
         return (
-            <div className={styles.container}>
+            <div className={classes.container}>
                 <Grid container spacing={3}> {/*16*/}
                     <Grid item sm={8} xs={12}>
                         {reviewsMarkup}
@@ -88,6 +95,7 @@ class User extends React.Component {
 }
 
 User.propTypes = {
+    classes: PropTypes.object.isRequired,
     getUserData: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
     userHandle: PropTypes.string,
@@ -99,4 +107,4 @@ const mapStateToProps = state => ({
     authenticated: state.user.authenticated,
 });
 
-export default connect(mapStateToProps, {getUserData})(User);
+export default connect(mapStateToProps, {getUserData})(withStyles(styles)(User));

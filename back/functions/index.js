@@ -24,6 +24,9 @@ const {
     getAuthenticatedUser,
     getUserDetails,
     markNotificationsRead,
+    getAllLocations,
+    getAllSittersForCity,
+    getAllSitters,
 } = require('./handlers/users');
 
 //Reviews routes
@@ -44,6 +47,11 @@ app.post('/user', FBAuth, addUserDetails);
 app.get('/user', FBAuth, getAuthenticatedUser);
 app.get('/user/:handle', getUserDetails);
 app.post('/notifications', FBAuth, markNotificationsRead);
+
+app.get('/locations', getAllLocations);
+app.get('/sitters/:location', getAllSittersForCity); //TODO ситтеры по городу
+app.get('/sitters', getAllSitters);
+
 
 exports.api = functions.https.onRequest(app);
 

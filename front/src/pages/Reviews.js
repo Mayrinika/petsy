@@ -1,17 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 //Components
-import Review from '../../components/review/Review';
-import Profile from '../../components/profile/Profile';
+import Review from '../components/review/Review';
+import Profile from '../components/profile/Profile';
 //Utils
-import ReviewSkeleton from '../../util/ReviewSkeleton';
+import ReviewSkeleton from '../util/ReviewSkeleton';
 //Styles
-import styles from './Reviews.css';
+import {withStyles} from "@material-ui/core";
 //MUI stuff
 import Grid from '@material-ui/core/Grid';
 //Redux stuff
 import {connect} from 'react-redux';
-import {getReviews} from "../../redux/actions/dataActions";
+import {getReviews} from "../redux/actions/dataActions";
+
+const styles = {
+    container: {
+        margin: '80px auto 0 auto',
+        maxWidth: 1200,
+    },
+};
 
 class Reviews extends React.Component {
     componentDidMount() {
@@ -32,6 +39,7 @@ class Reviews extends React.Component {
 
     render() {
         const {reviews, loading} = this.props.data;
+        const {classes}=this.props;
         let recentReviewsMarkup = !loading ? (
             reviews.map(review => <Review key={review.reviewId} review={review}/>)
         ) : (
@@ -53,6 +61,7 @@ class Reviews extends React.Component {
 }
 
 Reviews.propTypes = {
+    classes: PropTypes.object.isRequired,
     getReviews: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
 };
@@ -62,4 +71,4 @@ const maoStateToProps = state => ({
     user: state.user,
 });
 
-export default connect(maoStateToProps, {getReviews})(Reviews);
+export default connect(maoStateToProps, {getReviews})(withStyles(styles)(Reviews));

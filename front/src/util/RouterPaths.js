@@ -4,4 +4,5 @@ export default {
     login : '/login',
     reviews: '/reviews',
     users: '/users',
+    sitters: '/sitters',
 }

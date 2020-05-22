@@ -1,17 +1,25 @@
 import React from 'react';
-
-import {Typography, Grid, TextField, Button, CircularProgress} from '@material-ui/core';
 import {Link} from 'react-router-dom';
-import icon from '../../images/icon.png';
-import routes from '../../util/RouterPaths';
-
 import PropTypes from 'prop-types';
+//MUI stuff
+import {
+    Typography,
+    Grid,
+    TextField,
+    Button,
+    CircularProgress,
+    Checkbox,
+    FormControlLabel
+} from '@material-ui/core';
+//Images
+import icon from '../images/icon.png';
 //Redux stuff
 import {connect} from 'react-redux';
-import {signupUser} from "../../redux/actions/userActions";
+import {signupUser} from "../redux/actions/userActions";
 //Styles
 import {withStyles} from '@material-ui/core/styles';
-import loginStyles from './Signup.css';
+//Utils
+import routes from '../util/RouterPaths';
 
 
 const styles = {
@@ -39,7 +47,11 @@ const styles = {
     },
     progress: {
         position: 'absolute',
-    }
+    },
+    container: {
+        margin: '80px auto 0 auto',
+        maxWidth: 1200,
+    },
 };
 
 
@@ -51,6 +63,7 @@ class Signup extends React.Component {
             password: '',
             confirmPassword: '',
             handle: '',
+            isSitter: false,
             errors: {},
         };
     }
@@ -73,6 +86,7 @@ class Signup extends React.Component {
             password: this.state.password,
             confirmPassword: this.state.confirmPassword,
             handle: this.state.handle,
+            isSitter: this.state.isSitter,
         };
         this.props.signupUser(newUserData, this.props.history)
     };
@@ -82,11 +96,17 @@ class Signup extends React.Component {
         });
     };
 
+    checkboxChange=(event)=>{
+        this.setState({
+            isSitter: event.target.checked
+        });
+    };
+
     render() {
-        const {classes, UI:{loading}} = this.props;
+        const {classes, UI: {loading}} = this.props;
         const {errors} = this.state;
         return (
-            <div className={loginStyles.container}>
+            <div className={classes.container}>
                 <Grid container className={classes.form}>
                     <Grid item sm/>
                     <Grid item sm>
@@ -145,6 +165,17 @@ class Signup extends React.Component {
                                 onChange={this.handleChange}
                                 fullWidth
                             />
+                            <FormControlLabel
+                                control={<Checkbox
+                                    checked={this.state.isSitter}
+                                    onChange={this.checkboxChange}
+                                    name="Я ситтер"
+                                    color="primary"
+                                />
+                                }
+                                label="Я ситтер"
+                            />
+                            <br/>
                             {errors.general && (
                                 <Typography varient='body2' className={classes.customError}>
                                     {errors.general}

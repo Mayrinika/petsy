@@ -8,16 +8,16 @@ import store from './redux/store';
 import {SET_AUTHENTICATED} from "./redux/types";
 import {logoutUser, getUserData} from "./redux/actions/userActions";
 //Components
-import NavigationBar from './components/layout/NavigationBar/NavigationBar';
+import NavigationBar from './components/layout/NavigationBar';
 //Utils
 import AuthRoute from './util/AuthRoute';
 import routes from './util/RouterPaths';
 //Pages
 import Home from "./pages/Home/Home";
-import Signup from './pages/Signup/Signup';
-import Login from './pages/Login/Login';
-import Reviews from './pages/Reviews/Reviews';
-import User from './pages/User/User';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import User from './pages/User';
+import Sitters from './pages/Sitters';
 //Styles
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import styles from './App.css';
@@ -78,6 +78,7 @@ class App extends React.Component {
                                 />
                                 <Route exact path={`/users/:handle`} component={User}/>
                                 <Route exact path={`/users/:handle/review/:reviewId`} component={User}/>
+                                <Route exact path={routes.sitters} component={Sitters}/>
                             </Switch>
                         </div>
                     </BrowserRouter>

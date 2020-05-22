@@ -14,6 +14,7 @@ exports.signup = (req, res) => {
         password: req.body.password,
         confirmPassword: req.body.confirmPassword,
         handle: req.body.handle,
+        isSitter: req.body.isSitter, //TODO
     };
 
     const {valid, errors} = validateSignupData(newUser);
@@ -46,6 +47,7 @@ exports.signup = (req, res) => {
                 createdAt: new Date().toISOString(),
                 imageUrl: `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${noImg}?alt=media`,
                 userId,
+                isSitter: newUser.isSitter, //TODO
             };
             return db.doc(`/users/${newUser.handle}`).set(userCredentials);
         })
@@ -65,10 +67,6 @@ exports.signup = (req, res) => {
 //Log user in
 exports.login = (req, res) => {
     const user = req.body;
-    // const user={ //TODO
-    //     email: req.body.email,
-    //     password: req.body.password,
-    // };
 
     const {valid, errors} = validateLoginData(user);
 
@@ -183,12 +181,12 @@ exports.getAuthenticatedUser = (req, res) => {
                 .orderBy('createdAt', 'desc')
                 .get()
                 .then((snapshot) => {
-                    return snapshot.docs.filter( (notification) =>
+                    return snapshot.docs.filter((notification) =>
                         notification.data().reviewHandle !== notification.data().sender
                     );
                 });
         })
-        .then(data=>{
+        .then(data => {
             data.forEach(doc => {
                 userData.notifications.push({ //TODO
                     recipient: doc.data().recipient,
@@ -276,5 +274,110 @@ exports.markNotificationsRead = (req, res) => {
         .catch(err => {
             console.error(err);
             return res.status(500).json({error: err.code});
+        });
+};
+
+exports.getAllLocations = (req, res) => {
+    db
+        .collection('locations')
+        .get()
+        .then(data => {
+            let locations = [];
+            data.forEach(doc => {
+                locations = doc.data().cities;
+            });
+            return res.json(locations);
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).json({error: err.code});
+        });
+};
+
+exports.getAllSittersForCity = (req, res) => {
+    // db
+    //     .collection('users')
+    //     .orderBy('createdAt', 'desc')
+    //     .where('isSitter', '==', true)
+    //     .where('location', '==', req.params.location)
+    //     .get()
+    //     .then(data => {
+    //         let sitters = [];
+    //         data.forEach(doc => {
+    //             sitters.push({
+    //                 bio: doc.data().bio,
+    //                 createdAt: doc.data().createdAt,
+    //                 handle: doc.data().handle,
+    //                 imageUrl: doc.data().imageUrl,
+    //                 isSitter: doc.data().isSitter,
+    //                 location: doc.data().location,
+    //             });
+    //         });
+    //         return res.json(sitters);
+    //     })
+    //     .catch((err) => {
+    //         console.error(err);
+    //         res.status(500).json({error: err.code});
+    //     });
+
+    let userData = {};
+    db
+        .doc(`/sitters/${req.params.location}`)
+        .get()
+        .then(doc => {
+            if (doc.exists) {
+                userData.user = doc.data();
+                return db.collection('users')
+                    .where('isSitter', '==', true)
+                    .where('location', '==', req.params.location)
+                    .orderBy('createdAt', 'desc')
+                    .get();
+            } else {
+                return res.status(404).json({error: 'В вашем городе пока нет ситтеров'});
+            }
+        })
+        .then(data => {
+            userData.sitters = [];
+            data.forEach(doc => {
+                userData.sitters.push({
+                    bio: doc.data().bio,
+                    createdAt: doc.data().createdAt,
+                    handle: doc.data().handle,
+                    imageUrl: doc.data().imageUrl,
+                    isSitter: doc.data().isSitter,
+                    location: doc.data().location,
+                });
+            });
+            return res.json(userData);
+        })
+        .catch(err => {
+            console.error(err);
+            return res.status(500).json({error: err.code});
+        });
+};
+
+exports.getAllSitters=(req,res)=>{
+    db
+        .collection('users')
+        .orderBy('createdAt', 'desc')
+        .where('isSitter', '==', true)
+        .get()
+        .then(data => {
+            let sitters = [];
+            data.forEach(doc => {
+                sitters.push({
+                    bio: doc.data().bio,
+                    createdAt: doc.data().createdAt,
+                    handle: doc.data().handle,
+                    imageUrl: doc.data().imageUrl,
+                    isSitter: doc.data().isSitter,
+                    location: doc.data().location,
+                });
+            });
+            return res.json(sitters);
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).json({error: err.code});
         });
 };

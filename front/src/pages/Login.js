@@ -4,17 +4,16 @@ import PropTypes from 'prop-types';
 //MUI stuff
 import {Typography, Grid, TextField, Button, CircularProgress} from '@material-ui/core';
 //Icons
-import icon from '../../images/icon.png';
+import icon from '../images/icon.png';
 //Utils
-import routes from '../../util/RouterPaths';
+import routes from '../util/RouterPaths';
 //Styles
 import {withStyles} from '@material-ui/core/styles';
-import loginStyles from './Login.css';
 //Redux stuff
 import {connect} from 'react-redux';
-import {loginUser} from "../../redux/actions/userActions";
+import {loginUser} from "../redux/actions/userActions";
 
-const styles = {
+const styles = { //all
     form: {
         textAlign: 'center'
     },
@@ -39,7 +38,11 @@ const styles = {
     },
     progress: {
         position: 'absolute',
-    }
+    },
+    container: {
+        margin: '80px auto 0 auto',
+        maxWidth: 1200,
+    },
 };
 
 
@@ -79,7 +82,7 @@ class Login extends React.Component {
         const {classes, UI: {loading}} = this.props;
         const {errors} = this.state;
         return (
-            <div className={loginStyles.container}>
+            <div className={classes.container}>
                 <Grid container className={classes.form}>
                     <Grid item sm/>
                     <Grid item sm>

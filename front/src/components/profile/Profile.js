@@ -20,7 +20,8 @@ import {
     CalendarToday,
     Link as LinkIcon,
     Edit as EditIcon,
-    KeyboardReturn
+    KeyboardReturn,
+    Pets
 } from '@material-ui/icons';
 //Redux
 import {connect} from 'react-redux';
@@ -74,6 +75,12 @@ const styles = (theme) => ({ //all
         '& a': {
             margin: '20px 20px'
         }
+    },
+    petsIcon: {
+        position: 'absolute',
+        top: '80%',
+        left: '30%',
+        margin: 12,
     }
 });
 
@@ -100,15 +107,17 @@ class Profile extends React.Component {
         const {
             classes,
             user: {
-                credentials: {handle, createdAt, imageUrl, bio, location},
+                credentials: {handle, createdAt, imageUrl, bio, location, isSitter},
                 loading,
                 authenticated,
             }
         } = this.props;
+        console.log(this.props.user);
 
         let profileMarkup = !loading ? (authenticated ? (
             <Paper className={classes.paper}>
                 <div className={classes.profile}>
+                    {isSitter && <Pets fontSize="large" color='primary'/>}
                     <div className='image-wrapper'>
                         <img src={imageUrl} alt='profile' className='profile-image'/>
                         <input type='file' id='imageInput' hidden='hidden' onChange={this.handleImageChange}/>

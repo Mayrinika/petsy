@@ -83,7 +83,7 @@ class Home extends React.Component {
                         <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets01})`}}>
                             <span className={styles.portfolioContent}>
                                 <h4>Ждем в гости!</h4>
-                                <p>Спасибо большое! Каждый день были фото и видео! Май не скучал, у него была хорошая компания! Были спокойны за...</p>
+                                <p>Спасибо большое! Каждый день были фото и видео! Май не скучал, у него была хорошая компания!</p>
                             </span>
                         </div>
                     </a>
@@ -166,18 +166,18 @@ class Home extends React.Component {
                     </a>
                 </section>
 
-                <section className={styles.formSection}>
-                    <div className={styles.container}></div>
+                {/*<section className={styles.formSection}>*/}
+                    {/*<div className={styles.container}></div>*/}
 
-                    <form>
-                        <div><input type='text' name='name' placeholder='Ваше имя...' required/></div>
-                        <div><input type='text' name='surName' placeholder='Ваша фамилия...' required/></div>
-                        <div><input type='text' name='email' placeholder='Ваш E-mail...' required/></div>
-                        <div>
-                            <PrimaryButton>Регистрация</PrimaryButton>
-                        </div>
-                    </form>
-                </section>
+                    {/*<form>*/}
+                        {/*<div><input type='text' name='name' placeholder='Ваше имя...' required/></div>*/}
+                        {/*<div><input type='text' name='surName' placeholder='Ваша фамилия...' required/></div>*/}
+                        {/*<div><input type='text' name='email' placeholder='Ваш E-mail...' required/></div>*/}
+                        {/*<div>*/}
+                            {/*<PrimaryButton>Регистрация</PrimaryButton>*/}
+                        {/*</div>*/}
+                    {/*</form>*/}
+                {/*</section>*/}
 
                 <section className={classNames(styles.landingSection, styles.whyIsItSafe)}>
 
