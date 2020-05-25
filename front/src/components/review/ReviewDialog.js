@@ -81,7 +81,7 @@ class ReviewDialog extends React.Component {
         const {history, match} = this.props;
         let oldPath = history.location.pathname;
         const {reviewId} = this.props;
-        const newPath = `/users/${match.params.handle}/review/${reviewId}`;
+        const newPath = `/${routes.users}/${match.params.handle}/${routes.reviews}/${reviewId}`;
 
         if (match.params.reviewId !== reviewId) {
             history.push(newPath);
@@ -126,7 +126,7 @@ class ReviewDialog extends React.Component {
 
         const dialogMarkup = loading ? (
             <div className={classes.spinnerDiv}>
-                <CircularProgress size={200} thickness={2}/>
+                <CircularProgress size={150} thickness={2}/>
             </div>
         ) : (
             <Grid container spacing={5}>
@@ -142,7 +142,7 @@ class ReviewDialog extends React.Component {
                         component={Link}
                         color='primary'
                         variant='h5'
-                        to={`${routes.users}/${userHandle}`}
+                        to={`/${routes.users}/${userHandle}`}
                     >
                         @{userHandle}
                     </Typography>

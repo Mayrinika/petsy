@@ -21,6 +21,8 @@ import {
 //Redux stuff
 import {connect} from 'react-redux';
 import {markNotificationsRead} from "../../redux/actions/userActions";
+//Utils
+import routes from '../../util/RouterPaths';
 
 class Notifications extends React.Component {
     constructor(props) {
@@ -81,7 +83,7 @@ class Notifications extends React.Component {
                         <ChatIcon color={iconColor} style={{marginRight: 10}}/>
                     );
                     return (
-                        <Link key={not.createdAt} to={`/users/${not.reviewHandle}/review/${not.reviewId}`}>
+                        <Link key={not.createdAt} to={`/${routes.users}/${not.reviewHandle}/${routes.reviews}/${not.reviewId}`}>
                             <MenuItem onClick={this.handleClose}>
                                 {icon}
                                 <Typography

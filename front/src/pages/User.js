@@ -5,8 +5,12 @@ import axios from 'axios';
 import Review from '../components/review/Review';
 import Profile from "../components/profile/Profile";
 import StaticProfile from "../components/profile/StaticProfile";
+import SitterInfo from '../components/profile/SitterInfo/SitterInfo';
+import EditSitterInfo from '../components/profile/SitterInfo/EditSitterInfo';
+import EditPetsInfo from '../components/profile/PetsInfo/EditPetsInfo';
+import PetInfo from '../components/profile/PetsInfo/PetInfo';
 //MUI stuff
-import {Grid} from '@material-ui/core';
+import {CircularProgress, Grid} from '@material-ui/core';
 //Redux stuff
 import {connect} from 'react-redux';
 import {getUserData} from "../redux/actions/dataActions";
@@ -16,11 +20,17 @@ import {withStyles} from "@material-ui/core";
 import ReviewSkeleton from '../util/ReviewSkeleton';
 import ProfileSkeleton from '../util/ProfileSkeleton';
 
-const styles={
+const styles = {
     container: {
         margin: '80px auto 0 auto',
         maxWidth: 1200,
     },
+    textContainer: {
+        textAlign: 'center',
+    },
+    spinnerDiv: {
+        textAlign: 'center',
+    }
 };
 
 class User extends React.Component {
@@ -29,6 +39,7 @@ class User extends React.Component {
         this.state = {
             profile: null,
             reviewIdParam: null,
+            open: false,
         };
     }
 
@@ -59,39 +70,111 @@ class User extends React.Component {
 
         if (handle !== prevHandle) {
             this.loadProfile();
+            this.setState({
+                open: false,
+            })
         }
     }
 
+    handleOpen = () => {
+        this.setState({
+            open: true,
+        });
+    };
+
+    handleClose = () => {
+        this.setState({
+            open: false,
+        });
+    };
+
+    handleSave = (profile) => {
+        this.setState({
+            profile,
+            open: false,
+        })
+    };
+
     render() {
-        const {userHandle, match, data, classes} = this.props;
-        const {reviews, loading,} = data;
-        const reviewId = match.params.reviewId;
+        const {userHandle, match, data, classes,} = this.props;
+        const {profile} = this.state;
+        // const {reviews, loading,} = data;
+        //const reviewId = match.params.reviewId;
         const handle = match.params.handle;
-        const reviewsMarkup = loading ? (
-            <ReviewSkeleton/>
-        ) : reviews === null ? (
-            <p>У данного пользователя еще нет отзывов</p>
-        ) : reviews.map(review => <Review key={review.reviewId} review={review} openDialog={review.reviewId === reviewId}/>);
+        const isOnSelfPage = userHandle === handle;
+        const isSitter = profile ? profile.isSitter : false;
+        const loading = profile === null;
+
+        /*
+        reviews.length === 0 ? (
+                    isOnSelfPage
+                        ? <p className={classes.textContainer}>У вас пока нет отзывов</p>
+                        : <p className={classes.textContainer}>У данного пользователя пока нет отзывов</p>
+                ) :
+         */
 
         return (
             <div className={classes.container}>
-                <Grid container spacing={3}> {/*16*/}
+                <Grid container spacing={3}>
                     <Grid item sm={8} xs={12}>
-                        {reviewsMarkup}
+                        {this.renderInfo(profile, loading, isSitter, isOnSelfPage)}
                     </Grid>
                     <Grid item sm={4} xs={12}>
-                        {this.state.profile === null ? (
-                            <ProfileSkeleton/>
-                        ) : (
-                            handle === userHandle
-                                ? <Profile/>
-                                : <StaticProfile authenticated={this.props.authenticated} profile={this.state.profile}/>
-                        )}
+                        {this.renderProfile(profile, loading, isOnSelfPage)}
                     </Grid>
                 </Grid>
             </div>
         );
     }
+
+    renderInfo = (profile, loading, isSitter, isOnSelfPage) => {
+        const {classes,} = this.props;
+
+        if (loading) {
+            return (
+                <div className={classes.spinnerDiv}>
+                    <CircularProgress color='primary' size={100} thickness={2}/>
+                </div>
+            );
+        }
+        let Info = PetInfo,
+            EditInfo = EditPetsInfo;
+
+        if (isSitter) {
+            Info = SitterInfo;
+            EditInfo = EditSitterInfo;
+        }
+
+        if (isOnSelfPage && this.state.open) {
+            return <EditInfo
+                onClose={this.handleClose}
+                onSave={this.handleSave}
+            />;
+        }
+        return <Info
+            credentials={profile}
+            onOpen={this.handleOpen}
+            canEdit={isOnSelfPage}
+        />;
+    };
+
+    renderProfile = (profile, loading, isOnSelfPage) => {
+        if (loading) {
+            return <ProfileSkeleton/>;
+        }
+
+        if (isOnSelfPage) {
+            return <Profile/>;
+        }
+
+        return (
+            <StaticProfile
+                locations={this.props.data.locations}
+                authenticated={this.props.authenticated}
+                profile={profile}
+            />
+        );
+    };
 }
 
 User.propTypes = {
@@ -99,12 +182,14 @@ User.propTypes = {
     getUserData: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
     userHandle: PropTypes.string,
+    user: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
     data: state.data,
     userHandle: state.user.credentials.handle,
     authenticated: state.user.authenticated,
+    user: state.user,
 });
 
 export default connect(mapStateToProps, {getUserData})(withStyles(styles)(User));

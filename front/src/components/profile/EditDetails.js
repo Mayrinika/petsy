@@ -1,22 +1,30 @@
 import React, {Fragment} from 'react';
-
 import PropTypes from 'prop-types';
-//MUI stuff
-import {TextField, Button} from '@material-ui/core';
-import {Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
 //Icons
 import {Edit as EditIcon,} from '@material-ui/icons';
-//Styles
-import {withStyles} from "@material-ui/core";
+//MUI stuff
+import {
+    TextField,
+    Button,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+    Select,
+    InputLabel,
+    MenuItem
+} from '@material-ui/core';
 //Redux stuff
 import {connect} from 'react-redux';
 import {editUserDetails,} from "../../redux/actions/userActions";
+//Styles
+import {withStyles} from "@material-ui/core";
 //Util
 import MyIconButton from '../../util/MyIconButton';
 
 const styles = {
     button: {
-        float:'right'
+        float: 'right'
     },
     textField: {
         margin: '10px auto 10px auto',
@@ -26,6 +34,7 @@ const styles = {
 class EditDetails extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             bio: '',
             location: '',
@@ -74,10 +83,12 @@ class EditDetails extends React.Component {
     };
 
     render() {
-        const {classes} = this.props;
+        const {classes, locations,} = this.props;
+
         return (
             <Fragment>
-                <MyIconButton tip='Изменить описание' placement='top' onClick={this.handleOpen} btnClassName={classes.button}>
+                <MyIconButton tip='Изменить описание' placement='top' onClick={this.handleOpen}
+                              btnClassName={classes.button}>
                     <EditIcon color='primary'/>
                 </MyIconButton>
                 <Dialog
@@ -92,25 +103,30 @@ class EditDetails extends React.Component {
                             <TextField
                                 name='bio'
                                 type='text'
-                                label='Bio'
+                                label='Заголовок'
                                 multiline
-                                rows='3'
+                                rows='1'
                                 placeholder='Коротко о вас'
                                 className={classes.textField}
                                 value={this.state.bio}
                                 onChange={this.handleChange}
                                 fullWidth
+                                inputProps={{
+                                    maxLength: 40,
+                                }}
                             />
-                            <TextField
+                            <InputLabel id="locationLabel">Ваш Город</InputLabel>
+                            <Select
                                 name='location'
-                                type='text'
-                                label='Location'
-                                placeholder='Ваш город'
-                                className={classes.textField}
+                                labelId="locationLabel"
+                                id="locationSelect"
                                 value={this.state.location}
                                 onChange={this.handleChange}
                                 fullWidth
-                            />
+                            >
+                                {Object.values(locations).map(({name, apiName}) =>
+                                    <MenuItem key={apiName} value={apiName}>{name}</MenuItem>)}
+                            </Select>
                         </form>
                     </DialogContent>
                     <DialogActions>
@@ -129,11 +145,14 @@ class EditDetails extends React.Component {
 
 EditDetails.propTypes = {
     classes: PropTypes.object.isRequired,
+    credentials: PropTypes.object.isRequired,
+    locations: PropTypes.object.isRequired,
     editUserDetails: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     credentials: state.user.credentials,
+    locations: state.data.locations,
 });
 
 const mapActionsToProps = {

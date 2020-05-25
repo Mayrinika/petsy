@@ -106,7 +106,7 @@ const ProfileSkeleton = props => {
                         <hr/>
                         <LocationOn color='primary'/> <span>Город</span>
                         <hr/>
-                        <CalendarToday color='primary'/> Joined date
+                        <CalendarToday color='primary'/> Дата регистрации...
                     </div>
                 </div>
             </Paper>

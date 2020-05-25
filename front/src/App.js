@@ -3,10 +3,11 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import jwsDecode from 'jwt-decode';
 import axios from "axios";
 //Redux
-import {Provider} from 'react-redux';
+import {Provider, connect} from 'react-redux';
 import store from './redux/store';
 import {SET_AUTHENTICATED} from "./redux/types";
 import {logoutUser, getUserData} from "./redux/actions/userActions";
+import {getLocations,} from "./redux/actions/dataActions";
 //Components
 import NavigationBar from './components/layout/NavigationBar';
 //Utils
@@ -18,9 +19,18 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import User from './pages/User';
 import Sitters from './pages/Sitters';
+import UserReviews from './pages/UserReviews';
 //Styles
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
-import styles from './App.css';
+import {withStyles} from '@material-ui/core';
+import {CircularProgress} from '@material-ui/core';
+import './App.css';
+
+import dayjs from 'dayjs';
+import 'dayjs/locale/ru';
+import PropTypes from "prop-types";
+
+dayjs.locale('ru');
 
 const theme = createMuiTheme({
     palette: {
@@ -43,49 +53,106 @@ const theme = createMuiTheme({
 
 });
 
-const token = localStorage.FBIdToken;
-if (token) {
-    const decodedToken = jwsDecode(token);
-    if (decodedToken.exp * 1000 < Date.now()) {
-        store.dispatch(logoutUser());
-        window.location.href = `${routes.login}`;
-    } else {
-        store.dispatch({type: SET_AUTHENTICATED});
-        axios.defaults.headers.common['Authorization']=token;
-        store.dispatch(getUserData());
+const styles = {
+    container: {
+        margin: '80px auto 0 auto',
+        maxWidth: 1200,
+        minHeight: 'calc(100vh - 80px)',
+    },
+    spinnerDiv: {
+        textAlign: 'center',
     }
+};
+
+
+function App() {
+    return (
+        <MuiThemeProvider theme={theme}>
+            <Provider store={store}>
+                <BrowserRouter>
+                    <NavigationBar/>
+                    <Page/>
+                </BrowserRouter>
+            </Provider>
+        </MuiThemeProvider>
+    );
 }
 
-class App extends React.Component {
+export default App;
+
+class InternalApp extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            initializing: true,
+        }
+    }
+
+    componentDidMount() {
+        store.dispatch(getLocations());
+
+        const token = localStorage.FBIdToken;
+        if (token) {
+            const decodedToken = jwsDecode(token);
+            if (decodedToken.exp * 1000 < Date.now()) {
+                store.dispatch(logoutUser());
+                window.location.href = `/${routes.login}`;
+            } else {
+                store.dispatch({type: SET_AUTHENTICATED});
+                axios.defaults.headers.common['Authorization'] = token;
+                store.dispatch(getUserData());
+            }
+        } else {
+            this.setState({initializing: false});
+        }
+    }
+
+    componentDidUpdate() {
+        if (this.props.user.authenticated && !this.props.user.loading && this.state.initializing) {
+            this.setState({initializing: false});
+        }
+    }
+
     render() {
+        const {classes,} = this.props;
+        const {initializing} = this.state;
+
         return (
-            <MuiThemeProvider theme={theme}>
-                <Provider store={store}>
-                    <BrowserRouter>
-                        <NavigationBar/>
-                        <div className={styles.container}>
-                            <Switch>
-                                <Route exact path={routes.home} component={Home}/>
-                                <AuthRoute
-                                    exact
-                                    path={routes.login}
-                                    component={Login}
-                                />
-                                <AuthRoute
-                                    exact
-                                    path={routes.signup}
-                                    component={Signup}
-                                />
-                                <Route exact path={`/users/:handle`} component={User}/>
-                                <Route exact path={`/users/:handle/review/:reviewId`} component={User}/>
-                                <Route exact path={routes.sitters} component={Sitters}/>
-                            </Switch>
-                        </div>
-                    </BrowserRouter>
-                </Provider>
-            </MuiThemeProvider>
+            initializing
+                ? <div className={classes.container}>
+                    <div className={classes.spinnerDiv}>
+                        <CircularProgress color='primary' size={100} thickness={2}/>
+                    </div>
+                </div>
+                : <Switch>
+                    <Route exact path={routes.home} component={Home}/>
+                    <AuthRoute
+                        exact
+                        path={`/${routes.login}`}
+                        component={Login}
+                    />
+                    <AuthRoute
+                        exact
+                        path={`/${routes.signup}`}
+                        component={Signup}
+                    />
+                    <Route exact path={`/${routes.users}/:handle`} component={User}/> {/*TODO*/}
+                    <Route exact path={`/${routes.users}/:handle/${routes.reviews}`} component={UserReviews}/>
+                    <Route exact path={`/${routes.users}/:handle/${routes.reviews}/:reviewId`} component={User}/>
+                    <Route exact path={`/${routes.sitters}`} component={Sitters}/>
+                </Switch>
         );
     }
 }
 
-export default App;
+InternalApp.propTypes = {
+    classes: PropTypes.object.isRequired,
+    user: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+    user: state.user,
+});
+
+const Page = connect(mapStateToProps, {})(withStyles(styles)(InternalApp));

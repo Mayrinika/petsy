@@ -49,7 +49,7 @@ class Comments extends React.Component{
                                             <Typography
                                                 variant='h5'
                                                 components={Link}
-                                                to={`${routes.users}/${userHandle}`}
+                                                to={`/${routes.users}/${userHandle}`}
                                                 color='primary'
                                             >
                                                 {userHandle}

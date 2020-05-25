@@ -65,7 +65,7 @@ class NavigationBar extends React.Component {
                                     <HomeIcon/>
                                 </MyIconButton>
                             </Link>
-                            <Link to={routes.sitters}>
+                            <Link to={`/${routes.sitters}`}>
                                 <MyIconButton tip='Выбрать ситтера'>
                                     <Pets/>
                                 </MyIconButton>
@@ -88,9 +88,9 @@ class NavigationBar extends React.Component {
                     ) : (
                         <Fragment>
                             <Button color='inherit' component={Link} to={routes.home}>Главная</Button>
-                            <Button color='inherit' component={Link} to={routes.sitters}>Выбрать ситтера</Button>
-                            <Button color='inherit' component={Link} to={routes.login}>Войти</Button>
-                            <Button color='inherit' component={Link} to={routes.signup}>Регистрация</Button>
+                            <Button color='inherit' component={Link} to={`/${routes.sitters}`}>Выбрать ситтера</Button>
+                            <Button color='inherit' component={Link} to={`/${routes.login}`}>Войти</Button>
+                            <Button color='inherit' component={Link} to={`/${routes.signup}`}>Регистрация</Button>
                         </Fragment>
                     )}
                 </Toolbar>
@@ -101,13 +101,13 @@ class NavigationBar extends React.Component {
 
 
 NavigationBar.propsTypes = {
+    classes: PropTypes.object.isRequired,
     authenticated: PropTypes.bool.isRequired,
     userHandle: PropTypes.string.isRequired,
     logoutUser: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-    classes: PropTypes.object.isRequired,
     authenticated: state.user.authenticated,
     userHandle: state.user.credentials.handle,
 });

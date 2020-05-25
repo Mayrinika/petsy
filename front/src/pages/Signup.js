@@ -193,7 +193,7 @@ class Signup extends React.Component {
                                 )}
                             </Button>
                             <br/>
-                            <small>Уже есть аккаунт? <Link to={routes.login}>Войти</Link></small>
+                            <small>Уже есть аккаунт? <Link to={`/${routes.login}`}>Войти</Link></small>
                         </form>
                     </Grid>
                     <Grid item sm/>

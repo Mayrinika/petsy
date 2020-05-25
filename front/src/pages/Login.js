@@ -132,7 +132,7 @@ class Login extends React.Component {
                                 )}
                             </Button>
                             <br/>
-                            <small>Нет аккаунта? <Link to={routes.signup}>Регистрация</Link></small>
+                            <small>Нет аккаунта? <Link to={`/${routes.signup}`}>Регистрация</Link></small>
                         </form>
                     </Grid>
                     <Grid item sm/>

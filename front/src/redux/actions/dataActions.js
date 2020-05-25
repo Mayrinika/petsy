@@ -11,6 +11,7 @@ import {
     SET_REVIEW,
     STOP_LOADING_UI,
     SUBMIT_COMMENT,
+    SET_LOCATIONS,
 } from '../types';
 import axios from 'axios';
 
@@ -130,6 +131,16 @@ export const getUserData = (userHandle) => (dispatch) => {
                 payload: null
             });
         });
+};
+
+export const getLocations = () => (dispatch) => {
+    axios.get(`/api/locations`)
+        .then(res => {
+            dispatch({
+                type: SET_LOCATIONS,
+                payload: res.data,
+            });
+        })
 };
 
 export const clearErrors = () => (dispatch) => {

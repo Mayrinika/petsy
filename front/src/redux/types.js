@@ -12,6 +12,7 @@ export const UNLIKE_REVIEW = 'UNLIKE_REVIEW';
 export const DELETE_REVIEW = 'DELETE_REVIEW';
 export const POST_REVIEW = 'POST_REVIEW';
 export const SUBMIT_COMMENT = 'SUBMIT_COMMENT';
+export const SET_LOCATIONS = 'SET_LOCATIONS';
 //UI reducer types
 export const SET_ERRORS = 'SET_ERRORS';
 export const LOADING_UI = 'LOADING_UI';

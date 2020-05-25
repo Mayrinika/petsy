@@ -7,12 +7,14 @@ import {
     POST_REVIEW,
     SET_REVIEW,
     SUBMIT_COMMENT,
+    SET_LOCATIONS,
 } from "../types";
 
 const initialState = {
     reviews: [],
     review: {},
     loading: false,
+    locations: {},
 };
 
 export default function (state = initialState, action) {
@@ -69,6 +71,15 @@ export default function (state = initialState, action) {
                         ...state.review.comments
                     ]
                 }
+            };
+        case SET_LOCATIONS:
+            const locations = {};
+            for (const {name, apiName} of action.payload) {
+                locations[apiName] = {name, apiName};
+            }
+            return {
+                ...state,
+                locations,
             };
         default:
             return state;

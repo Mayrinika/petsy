@@ -5,7 +5,7 @@ const config = require('../util/config');
 const firebase = require('firebase');
 firebase.initializeApp(config);
 
-const {validateSignupData, validateLoginData, reduceUserDetails} = require('../util/validators');
+const {validateSignupData, validateLoginData,} = require('../util/validators');
 
 //Sing user up
 exports.signup = (req, res) => {
@@ -90,9 +90,7 @@ exports.login = (req, res) => {
 
 //Add user details
 exports.addUserDetails = (req, res) => {
-    let userDetails = reduceUserDetails(req.body);
-
-    db.doc(`/users/${req.user.handle}`).update(userDetails)
+    db.doc(`/users/${req.user.handle}`).update(req.body)
         .then(() => {
             return res.json({message: 'Описание обновлено'});
         })
@@ -282,9 +280,16 @@ exports.getAllLocations = (req, res) => {
         .collection('locations')
         .get()
         .then(data => {
-            let locations = [];
+            const locations = [];
             data.forEach(doc => {
-                locations = doc.data().cities;
+                const data = doc.data();
+                for (const city in data) {
+                    locations.push(
+                        {
+                            name: data[city],
+                            apiName: city,
+                        });
+                }
             });
             return res.json(locations);
         })
@@ -295,51 +300,16 @@ exports.getAllLocations = (req, res) => {
 };
 
 exports.getAllSittersForCity = (req, res) => {
-    // db
-    //     .collection('users')
-    //     .orderBy('createdAt', 'desc')
-    //     .where('isSitter', '==', true)
-    //     .where('location', '==', req.params.location)
-    //     .get()
-    //     .then(data => {
-    //         let sitters = [];
-    //         data.forEach(doc => {
-    //             sitters.push({
-    //                 bio: doc.data().bio,
-    //                 createdAt: doc.data().createdAt,
-    //                 handle: doc.data().handle,
-    //                 imageUrl: doc.data().imageUrl,
-    //                 isSitter: doc.data().isSitter,
-    //                 location: doc.data().location,
-    //             });
-    //         });
-    //         return res.json(sitters);
-    //     })
-    //     .catch((err) => {
-    //         console.error(err);
-    //         res.status(500).json({error: err.code});
-    //     });
-
-    let userData = {};
     db
-        .doc(`/sitters/${req.params.location}`)
+        .collection('users')
+        .orderBy('createdAt', 'desc')
+        .where('location', '==', req.params.location)
+        .where('isSitter', '==', true)
         .get()
-        .then(doc => {
-            if (doc.exists) {
-                userData.user = doc.data();
-                return db.collection('users')
-                    .where('isSitter', '==', true)
-                    .where('location', '==', req.params.location)
-                    .orderBy('createdAt', 'desc')
-                    .get();
-            } else {
-                return res.status(404).json({error: 'В вашем городе пока нет ситтеров'});
-            }
-        })
         .then(data => {
-            userData.sitters = [];
+            let sitters = [];
             data.forEach(doc => {
-                userData.sitters.push({
+                sitters.push({
                     bio: doc.data().bio,
                     createdAt: doc.data().createdAt,
                     handle: doc.data().handle,
@@ -348,15 +318,16 @@ exports.getAllSittersForCity = (req, res) => {
                     location: doc.data().location,
                 });
             });
-            return res.json(userData);
+            return res.json(sitters);
         })
-        .catch(err => {
+        .catch((err) => {
             console.error(err);
-            return res.status(500).json({error: err.code});
+            res.status(500).json({error: err.code});
         });
+
 };
 
-exports.getAllSitters=(req,res)=>{
+exports.getAllSitters = (req, res) => {
     db
         .collection('users')
         .orderBy('createdAt', 'desc')

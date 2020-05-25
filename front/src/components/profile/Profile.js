@@ -110,9 +110,9 @@ class Profile extends React.Component {
                 credentials: {handle, createdAt, imageUrl, bio, location, isSitter},
                 loading,
                 authenticated,
-            }
+            },
+            locations,
         } = this.props;
-        console.log(this.props.user);
 
         let profileMarkup = !loading ? (authenticated ? (
             <Paper className={classes.paper}>
@@ -121,27 +121,28 @@ class Profile extends React.Component {
                     <div className='image-wrapper'>
                         <img src={imageUrl} alt='profile' className='profile-image'/>
                         <input type='file' id='imageInput' hidden='hidden' onChange={this.handleImageChange}/>
-                        <MyIconButton tip='Выбрать фото профиля' placement='top' onClick={this.handleEditPicture} btnClassName='button'>
+                        <MyIconButton tip='Выбрать фото профиля' placement='top' onClick={this.handleEditPicture}
+                                      btnClassName='button'>
                             <EditIcon color='primary'/>
                         </MyIconButton>
                     </div>
                     <hr/>
                     <div className='profile-details'>
                         <MuiLink component={Link} to={`/users/${handle}`} color='primary' variant='h5'>
-                            @{handle}
+                            {handle}
                         </MuiLink>
                         <hr/>
-                        {bio && <Typography variant='body2'>{bio}</Typography>}
+                        {bio && <Typography variant='body1'><strong>{bio}</strong></Typography>}
                         <hr/>
                         {location && (
                             <Fragment>
                                 <LocationOn color='primary'/>
-                                <span>{location}</span>
+                                <span>{locations[location] && locations[location].name || location}</span>
                                 <hr/>
                             </Fragment>
                         )}
                         <CalendarToday color='primary'/> {' '}
-                        <span>Joined {dayjs(createdAt).format('MMM YYYY')}</span>
+                        <span>Дата регистрации: {dayjs(createdAt).format('MMM YYYY')}</span>
                     </div>
                     <MyIconButton tip='Выйти' placement='top' onClick={this.handleLogout}>
                         <KeyboardReturn color='primary'/>
@@ -159,7 +160,7 @@ class Profile extends React.Component {
                         variant='contained'
                         color='primary'
                         component={Link}
-                        to={routes.login}
+                        to={`/${routes.login}`}
                     >
                         Войти
                     </Button>
@@ -167,7 +168,7 @@ class Profile extends React.Component {
                         variant='contained'
                         color='secondary'
                         component={Link}
-                        to={routes.signup}
+                        to={`/${routes.signup}`}
                     >
                         Регистрация
                     </Button>
@@ -182,12 +183,14 @@ class Profile extends React.Component {
 Profile.propTypes = {
     classes: PropTypes.object.isRequired,
     user: PropTypes.object.isRequired,
+    locations: PropTypes.object.isRequired,
     logoutUser: PropTypes.func.isRequired,
     uploadImage: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     user: state.user,
+    locations: state.data.locations,
 });
 
 const mapActionsToProps = {

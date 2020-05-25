@@ -32,27 +32,6 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                {/*{<header>*/}
-                    {/*<img src={logo} className={styles.logo} alt="logo"/>*/}
-
-                    {/*<div className={styles.helpSection}>*/}
-                        {/*<a href='#' className={styles.helpLink}>*/}
-                            {/*<p>Частые вопросы</p>*/}
-                        {/*</a>*/}
-                        {/*<a href='#' className={styles.helpLink}>*/}
-                            {/*<p>Наши услуги</p>*/}
-                        {/*</a>*/}
-                    {/*</div>*/}
-
-                    {/*<div className={styles.enterSection}>*/}
-                        {/*<Link to={routes.login} className={styles.enterLink}>*/}
-                            {/*<p>Войти</p>*/}
-                        {/*</Link>*/}
-                        {/*<Link to={routes.signup} className={styles.enterLink}>*/}
-                            {/*<p>Регистрация</p>*/}
-                        {/*</Link>*/}
-                    {/*</div>*/}
-                {/*</header>}*/}
                 <main className={styles.mainPage}> {/*main->section*/}
                     <div className={styles.mainPageContent}>
                         <h1>Забота о вашем питомце, <br/> пока вы в отъезде! </h1>
@@ -165,19 +144,6 @@ class Home extends React.Component {
                         </div>
                     </a>
                 </section>
-
-                {/*<section className={styles.formSection}>*/}
-                    {/*<div className={styles.container}></div>*/}
-
-                    {/*<form>*/}
-                        {/*<div><input type='text' name='name' placeholder='Ваше имя...' required/></div>*/}
-                        {/*<div><input type='text' name='surName' placeholder='Ваша фамилия...' required/></div>*/}
-                        {/*<div><input type='text' name='email' placeholder='Ваш E-mail...' required/></div>*/}
-                        {/*<div>*/}
-                            {/*<PrimaryButton>Регистрация</PrimaryButton>*/}
-                        {/*</div>*/}
-                    {/*</form>*/}
-                {/*</section>*/}
 
                 <section className={classNames(styles.landingSection, styles.whyIsItSafe)}>
 

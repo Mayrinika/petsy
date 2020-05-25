@@ -29,7 +29,7 @@ class LikeButton extends React.Component {
     render() {
         const {authenticated} = this.props.user;
         const likeButton = !authenticated ? (
-            <Link to={routes.login}>
+            <Link to={`/${routes.login}`}>
                 <MyIconButton tip='Лайк'>
                     <FavoriteBorder color='primary'/>
                 </MyIconButton>
