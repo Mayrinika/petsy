@@ -60,7 +60,7 @@ class Home extends React.Component {
                     <a href='#' className={styles.blogItem}> {/* blog-item grid*/}
                         <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets01})`}}>
                             <span className={styles.portfolioContent}>
-                                <h4>Ждем в гости!</h4>
+                                <h4>"Ждем в гости!"</h4>
                                 <p>Спасибо большое! Каждый день были фото и видео! Май не скучал, у него была хорошая компания!</p>
                             </span>
                         </div>
@@ -68,32 +68,32 @@ class Home extends React.Component {
                     <a href='#' className={styles.blogItem}>
                         <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets02})`}}>
                         <span className={styles.portfolioContent}>
-                                <h4>Hello</h4>
-                                <p>World...</p>
+                                <h4>"Позабочусь о вашем любимце!"</h4>
+                                <p>Были спокойны за Мону. Каждый день получали фото. Спасибо!</p>
                             </span>
                         </div>
                     </a>
                     <a href='#' className={styles.blogItem}>
                         <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets03})`}}>
                             <span className={styles.portfolioContent}>
-                                <h4>Hello</h4>
-                                <p>World...</p>
+                                <h4>"Приглашаем в гости!"</h4>
+                                <p>Спасибо. Кеша остался доволен!</p>
                             </span>
                         </div>
                     </a>
                     <a href='#' className={styles.blogItem}>
                         <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets04})`}}>
                             <span className={styles.portfolioContent}>
-                                <h4>Hello</h4>
-                                <p>World...</p>
+                                <h4>"Люблю котиков ;)"</h4>
+                                <p>Очень рады, что попали именно к Марине! Мося счастлива!</p>
                             </span>
                         </div>
                     </a>
                     <a href='#' className={styles.blogItem}>
                         <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets05})`}}>
                            <span className={styles.portfolioContent}>
-                                <h4>Hello</h4>
-                                <p>World...</p>
+                                <h4>"Обожаю собак!"</h4>
+                                <p>Спасибо большое Александре! Руна провела свой отпуск в отличной компании!</p>
                             </span>
                         </div>
                     </a>
@@ -105,40 +105,40 @@ class Home extends React.Component {
                     <a href='#' className={styles.blogItem}>
                         <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets06})`}}>
                             <span className={styles.portfolioContent}>
-                                <h4>Hello</h4>
-                                <p>World...</p>
+                                <h4>"Люблю всех животныx!"</h4>
+                                <p>Ася хорошо перенесла передержку, с ней много гуляли, играли.</p>
                             </span>
                         </div>
                     </a>
                     <a href='#' className={styles.blogItem}>
                         <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets07})`}}>
                             <span className={styles.portfolioContent}>
-                                <h4>Hello</h4>
-                                <p>World...</p>
+                                <h4>"Обожаю гулять с собаками!"</h4>
+                                <p>Спасибо Марине за передержку, за собаку был полностью спокоен, пёс в отличном, бойком состоянии духа.</p>
                             </span>
                         </div>
                     </a>
                     <a href='#' className={styles.blogItem}>
                         <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets08})`}}>
                            <span className={styles.portfolioContent}>
-                                <h4>Hello</h4>
-                                <p>World...</p>
+                                <h4>"Приходите в гости!"</h4>
+                                <p>Спасибо большое Олегу и Александре! Наш Гера чувствовал себя прекрасно рядом с ними!</p>
                             </span>
                         </div>
                     </a>
                     <a href='#' className={styles.blogItem}>
                         <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets09})`}}>
                             <span className={styles.portfolioContent}>
-                                <h4>Hello</h4>
-                                <p>World...</p>
+                                <h4>"Позабочусь о вашем питомце!"</h4>
+                                <p>Спасибо! Хома отлично перенес передержку!</p>
                             </span>
                         </div>
                     </a>
                     <a href='#' className={styles.blogItem}>
                         <div className={styles.portfolioItem} style={{'backgroundImage': `url(${pets10})`}}>
                             <span className={styles.portfolioContent}>
-                                <h4>Hello</h4>
-                                <p>World...</p>
+                                <h4>"Жду в гости всех!"</h4>
+                                <p>Оставляли Татьяне собачку, они отлично поладили, поэтому мы были абсолютно спокойны в отъезде.</p>
                             </span>
                         </div>
                     </a>
