@@ -77,7 +77,7 @@ class ReviewDialog extends React.Component {
         if (match.params.reviewId !== reviewId) {
             history.push(newPath);
         } else {
-            oldPath = `/users/${match.params.handle}`;
+            oldPath = `/${routes.users}/${match.params.handle}/${routes.reviews}`;
         }
 
         this.setState({

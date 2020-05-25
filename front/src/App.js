@@ -113,7 +113,7 @@ class InternalApp extends React.Component {
                     />
                     <Route exact path={`/${routes.users}/:handle`} component={User}/>
                     <Route exact path={`/${routes.users}/:handle/${routes.reviews}`} component={UserReviews}/>
-                    <Route exact path={`/${routes.users}/:handle/${routes.reviews}/:reviewId`} component={User}/>
+                    <Route exact path={`/${routes.users}/:handle/${routes.reviews}/:reviewId`} component={UserReviews}/>
                     <Route exact path={`/${routes.sitters}`} component={Sitters}/>
                 </Switch>
         );

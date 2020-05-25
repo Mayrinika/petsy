@@ -62,15 +62,22 @@ export default function (state = initialState, action) {
                 ]
             };
         case SUBMIT_COMMENT:
+            const newReview = {
+                ...state.review,
+                commentCount: state.review.commentCount + 1,
+                comments: [
+                    action.payload,
+                    ...state.review.comments
+                ]
+            };
+            const newReviews = [...state.reviews];
+            const reviewIndex = newReviews.findIndex(r => r.reviewId === newReview.reviewId);
+            newReviews[reviewIndex].commentCount = state.review.commentCount + 1;
+
             return {
                 ...state,
-                review: {
-                    ...state.review,
-                    comments: [
-                        action.payload,
-                        ...state.review.comments
-                    ]
-                }
+                review: newReview,
+                reviews: newReviews,
             };
         case SET_LOCATIONS:
             const locations = {};

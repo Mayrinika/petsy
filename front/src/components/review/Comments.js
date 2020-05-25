@@ -9,10 +9,10 @@ import {withStyles} from "@material-ui/core";
 //Utils
 import routes from '../../util/RouterPaths';
 
-const styles=(theme)=>({
+const styles = (theme) => ({
     ...theme.content,
 
-    commentImage:{
+    commentImage: {
         maxWidth: '100%',
         height: 100,
         objectFit: 'cover',
@@ -24,13 +24,13 @@ const styles=(theme)=>({
     }
 });
 
-class Comments extends React.Component{
-    render(){
-        const {comments, classes}=this.props;
+class Comments extends React.Component {
+    render() {
+        const {comments, classes} = this.props;
         return (
             <Grid container>
-                {comments.map((comment, index)=>{
-                    const {body, createdAt, userImage, userHandle}=comment;
+                {comments.map((comment, index) => {
+                    const {body, createdAt, userImage, userHandle} = comment;
                     return (
                         <Fragment key={createdAt}>
                             <Grid item sm={12}>
@@ -57,7 +57,7 @@ class Comments extends React.Component{
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            {index!==comments.length-1 && (
+                            {index !== comments.length - 1 && (
                                 <hr className={classes.visibleSeparator}/>
                             )}
                         </Fragment>
@@ -68,7 +68,7 @@ class Comments extends React.Component{
     }
 }
 
-Comments.propTypes={
+Comments.propTypes = {
     comments: PropTypes.array.isRequired,
 };
 
