@@ -1,7 +1,5 @@
 import React, {Fragment} from "react";
 import PropTypes from "prop-types";
-//Icons
-import {Edit as EditIcon, KeyboardReturn} from "@material-ui/icons";
 //MUI stuff
 import {
     Checkbox,
@@ -22,28 +20,12 @@ import {editUserDetails,} from "../../../redux/actions/userActions";
 //Styles
 import {withStyles} from "@material-ui/core";
 //Utils
-import MyIconButton from "../../../util/MyIconButton";
 import {SIZES, AGES} from '../../../util/PetsSizeAndAge';
 
-const styles = {
-    button: {
-        float: 'right'
-    },
-    textField: {
-        margin: '10px auto 10px auto',
-    },
-    form: {
-        margin: '0 20px 20px 20px',
-    },
-    buttonsActions: {
-        textAlign: 'right',
-        paddingBottom: 10,
-        paddingRight: 12,
-    },
-    editIcon: {
-        float: 'right',
-    }
-};
+const styles =(theme)=>( {
+    ...theme.content,
+
+});
 
 class EditSitterInfo extends React.Component {
     constructor(props) {
@@ -139,7 +121,7 @@ class EditSitterInfo extends React.Component {
         return (
             <Fragment>
                 <Paper>
-                    <form className={classes.form}>
+                    <form className={classes.editInfoForm}>
                         <TextField style={{marginRight: 50}}
                                    name='name'
                                    type='text'
@@ -322,7 +304,7 @@ class EditSitterInfo extends React.Component {
                             }}
                         />
                     </form>
-                    <div className={classes.buttonsActions}>
+                    <div className={classes.editInfoButtons}>
                         <Button onClick={onClose} color='primary'>
                             Выйти
                         </Button>

@@ -22,37 +22,9 @@ import {withStyles} from '@material-ui/core/styles';
 import routes from '../util/RouterPaths';
 
 
-const styles = {
-    form: {
-        textAlign: 'center'
-    },
-    pageTitle: {
-        margin: '10px auto 10px auto',
-    },
-    image: {
-        margin: '20px auto 20px auto',
-        width: '64px',
-    },
-    textField: {
-        margin: '10px auto 10px auto',
-    },
-    button: {
-        marginTop: 20,
-        position: 'relative',
-    },
-    customError: {
-        color: 'red',
-        fontSize: '0.8rem',
-        marginTop: 10
-    },
-    progress: {
-        position: 'absolute',
-    },
-    container: {
-        margin: '80px auto 0 auto',
-        maxWidth: 1200,
-    },
-};
+const styles = (theme) => ({
+    ...theme.content
+});
 
 
 class Signup extends React.Component {
@@ -110,7 +82,7 @@ class Signup extends React.Component {
                 <Grid container className={classes.form}>
                     <Grid item sm/>
                     <Grid item sm>
-                        <img src={icon} alt='husky icon' className={classes.image}/>
+                        <img src={icon} alt='husky icon' className={classes.imageLogo}/>
                         <Typography variant='h3' className={classes.pageTitle}>
                             Регистрация
                         </Typography>

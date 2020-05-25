@@ -1,29 +1,16 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import dayjs from 'dayjs';
-//Styles
-import {withStyles} from "@material-ui/core";
 //MUI stuff
 import {TextField, Button, Grid, Typography} from '@material-ui/core';
 //Redux stuff
 import {connect} from 'react-redux';
 import {submitComment} from "../../redux/actions/dataActions";
+//Styles
+import {withStyles} from "@material-ui/core";
 
-const styles = {
-    textField: { //all
-        margin: '10px auto 10px auto',
-    },
-    button: { //all
-        marginTop: 20,
-        position: 'relative',
-    },
-    visibleSeparator: { //all
-        width: '100%',
-        borderBottom: '1px solid rgba(0,0,0,0.1)',
-        marginBottom: 20
-    },
-};
+const styles =(theme)=>( {
+    ...theme.content,
+});
 
 class CommentForm extends React.Component {
     constructor(props) {

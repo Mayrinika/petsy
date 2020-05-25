@@ -20,18 +20,9 @@ import {withStyles} from "@material-ui/core";
 import ReviewSkeleton from '../util/ReviewSkeleton';
 import ProfileSkeleton from '../util/ProfileSkeleton';
 
-const styles = {
-    container: {
-        margin: '80px auto 0 auto',
-        maxWidth: 1200,
-    },
-    textContainer: {
-        textAlign: 'center',
-    },
-    spinnerDiv: {
-        textAlign: 'center',
-    }
-};
+const styles =(theme)=>( {
+    ...theme.content,
+});
 
 class User extends React.Component {
     constructor(props) {
@@ -98,20 +89,10 @@ class User extends React.Component {
     render() {
         const {userHandle, match, data, classes,} = this.props;
         const {profile} = this.state;
-        // const {reviews, loading,} = data;
-        //const reviewId = match.params.reviewId;
         const handle = match.params.handle;
         const isOnSelfPage = userHandle === handle;
         const isSitter = profile ? profile.isSitter : false;
         const loading = profile === null;
-
-        /*
-        reviews.length === 0 ? (
-                    isOnSelfPage
-                        ? <p className={classes.textContainer}>У вас пока нет отзывов</p>
-                        : <p className={classes.textContainer}>У данного пользователя пока нет отзывов</p>
-                ) :
-         */
 
         return (
             <div className={classes.container}>

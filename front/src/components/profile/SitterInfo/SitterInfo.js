@@ -1,24 +1,11 @@
-import React, {Fragment} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 //Icons
-import {Edit as EditIcon, KeyboardReturn} from "@material-ui/icons";
+import {Edit as EditIcon} from "@material-ui/icons";
 //MUI stuff
 import {
-    Checkbox,
-    FormControlLabel,
-    InputLabel,
-    MenuItem,
     Paper,
-    Select,
-    TextField,
-    FormGroup,
-    FormLabel,
-    Button,
-    FormControl,
 } from '@material-ui/core';
-//Redux stuff
-import {connect} from 'react-redux';
-import {editUserDetails, logoutUser, uploadImage,} from "../../../redux/actions/userActions";
 //Styles
 import {withStyles} from "@material-ui/core";
 //Utils
@@ -26,21 +13,11 @@ import MyIconButton from "../../../util/MyIconButton";
 import {SIZES, AGES} from "../../../util/PetsSizeAndAge";
 
 
-const styles = {
-    editIcon: {
-        float: 'right',
-    }
-};
+const styles =(theme)=>( {
+    ...theme.content,
+});
 
 class SitterInfo extends React.Component {
-    constructor(props) {
-        super(props);
-
-        // this.state = {
-        //     open: false,
-        // };
-    }
-
     render() {
         const {
             classes,
@@ -92,7 +69,7 @@ class SitterInfo extends React.Component {
                 <div>{regularSupervision ? 'Постоянный присмотр' : null}</div>
                 <div>Принимаемый размер питомца: {petSizesForRender}</div>
                 <div>Принимаемый возраст питомца: {petAgesForRender}</div>
-                <div>Питомцы ситтера: {petsOfSitters}</div>
+                <div>{petsOfSitters ? `Питомцы ситтера: ${petsOfSitters}` : null}</div>
             </Paper>
         );
     }

@@ -13,12 +13,9 @@ import Grid from '@material-ui/core/Grid';
 import {connect} from 'react-redux';
 import {getReviews} from "../redux/actions/dataActions";
 
-const styles = {
-    container: {
-        margin: '80px auto 0 auto',
-        maxWidth: 1200,
-    },
-};
+const styles = (theme) => ({
+    ...theme.content
+});
 
 class Reviews extends React.Component {
     componentDidMount() {

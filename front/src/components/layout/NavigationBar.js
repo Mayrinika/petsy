@@ -28,9 +28,9 @@ import MyIconButton from '../../util/MyIconButton';
 const styles = {
     navContainer: {
         margin: 'auto',
-        '& svg':{
+        '& svg': {
             color: 'white',
-        }
+        },
     },
 
     exitButton: {
@@ -43,8 +43,8 @@ const styles = {
         width: 200,
         position: 'fixed',
         left: 0,
-        marginLeft: 10,
-    }
+        margin: 10,
+    },
 };
 
 class NavigationBar extends React.Component {
@@ -56,8 +56,10 @@ class NavigationBar extends React.Component {
         const {authenticated, userHandle, classes} = this.props;
         return (
             <AppBar>
-                <Toolbar className={classes.navContainer}>
+                <Link to={routes.home} >
                     <img src={logo} alt='logo' className={classes.logo}/>
+                </Link>
+                <Toolbar className={classes.navContainer}>
                     {authenticated ? (
                         <Fragment>
                             <Link to={routes.home}>
@@ -87,10 +89,14 @@ class NavigationBar extends React.Component {
                         </Fragment>
                     ) : (
                         <Fragment>
-                            <Button color='inherit' component={Link} to={routes.home}>Главная</Button>
-                            <Button color='inherit' component={Link} to={`/${routes.sitters}`}>Выбрать ситтера</Button>
-                            <Button color='inherit' component={Link} to={`/${routes.login}`}>Войти</Button>
-                            <Button color='inherit' component={Link} to={`/${routes.signup}`}>Регистрация</Button>
+                            <Button color='inherit' component={Link}
+                                    to={routes.home}>Главная</Button>
+                            <Button color='inherit' component={Link}
+                                    to={`/${routes.sitters}`}>Выбрать ситтера</Button>
+                            <Button color='inherit' component={Link}
+                                    to={`/${routes.login}`}>Войти</Button>
+                            <Button color='inherit' component={Link}
+                                    to={`/${routes.signup}`}>Регистрация</Button>
                         </Fragment>
                     )}
                 </Toolbar>

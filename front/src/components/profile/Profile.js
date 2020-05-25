@@ -1,87 +1,33 @@
 import React, {Fragment} from 'react';
 import {Link} from 'react-router-dom';
-
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
-//Util
-import routes from '../../util/RouterPaths';
-import MyIconButton from '../../util/MyIconButton';
-import ProfileSkeleton from '../../util/ProfileSkeleton';
 //Components
 import EditDetails from './EditDetails';
-//Styles
-import {withStyles} from "@material-ui/core";
-//MUI stuff
-import {Button, Link as MuiLink, Paper} from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
 //Icons
 import {
     LocationOn,
     CalendarToday,
-    Link as LinkIcon,
     Edit as EditIcon,
     KeyboardReturn,
-    Pets
+    Pets,
+    PhoneIphone,
 } from '@material-ui/icons';
+//MUI stuff
+import {Button, Link as MuiLink, Paper} from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 //Redux
 import {connect} from 'react-redux';
 import {logoutUser, uploadImage} from "../../redux/actions/userActions";
+//Styles
+import {withStyles} from "@material-ui/core";
+//Util
+import routes from '../../util/RouterPaths';
+import MyIconButton from '../../util/MyIconButton';
+import ProfileSkeleton from '../../util/ProfileSkeleton';
 
-const styles = (theme) => ({ //all
-    paper: {
-        padding: 20,
-        position: "sticky",
-        top: "80px",
-        alignSelf: "flex-start",
-    },
-    profile: {
-        '& .image-wrapper': {
-            textAlign: 'center',
-            position: 'relative',
-            '& button': {
-                position: 'absolute',
-                top: '80%',
-                left: '70%',
-            }
-        },
-        '& .profile-image': {
-            width: 200,
-            height: 200,
-            objectFit: 'cover',
-            maxWidth: '100%',
-            borderRadius: '50%',
-        },
-        '& .profile-details': {
-            textAlign: 'center',
-            '& span, svg': {
-                verticalAlign: 'middle'
-            },
-            '& a': {
-                color: theme.palette.primary.main
-            }
-        },
-        '& hr': {
-            border: 'none',
-            margin: '0 0 10px 0'
-        },
-        '& svg.button': {
-            '&:hover': {
-                cursor: 'pointer'
-            }
-        }
-    },
-    buttons: {
-        textAlign: 'center',
-        '& a': {
-            margin: '20px 20px'
-        }
-    },
-    petsIcon: {
-        position: 'absolute',
-        top: '80%',
-        left: '30%',
-        margin: 12,
-    }
+const styles = (theme) => ({
+    ...theme.content,
 });
 
 class Profile extends React.Component {
@@ -107,7 +53,7 @@ class Profile extends React.Component {
         const {
             classes,
             user: {
-                credentials: {handle, createdAt, imageUrl, bio, location, isSitter},
+                credentials: {handle, createdAt, imageUrl, bio, location, phone, isSitter},
                 loading,
                 authenticated,
             },
@@ -128,11 +74,15 @@ class Profile extends React.Component {
                     </div>
                     <hr/>
                     <div className='profile-details'>
-                        <MuiLink component={Link} to={`/users/${handle}`} color='primary' variant='h5'>
+                        <MuiLink component={Link} to={`/${routes.users}/${handle}`} color='primary' variant='h5'>
                             {handle}
                         </MuiLink>
                         <hr/>
                         {bio && <Typography variant='body1'><strong>{bio}</strong></Typography>}
+                        <hr/>
+                        <MuiLink component={Link} to={`/${routes.users}/${handle}/${routes.reviews}`} color='secondary' variant='body2'>
+                            <b>{'Отзывы'}</b>
+                        </MuiLink>
                         <hr/>
                         {location && (
                             <Fragment>
@@ -141,6 +91,8 @@ class Profile extends React.Component {
                                 <hr/>
                             </Fragment>
                         )}
+                        {phone && <PhoneIphone color='primary'/>} {phone}
+                        {phone && <hr/>}
                         <CalendarToday color='primary'/> {' '}
                         <span>Дата регистрации: {dayjs(createdAt).format('MMM YYYY')}</span>
                     </div>

@@ -1,26 +1,27 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-//Utils
-import MyIconButton from '../../util/MyIconButton';
-//Components
-//Styles
-import {withStyles} from '@material-ui/core/styles';
+//Icons
+import {DeleteOutline} from '@material-ui/icons';
 //MUI stuff
 import {Button} from '@material-ui/core';
 import {Dialog, DialogTitle, DialogActions} from '@material-ui/core';
-//Icons
-import {DeleteOutline} from '@material-ui/icons';
 //Redux stuff
 import {connect} from 'react-redux';
 import {deleteReview} from '../../redux/actions/dataActions';
+//Styles
+import {withStyles} from '@material-ui/core/styles';
+//Utils
+import MyIconButton from '../../util/MyIconButton';
 
-const styles = {
+const styles = (theme) => ({
+    ...theme.content,
+
     deleteButton: {
         position: 'absolute',
         top: '10%',
         left: '90%'
     }
-};
+});
 
 class DeleteReview extends React.Component {
     constructor(props) {

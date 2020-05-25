@@ -22,14 +22,9 @@ import {withStyles} from "@material-ui/core";
 //Util
 import MyIconButton from '../../util/MyIconButton';
 
-const styles = {
-    button: {
-        float: 'right'
-    },
-    textField: {
-        margin: '10px auto 10px auto',
-    },
-};
+const styles =(theme)=>( {
+    ...theme.content,
+});
 
 class EditDetails extends React.Component {
     constructor(props) {
@@ -38,6 +33,7 @@ class EditDetails extends React.Component {
         this.state = {
             bio: '',
             location: '',
+            phone: '',
             open: false,
         };
     }
@@ -46,6 +42,7 @@ class EditDetails extends React.Component {
         this.setState({
             bio: credentials.bio ? credentials.bio : '',
             location: credentials.location ? credentials.location : '',
+            phone: credentials.phone ? credentials.phone : '',
         });
     };
 
@@ -77,6 +74,7 @@ class EditDetails extends React.Component {
         const userDetails = {
             bio: this.state.bio,
             location: this.state.location,
+            phone: this.state.phone,
         };
         this.props.editUserDetails(userDetails);
         this.handleClose();
@@ -88,7 +86,7 @@ class EditDetails extends React.Component {
         return (
             <Fragment>
                 <MyIconButton tip='Изменить описание' placement='top' onClick={this.handleOpen}
-                              btnClassName={classes.button}>
+                              btnClassName={classes.editIcon}>
                     <EditIcon color='primary'/>
                 </MyIconButton>
                 <Dialog
@@ -106,7 +104,7 @@ class EditDetails extends React.Component {
                                 label='Заголовок'
                                 multiline
                                 rows='1'
-                                placeholder='Коротко о вас'
+                                placeholder='Коротко о вас. Например, "Обожаю собак!"'
                                 className={classes.textField}
                                 value={this.state.bio}
                                 onChange={this.handleChange}
@@ -115,7 +113,22 @@ class EditDetails extends React.Component {
                                     maxLength: 40,
                                 }}
                             />
-                            <InputLabel id="locationLabel">Ваш Город</InputLabel>
+                            <TextField
+                                name='phone'
+                                type='text'
+                                label='Номер телефона'
+                                multiline
+                                rows='1'
+                                placeholder='Ваш номер телефона. Например, 88398493232'
+                                className={classes.textField}
+                                value={this.state.phone}
+                                onChange={this.handleChange}
+                                fullWidth
+                                inputProps={{
+                                    maxLength: 12,
+                                }}
+                            />
+                            <InputLabel id="locationLabel" style={{marginTop: 20}}>Ваш Город</InputLabel>
                             <Select
                                 name='location'
                                 labelId="locationLabel"

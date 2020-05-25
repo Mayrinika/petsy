@@ -16,15 +16,13 @@ import {withStyles} from "@material-ui/core";
 import ReviewSkeleton from '../util/ReviewSkeleton';
 import ProfileSkeleton from '../util/ProfileSkeleton';
 
-const styles = {
-    container: {
-        margin: '80px auto 0 auto',
-        maxWidth: 1200,
-    },
+const styles =(theme) =>({
+    ...theme.content,
+
     textContainer: {
         textAlign: 'center',
     }
-};
+});
 
 class User extends React.Component {
     constructor(props) {

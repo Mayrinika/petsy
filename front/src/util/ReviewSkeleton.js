@@ -6,7 +6,9 @@ import {Card, CardMedia, CardContent} from '@material-ui/core';
 //Styles
 import {withStyles} from '@material-ui/core/styles';
 
-const styles  = {
+const styles = (theme) => ({
+    ...theme.content,
+
     card: {
         display: 'flex',
         marginBottom: 20,
@@ -23,7 +25,7 @@ const styles  = {
     handle: {
         width: 60,
         height: 18,
-        backgroundColor: '#132a35',  //theme.palette.primary.main,
+        backgroundColor: theme.palette.primary.main,
         marginBottom: 7
     },
     date: {
@@ -44,7 +46,7 @@ const styles  = {
         backgroundColor: 'rgba(0,0,0,0.6)',
         marginBottom: 10
     }
-};
+});
 
 const ReviewSkeleton = props => {
     const {classes} = props;

@@ -2,33 +2,27 @@ import React, {Fragment} from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
+//MUI stuff
+import {Grid, Typography} from '@material-ui/core';
 //Styles
 import {withStyles} from "@material-ui/core";
-//MUI stuff
-import {TextField, Button, CircularProgress, Grid, Typography} from '@material-ui/core';
 //Utils
 import routes from '../../util/RouterPaths';
 
-const styles={
-    invisibleSeparator: { //all
-        border: 'none',
-        margin: 4,
-    },
-    visibleSeparator: { //all
-        width:'100%',
-        borderBottom: '1px solid rgba(0,0,0,0.1)',
-        marginBottom: 20
-    },
+const styles=(theme)=>({
+    ...theme.content,
+
     commentImage:{
         maxWidth: '100%',
         height: 100,
         objectFit: 'cover',
         borderRadius: '50%'
     },
+
     commentData: {
         marginLeft: 20
     }
-};
+});
 
 class Comments extends React.Component{
     render(){

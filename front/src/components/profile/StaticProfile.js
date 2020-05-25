@@ -10,66 +10,18 @@ import {
     CalendarToday,
     Link as LinkIcon,
     Edit as EditIcon,
-    KeyboardReturn, Pets
+    KeyboardReturn, Pets, PhoneIphone
 } from '@material-ui/icons';
 //Styles
 import {withStyles} from '@material-ui/core/styles';
 import MyIconButton from "../../util/MyIconButton";
 import EditDetails from "./EditDetails";
 import PostReview from "../review/PostReview";
+import routes from "../../util/RouterPaths";
 
 const styles = (theme) => ({ //all
-            paper: {
-                padding: 20,
-                position: "sticky",
-                top: "80px",
-                alignSelf: "flex-start",
-            },
-            profile: {
-                '& .image-wrapper': {
-                    textAlign: 'center',
-                    position: 'relative',
-                    // '& button': {
-                    //     position: 'absolute',
-                    //     top: '80%',
-                    //     left: '70%',
-                    // }
-                },
-                '& .profile-image': {
-                    width: 200,
-                    height: 200,
-                    objectFit: 'cover',
-                    maxWidth: '100%',
-                    borderRadius: '50%',
-                },
-                '& .profile-details': {
-                    textAlign: 'center',
-                    '& span, svg': {
-                        verticalAlign: 'middle'
-                    },
-                    '& a': {
-                        color: theme.palette.primary.main
-                    }
-                },
-                '& hr': {
-                    border: 'none',
-                    margin: '0 0 10px 0'
-                },
-                // '& svg.button': {
-                //     '&:hover': {
-                //         cursor: 'pointer'
-                //     }
-                // }
-            },
-            // buttons: {
-            //     textAlign: 'center',
-            //     '& a': {
-            //         margin: '20px 20px'
-            //     }
-            // }
-        }
-    )
-;
+    ...theme.content,
+});
 
 const StaticProfile = (props) => {
     const {
@@ -80,7 +32,8 @@ const StaticProfile = (props) => {
             imageUrl,
             bio,
             location,
-            isSitter
+            isSitter,
+            phone
         },
         authenticated,
         locations,
@@ -92,10 +45,6 @@ const StaticProfile = (props) => {
                 {isSitter && <Pets fontSize="large" color='primary'/>}
                 <div className='image-wrapper'>
                     <img src={imageUrl} alt='profile' className='profile-image'/>
-                    {/*<input type='file' id='imageInput' hidden='hidden' onChange={this.handleImageChange}/>*/}
-                    {/*<MyIconButton tip='Выбрать фото профиля' placement='top' onClick={this.handleEditPicture} btnClassName='button'>*/}
-                    {/*<EditIcon color='primary'/>*/}
-                    {/*</MyIconButton>*/}
                 </div>
                 <hr/>
                 <div className='profile-details'>
@@ -105,6 +54,11 @@ const StaticProfile = (props) => {
                     <hr/>
                     {bio && <Typography variant='body1'><strong>{bio}</strong></Typography>}
                     <hr/>
+                    <MuiLink component={Link} to={`/${routes.users}/${handle}/${routes.reviews}`} color='secondary'
+                             variant='body2'>
+                        <b>{'Отзывы'}</b>
+                    </MuiLink>
+                    <hr/>
                     {location && (
                         <Fragment>
                             <LocationOn color='primary'/>
@@ -112,13 +66,11 @@ const StaticProfile = (props) => {
                             <hr/>
                         </Fragment>
                     )}
+                    {phone && <PhoneIphone color='primary'/>} {phone}
+                    {phone && <hr/>}
                     <CalendarToday color='primary'/> {' '}
                     <span>Дата регистрации: {dayjs(createdAt).format('MMM YYYY')}</span>
                 </div>
-                {/*<MyIconButton tip='Выйти' placement='top' onClick={this.handleLogout}>*/}
-                {/*<KeyboardReturn color='primary'/>*/}
-                {/*</MyIconButton>*/}
-                {/*<EditDetails/>*/}
                 {authenticated && <PostReview handle={handle}/>}
             </div>
         </Paper>

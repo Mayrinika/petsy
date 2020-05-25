@@ -21,30 +21,9 @@ import Card from "@material-ui/core/Card/Card";
 import CardMedia from "@material-ui/core/CardMedia/CardMedia";
 import CardContent from "@material-ui/core/CardContent/CardContent";
 
-const styles = {
-    container: {
-        margin: '80px auto 0 auto',
-        maxWidth: 1200,
-    },
-    card: {
-        display: 'flex',
-        marginBottom: 20,
-        position: 'relative'
-    },
-    image: {
-        minWidth: 150,
-        backgroundSize: 'contain',
-        backgroundPosition: 'left',
-
-    },
-    content: {
-        padding: 25,
-        objectFit: 'cover'
-    },
-    select: {
-        marginBottom: 25,
-    }
-};
+const styles =(theme)=>( {
+    ...theme.content,
+});
 
 class Sitters extends React.Component {
     constructor(props) {
@@ -108,7 +87,7 @@ class Sitters extends React.Component {
                                 to={`/users/${handle}`}
                                 color='primary'
                             >
-                                @{handle}
+                                {handle}
                             </Typography>
                             <Typography variant='body2' color='textSecondary'>
                                 Дата регистрации: {dayjs(createdAt).format('MMM YYYY')}
@@ -142,7 +121,7 @@ class Sitters extends React.Component {
                     <Grid item xs={8}>
                         <InputLabel id="locationLabel">Ваш Город</InputLabel>
                         <Select
-                            className={classes.select}
+                            style={{marginBottom: 25}}
                             name='location'
                             labelId="locationLabel"
                             id="locationSelect"

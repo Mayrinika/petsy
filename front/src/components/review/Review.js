@@ -3,50 +3,26 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 import reletiveTime from 'dayjs/plugin/relativeTime';
+//Components
+import DeleteReview from './DeleteReview';
+import ReviewDialog from './ReviewDialog';
+import LikeButton from "./LikeButton";
 //MUI stuff
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-//Styles
-import {withStyles} from '@material-ui/core/styles';
 //Redux stuff
 import {connect} from 'react-redux';
-import {likeReview, unlikeReview} from "../../redux/actions/dataActions";
-//Icons
-import {
-    Chat as ChatIcon,
-    Favorite as FavoriteIcon,
-    FavoriteBorder,
-} from '@material-ui/icons';
-//Utils
-import MyIconButton from '../../util/MyIconButton';
-import routes from '../../util/RouterPaths';
-//Components
-import DeleteReview from './DeleteReview';
-import ReviewDialog from './ReviewDialog';
-import LikeButton from "./LikeButton";
+//Styles
+import {withStyles} from '@material-ui/core/styles';
 
-const styles = {
-    card: {
-        display: 'flex',
-        marginBottom: 20,
-        position: 'relative'
-    },
-    image: {
-        minWidth: 150,
-        backgroundSize: 'contain',
-        backgroundPosition: 'left',
-
-    },
-    content: {
-        padding: 25,
-        objectFit: 'cover'
-    }
-};
+const styles = (theme) => ({
+    ...theme.content,
+});
 
 class Review extends React.Component {
-    
+
     render() {
         dayjs.extend(reletiveTime);
         const {
@@ -62,15 +38,15 @@ class Review extends React.Component {
             },
             user: {
                 authenticated,
-                credentials:{
+                credentials: {
                     handle
                 }
             },
         } = this.props;
 
-        const deleteButton=authenticated && userHandle===handle ? (
+        const deleteButton = authenticated && userHandle === handle ? (
             <DeleteReview reviewId={reviewId}/>
-        ):null;
+        ) : null;
 
         return (
             <Card className={classes.card}>
@@ -89,7 +65,8 @@ class Review extends React.Component {
                     <Typography variant='body1'>{body}</Typography>
                     <LikeButton reviewId={reviewId}/>
                     <span>{likeCount}</span>
-                    <ReviewDialog commentCount={commentCount} reviewId={reviewId} userHandle={userHandle} openDialog={this.props.openDialog}/>
+                    <ReviewDialog commentCount={commentCount} reviewId={reviewId} userHandle={userHandle}
+                                  openDialog={this.props.openDialog}/>
                 </CardContent>
             </Card>
         );

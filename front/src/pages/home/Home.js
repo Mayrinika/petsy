@@ -36,8 +36,7 @@ class Home extends React.Component {
                     <div className={styles.mainPageContent}>
                         <h1>Забота о вашем питомце, <br/> пока вы в отъезде! </h1>
                         <div className={styles.mainPageButtons}>
-                            <PrimaryButton>Выбрать ситтера</PrimaryButton>
-                            <SecondaryButton>Стать ситтером</SecondaryButton>
+                            <PrimaryButton component={Link} to={routes.sitters}>Выбрать ситтера</PrimaryButton>
                         </div>
                     </div>
                 </main>
@@ -100,7 +99,7 @@ class Home extends React.Component {
                     </a>
                     <div className={styles.portfolioLogo} style={{'backgroundImage': `url(${portfolioLogo})`}}>
                         <div className={styles.viewPortfolio}>
-                            <PrimaryButton>Выбрать ситтера</PrimaryButton>
+                            <PrimaryButton component={Link} to={routes.sitters}>Выбрать ситтера</PrimaryButton>
                         </div>
                     </div>
                     <a href='#' className={styles.blogItem}>
@@ -194,12 +193,13 @@ class Home extends React.Component {
                         </div>
                     </div>
                     <div className={styles.chooseSitter}>
-                        <PrimaryButton>Выбрать ситтера</PrimaryButton>
+                        <PrimaryButton component={Link} to={routes.sitters}>Выбрать ситтера</PrimaryButton>
                     </div>
                 </section>
                 <footer>
                     <div className={styles.container}>
                         <h4>Остались вопросы?</h4>
+                        <h5>8(342)675-23-45</h5>
                     </div>
                 </footer>
             </div>

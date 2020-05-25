@@ -1,30 +1,21 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
+//Icons
+import {Add as AddIcon, Close as CloseIcon} from '@material-ui/icons';
 //MUI stuff
 import {TextField, Button, CircularProgress} from '@material-ui/core';
-import {Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
-//Icons
-import {Edit as EditIcon, Add as AddIcon, Close as CloseIcon} from '@material-ui/icons';
-//Styles
-import {withStyles} from "@material-ui/core";
+import {Dialog, DialogContent, DialogTitle} from '@material-ui/core';
 //Redux stuff
 import {connect} from 'react-redux';
 import {postReview, clearErrors} from "../../redux/actions/dataActions";
-import {loginUser} from "../../redux/actions/userActions";
+//Styles
+import {withStyles} from "@material-ui/core";
 //Util
 import MyIconButton from '../../util/MyIconButton';
 
-// const styles=theme=>({
-//     ...theme
-// });
+const styles = (theme) => ({
+    ...theme.content,
 
-const styles = {
-    textField: {
-        margin: '10px auto 10px auto',
-    },
-    progress: {
-        position: 'absolute',
-    },
     submitButton: {
         position: 'relative',
         float: 'right',
@@ -35,7 +26,7 @@ const styles = {
         left: '91%',
         top: '6%'
     }
-};
+});
 
 class PostReview extends React.Component {
     constructor(props) {
