@@ -111,10 +111,16 @@ export default {
             alignSelf: "flex-start",
         },
 
+
         profile: {
             '& .image-wrapper': {
                 textAlign: 'center',
                 position: 'relative',
+                '& button': {
+                    position: 'absolute',
+                    top: '80%',
+                    left: '70%',
+                }
             },
             '& .profile-image': {
                 width: 200,
@@ -136,6 +142,17 @@ export default {
                 border: 'none',
                 margin: '0 0 10px 0'
             },
+            '& svg.button':{
+                '& hover':{
+                    cursor: 'pointer'
+                }
+            }
         },
+        buttons: {
+            textAlign: 'center',
+            '& a':{
+                margin: '20px 10px'
+            }
+        }
     }
 }
