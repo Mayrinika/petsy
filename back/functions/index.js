@@ -31,26 +31,26 @@ const {
 
 //Reviews routes
 app.get('/reviews', getAllReviews);
-app.get('/reviews/:recipientHandle', getAllReviewsForUser);
-app.post('/review', FBAuth, postOneReview);
-app.get('/review/:reviewId', getReview);
-app.post('/review/:reviewId/comment', FBAuth, commentOnReview);
-app.delete('/review/:reviewId', FBAuth, deleteReview);
-app.get('/review/:reviewId/like', FBAuth, likeReview);
-app.get('/review/:reviewId/unlike', FBAuth, unlikeReview);
+app.get('/reviews/:recipientHandle', getAllReviewsForUser); //
+app.post('/review', FBAuth, postOneReview); //
+app.get('/review/:reviewId', getReview); //
+app.post('/review/:reviewId/comment', FBAuth, commentOnReview); //
+app.delete('/review/:reviewId', FBAuth, deleteReview); //
+app.get('/review/:reviewId/like', FBAuth, likeReview); //
+app.get('/review/:reviewId/unlike', FBAuth, unlikeReview); //
 
 //users routes
-app.post('/signup', signup);
-app.post('/login', login);
-app.post('/user/image', FBAuth, uploadImage);
-app.post('/user', FBAuth, addUserDetails);
-app.get('/user', FBAuth, getAuthenticatedUser);
-app.get('/user/:handle', getUserDetails);
-app.post('/notifications', FBAuth, markNotificationsRead);
+app.post('/signup', signup); //
+app.post('/login', login); //
+app.post('/user/image', FBAuth, uploadImage); //
+app.post('/user', FBAuth, addUserDetails); //
+app.get('/user', FBAuth, getAuthenticatedUser); //
+app.get('/user/:handle', getUserDetails); //
+app.post('/notifications', FBAuth, markNotificationsRead); //?
 
-app.get('/locations', getAllLocations);
-app.get('/sitters/:location', getAllSittersForCity); //TODO ситтеры по городу
-app.get('/sitters', getAllSitters);
+app.get('/locations', getAllLocations); //
+app.get('/sitters/:location', getAllSittersForCity); //TODO ситтеры по городу //
+app.get('/sitters', getAllSitters); //
 
 
 exports.api = functions.https.onRequest(app);

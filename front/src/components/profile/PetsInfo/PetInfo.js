@@ -5,14 +5,25 @@ import {Edit as EditIcon} from "@material-ui/icons";
 //MUI stuff
 import {
     Paper,
+    Typography,
 } from '@material-ui/core';
 //Styles
 import {withStyles} from "@material-ui/core";
 //Utils
 import MyIconButton from "../../../util/MyIconButton";
 
-const styles =(theme)=>( {
+const styles = (theme) => ({
     ...theme.content,
+
+    elemDiv: {
+        padding: '0 10px 10px 0',
+    },
+    textColor: {
+        color: '#132a35'
+    },
+    content: {
+        paddingTop: 10
+    }
 });
 
 class PetInfo extends React.Component {
@@ -46,16 +57,48 @@ class PetInfo extends React.Component {
                     <EditIcon color='primary'/>
                 </MyIconButton>
                 }
-                <div>Кличка: {name}</div>
-                <div>Вид: {kindOfPet}</div>
-                <div>Порода: {breed}</div>
-                <div>Пол: {gender === 'boy' ? 'Мальчик' : 'девочка'}</div>
-                <div>Размер питомца: {sizeOfPet}</div>
-                <div>Возраст питомца: {ageOfPet}</div>
-                <div>{friendlinessToPeople ? 'Дружелюбен к людям' : 'Не дружелюбен к людям'}</div>
-                <div>{friendlinessToPets ? 'Дружелюбен к другим питомцам' : 'Не дружелюбен к другим питомцам'}</div>
-                <div>{vaccinations ? 'Все прививки поставлены вовремя' : 'Отсутствуют некоторые прививки'}</div>
-                <div>{description}</div>
+                <div style={{padding: 20}}>
+                    <Typography variant='body1'>
+                        <div className={classes.elemDiv}>
+                            <span className={classes.textColor}><b>Кличка:</b></span> {name}
+                        </div>
+                        <div className={classes.elemDiv}>
+                            <span className={classes.textColor}><b>Вид:</b></span> {kindOfPet}
+                        </div>
+                        <div className={classes.elemDiv}>
+                            <span className={classes.textColor}><b>Порода:</b></span> {breed}
+                        </div>
+                        <div className={classes.elemDiv}>
+                            <span
+                                className={classes.textColor}><b>Пол:</b></span> {gender === 'boy' ? 'Мальчик' : 'девочка'}
+                        </div>
+                        <div className={classes.elemDiv}>
+                            <span className={classes.textColor}><b>Размер питомца:</b></span> {sizeOfPet}
+                        </div>
+                        <div className={classes.elemDiv}>
+                            <span className={classes.textColor}><b>Возраст питомца:</b></span> {ageOfPet}
+                        </div>
+                        <div className={classes.elemDiv}>
+                            <span className={classes.textColor}><b>
+                                {friendlinessToPeople ? 'Дружелюбен к людям' : 'Не дружелюбен к людям'}
+                                </b></span>
+                        </div>
+                        <div className={classes.elemDiv}>
+                            <span className={classes.textColor}><b>
+                                {friendlinessToPets ? 'Дружелюбен к другим питомцам' : 'Не дружелюбен к другим питомцам'}
+                                </b></span>
+                        </div>
+                        <div className={classes.elemDiv}>
+                            <span className={classes.textColor}><b>
+                                {vaccinations ? 'Все прививки поставлены вовремя' : 'Отсутствуют некоторые прививки'}
+                                </b></span>
+                        </div>
+                        <div className={classes.elemDiv}>
+                            <span className={classes.textColor}><b>Привычное поведение:</b></span>
+                            <div className={classes.content}>{description}</div>
+                        </div>
+                    </Typography>
+                </div>
             </Paper>
         );
     }

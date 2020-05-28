@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import {Edit as EditIcon} from "@material-ui/icons";
 //MUI stuff
 import {
-    Paper,
+    Paper, Typography,
 } from '@material-ui/core';
 //Styles
 import {withStyles} from "@material-ui/core";
@@ -13,8 +13,18 @@ import MyIconButton from "../../../util/MyIconButton";
 import {SIZES, AGES} from "../../../util/PetsSizeAndAge";
 
 
-const styles =(theme)=>( {
+const styles = (theme) => ({
     ...theme.content,
+
+    elemDiv: {
+        padding: '0 10px 10px 0',
+    },
+    textColor: {
+        color: '#132a35'
+    },
+    content: {
+        paddingTop: 10
+    }
 });
 
 class SitterInfo extends React.Component {
@@ -60,16 +70,37 @@ class SitterInfo extends React.Component {
                     <EditIcon color='primary'/>
                 </MyIconButton>
                 }
-                <div>
-                    <span>{name}</span>
-                    <span>{surname}</span>
+                <div style={{padding: 20}}>
+                    <Typography variant='body1'>
+                        <div className={classes.elemDiv}>
+                            <span className={classes.textColor} style={{marginRight:20}}><b>{name}</b></span>
+                            <span className={classes.textColor}><b>{surname}</b></span>
+                        </div>
+                        <div className={classes.elemDiv}>
+                            {description}
+                        </div>
+                        <div className={classes.elemDiv}>
+                            <span className={classes.textColor}><b>Тип жилья: </b></span>
+                                {typeOfHousing === 'flat' ? 'Квартира' : 'Частный дом'}
+                        </div>
+                        <div className={classes.elemDiv}>
+                            <span className={classes.textColor}><b>
+                                {regularSupervision ? 'Постоянный присмотр' : null}
+                            </b></span>
+                        </div>
+                        <div className={classes.elemDiv}>
+                            <span className={classes.textColor}><b>Принимаемый размер питомца: </b></span>
+                            <div className={classes.content}> {petSizesForRender}</div>
+                        </div>
+                        <div className={classes.elemDiv}>
+                            <span className={classes.textColor}><b>Принимаемый возраст питомца: </b></span>
+                            <div className={classes.content}>{petAgesForRender}</div>
+                        </div>
+                        <div className={classes.elemDiv}>
+                            {petsOfSitters ? `Питомцы ситтера: ${petsOfSitters}` : null}
+                        </div>
+                    </Typography>
                 </div>
-                <div>{description}</div>
-                <div>Тип жилья: {typeOfHousing === 'flat' ? 'Квартира' : 'Частный дом'}</div>
-                <div>{regularSupervision ? 'Постоянный присмотр' : null}</div>
-                <div>Принимаемый размер питомца: {petSizesForRender}</div>
-                <div>Принимаемый возраст питомца: {petAgesForRender}</div>
-                <div>{petsOfSitters ? `Питомцы ситтера: ${petsOfSitters}` : null}</div>
             </Paper>
         );
     }
